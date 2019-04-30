@@ -1,25 +1,50 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrintMoviesComponent } from './print-movies.component';
+import { Component } from '@angular/core';
+import { IMovie } from 'src/app/interfaces/IMovie';
 
 describe('PrintMoviesComponent', () => {
-  let component: PrintMoviesComponent;
-  let fixture: ComponentFixture<PrintMoviesComponent>;
+    let testHostComponent: TestHostComponent;
+    let testHostFixture: ComponentFixture<TestHostComponent>;
+//   let component: PrintMoviesComponent;
+//   let fixture: ComponentFixture<PrintMoviesComponent>;
 
-  beforeEach(async(() => {
+    beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrintMoviesComponent ]
+      declarations: [ PrintMoviesComponent, TestHostComponent ]
     })
     .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PrintMoviesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    beforeEach(() => {
+    testHostFixture = TestBed.createComponent(TestHostComponent);
+    testHostComponent = testHostFixture.componentInstance;
+    testHostFixture.detectChanges();
+    // fixture = TestBed.createComponent(PrintMoviesComponent);
+    // component = fixture.componentInstance;
+    // fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    it('should show movie name and description', () => {
+    expect(testHostFixture.nativeElement.querySelector('div').innerText).toEqual('hej string');
   });
+
+    it('should create', () => {
+    expect(testHostComponent).toBeTruthy();
+  });
+
+    @Component({
+    selector: `host-component`,
+    template: `<app-print-movies [movie]="{id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'string', year: 8898, added: 'string', productCategory: []}"></app-print-movies>`
+  })
+  class TestHostComponent {
+    movies: IMovie;
+
+    setInput(newInput: IMovie) {
+        this.movies = newInput;
+    }
+  }
+
+
 });
