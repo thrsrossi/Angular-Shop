@@ -29,4 +29,5 @@ describe('HomeComponent', () => {
   it('should be an array with three objects', () => {
     expect(component.movies.length).toBe(3);
   });
+
 });
