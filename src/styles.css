@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Muli|Nunito|Quicksand|Text+Me+One|Varela+Round');
 /* You can add global styles to this file, and also import other style files */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -54,3 +55,8 @@ html {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+body {
+    background: #1E2221;
+}
+
+

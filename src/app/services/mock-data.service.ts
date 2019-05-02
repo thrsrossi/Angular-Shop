@@ -13,7 +13,7 @@ export class MockDataService implements IDataService {
         name: "hej",
         description: "string",
         price: 589,
-        imageUrl: "string",
+        imageUrl: "imageUrl",
         year: 8898,
         added: "string",
         productCategory: []
@@ -23,7 +23,7 @@ export class MockDataService implements IDataService {
         name: "hej",
         description: "string",
         price: 589,
-        imageUrl: "string",
+        imageUrl: "imageUrl",
         year: 8898,
         added: "string",
         productCategory: []
@@ -33,7 +33,7 @@ export class MockDataService implements IDataService {
         name: "hej",
         description: "string",
         price: 589,
-        imageUrl: "string",
+        imageUrl: "imageUrl",
         year: 8898,
         added: "string",
         productCategory: []

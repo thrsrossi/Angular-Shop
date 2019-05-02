@@ -1,5 +1,17 @@
 
-<div>
-    {{movie.name}}
-    {{movie.description}}
+
+
+<div class="movie-column">
+    <div class="image-box">
+        <img [src]="movie.imageUrl" alt="Movie poster of {{movie.name}}">
+        <div class="image-hover">
+            <h2 class="fade-in">{{movie.name}}</h2>
+            <p class="fade-in">{{movie.description}}</p>
+            <button class="fade-in">Read more ...</button>
+        </div>
+    </div>
 </div>
+
+
+
+

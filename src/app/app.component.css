@@ -1,5 +1,15 @@
 
 header {
     height: 6rem;
-    background: #808080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #1E2221; */
+    /* border-bottom: 2px solid #fff; */
+}
+h1 {
+    font-family: 'Text Me One', sans-serif;
+    color: #D22AE1;
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }

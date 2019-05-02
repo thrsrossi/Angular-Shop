@@ -26,8 +26,8 @@ describe('PrintMoviesComponent', () => {
     // fixture.detectChanges();
   });
 
-    it('should show movie name and description', () => {
-    expect(testHostFixture.nativeElement.querySelector('div').innerText).toEqual('hej string');
+    it('should show movie image', () => {
+    expect(testHostFixture.nativeElement.querySelector('.image-box>img').src).toContain('imageUrl');
   });
 
     it('should create', () => {
@@ -36,7 +36,7 @@ describe('PrintMoviesComponent', () => {
 
     @Component({
     selector: `host-component`,
-    template: `<app-print-movies [movie]="{id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'string', year: 8898, added: 'string', productCategory: []}"></app-print-movies>`
+    template: `<app-print-movies [movie]="{id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}"></app-print-movies>`
   })
   class TestHostComponent {
     movies: IMovie;

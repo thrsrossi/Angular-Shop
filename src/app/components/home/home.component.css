@@ -1,0 +1,13 @@
+.home-wrapper {
+    /* margin-top: 1rem; */
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.movie-row {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
