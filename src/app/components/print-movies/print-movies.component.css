@@ -28,9 +28,9 @@
 .image-box {
     height: 25rem;
     max-width: 16rem;
-    font-family: 'Quicksand', sans-serif;
 }
 .image-hover {
+    font-family: 'Quicksand', sans-serif;
     position: absolute;
     top: 0;
     bottom: 0;

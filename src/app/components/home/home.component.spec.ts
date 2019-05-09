@@ -45,11 +45,10 @@ describe('HomeComponent', () => {
 //     expect(component.movieToModal).not.toBe('undefined');
 //   });
   it('should toggle boolean', () => {
-        expect(component.visible).toBeFalsy();
+        expect(component.modalToggle).toBeFalsy();
         component.toggleModal();
-        expect(component.visible).toBeTruthy();
+        expect(component.modalToggle).toBeTruthy();
 
     });
-
 
 });
