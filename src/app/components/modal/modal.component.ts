@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IMovie } from 'src/app/interfaces/IMovie';
+// , Output, EventEmitter
 
 @Component({
   selector: 'app-modal',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+    @Input() movieModal: IMovie;
+
+  constructor() {}
 
   ngOnInit() {
   }

@@ -4,6 +4,8 @@ import { HomeComponent } from './home.component';
 import { DataService } from '../../services/data.service';
 import { MockDataService } from '../../services/mock-data.service';
 import { PrintMoviesComponent } from '../print-movies/print-movies.component';
+import { ModalComponent } from '../modal/modal.component';
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -11,7 +13,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent, PrintMoviesComponent ]
+      declarations: [ HomeComponent, PrintMoviesComponent, ModalComponent ]
     })
     .overrideComponent(HomeComponent, {set: { providers: [{provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
@@ -37,13 +39,17 @@ describe('HomeComponent', () => {
 //     expect(component.movieId).toBe(3);
 //   });
 
-  it('should get single movie from array with id from child', () => {
-    // expect(component.movieId).toBeFalsy();
-    // component.getMovieId(3);
-    // expect(component.movieId).toBe(3);
-    expect(component.movieToModal).toBeUndefined();
-    component.setMovieWithId(2);
-    expect(component.movieToModal).not.toBe('undefined');
-  });
+//   it('should get single movie from array with id from child', () => {
+//     expect(component.movieToModal).toBeUndefined();
+//     component.setMovieWithId(2);
+//     expect(component.movieToModal).not.toBe('undefined');
+//   });
+  it('should toggle boolean', () => {
+        expect(component.visible).toBeFalsy();
+        component.toggleModal();
+        expect(component.visible).toBeTruthy();
+
+    });
+
 
 });

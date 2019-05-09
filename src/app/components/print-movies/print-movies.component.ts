@@ -9,11 +9,10 @@ import { IMovie } from 'src/app/interfaces/IMovie';
 export class PrintMoviesComponent implements OnInit {
 
     @Input() movie: IMovie;
-    @Output() showMovie = new EventEmitter<number>();
+    @Output() showMovie = new EventEmitter<IMovie>();
 
-    openMovieId() {
-        this.showMovie.emit(this.movie.id);
-        console.log('movie id child is: ' + this.movie.id);
+    sendMovieToParent() {
+        this.showMovie.emit(this.movie);
     }
 
 

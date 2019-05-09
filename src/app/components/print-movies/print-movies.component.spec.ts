@@ -5,6 +5,19 @@ import { Component } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 
 describe('PrintMoviesComponent', () => {
+
+    @Component({
+    selector: `host-component`,
+    template: `<app-print-movies [movie]="{id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}"></app-print-movies>`
+    })
+    class TestHostComponent {
+    movie: IMovie;
+
+    setInput(newInput: IMovie) {
+        this.movie = newInput;
+    }
+    }
+
     let testHostComponent: TestHostComponent;
     let testHostFixture: ComponentFixture<TestHostComponent>;
 //   let component: PrintMoviesComponent;
@@ -26,25 +39,13 @@ describe('PrintMoviesComponent', () => {
     // fixture.detectChanges();
   });
 
-    it('should show movie image', () => {
+    it('should show movie image on home page', () => {
     expect(testHostFixture.nativeElement.querySelector('.image-box>img').src).toContain('imageUrl');
   });
 
     it('should create', () => {
     expect(testHostComponent).toBeTruthy();
   });
-
-    @Component({
-    selector: `host-component`,
-    template: `<app-print-movies [movie]="{id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}"></app-print-movies>`
-  })
-  class TestHostComponent {
-    movies: IMovie;
-
-    setInput(newInput: IMovie) {
-        this.movies = newInput;
-    }
-  }
 
 
 });

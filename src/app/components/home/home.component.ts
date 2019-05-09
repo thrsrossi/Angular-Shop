@@ -9,26 +9,29 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
+    // test: IMovie;
     movies: IMovie[];
-    // movieId: number;
-    movieToModal: any;
+    movieFromPrintMovie: IMovie;
+    visible: boolean;
 
-  constructor(dataService: DataService) {
-    dataService.getData().subscribe(movieAPI => this.movies = movieAPI);
+    constructor(dataService: DataService) {
+    dataService.getData().subscribe(movieAPI => {
+        this.movies = movieAPI;
+        this.movieFromPrintMovie = this.movies[0];
+    });
+
+
   }
 
 
-  setMovieWithId(id: number) {
-    // this.movieId = id;
-    console.log('movie id parent is: ' + id);
-    this.movieToModal = this.movies.find(x => x.id === id);
-    console.log(this.movieToModal);
+  setMovie(movie: IMovie) {
+    this.movieFromPrintMovie = movie;
+    // this.toggleModal();
+    console.log('recieved object in parent', movie);
   }
-
-//   getMovieFromArray() {
-//     this.movieToModal = this.movies.find(x => x.id === this.movieId);
-//     console.log(this.movieToModal);
-//   }
+  toggleModal() {
+      this.visible = !this.visible;
+  }
 
   ngOnInit() {
   }

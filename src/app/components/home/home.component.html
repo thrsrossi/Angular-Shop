@@ -1,7 +1,7 @@
 <div class="home-wrapper">
     <div class="movie-row">
-        <app-print-movies *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovieWithId($event)"></app-print-movies>
+        <app-print-movies *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovie($event)"></app-print-movies>
     </div>
 </div>
 
-<!-- <app-modal></app-modal> -->
+<app-modal [movieModal]='movieFromPrintMovie'></app-modal>
