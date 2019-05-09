@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PrintMoviesComponent } from './components/print-movies/print-movies.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PrintMoviesComponent
+    PrintMoviesComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 
 @Component({
@@ -9,6 +9,12 @@ import { IMovie } from 'src/app/interfaces/IMovie';
 export class PrintMoviesComponent implements OnInit {
 
     @Input() movie: IMovie;
+    @Output() showMovie = new EventEmitter<number>();
+
+    openMovieId() {
+        this.showMovie.emit(this.movie.id);
+        console.log('movie id child is: ' + this.movie.id);
+    }
 
 
   constructor() { }

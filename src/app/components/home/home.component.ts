@@ -10,10 +10,25 @@ import { DataService } from 'src/app/services/data.service';
 export class HomeComponent implements OnInit {
 
     movies: IMovie[];
+    // movieId: number;
+    movieToModal: any;
 
   constructor(dataService: DataService) {
     dataService.getData().subscribe(movieAPI => this.movies = movieAPI);
   }
+
+
+  setMovieWithId(id: number) {
+    // this.movieId = id;
+    console.log('movie id parent is: ' + id);
+    this.movieToModal = this.movies.find(x => x.id === id);
+    console.log(this.movieToModal);
+  }
+
+//   getMovieFromArray() {
+//     this.movieToModal = this.movies.find(x => x.id === this.movieId);
+//     console.log(this.movieToModal);
+//   }
 
   ngOnInit() {
   }

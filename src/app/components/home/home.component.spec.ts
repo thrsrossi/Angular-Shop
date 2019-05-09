@@ -31,4 +31,19 @@ describe('HomeComponent', () => {
     expect(component.movies.length).toBe(3);
   });
 
+//   it('should store id from output decorator', () => {
+//     expect(component.movieId).toBeFalsy();
+//     component.getMovieId(3);
+//     expect(component.movieId).toBe(3);
+//   });
+
+  it('should get single movie from array with id from child', () => {
+    // expect(component.movieId).toBeFalsy();
+    // component.getMovieId(3);
+    // expect(component.movieId).toBe(3);
+    expect(component.movieToModal).toBeUndefined();
+    component.setMovieWithId(2);
+    expect(component.movieToModal).not.toBe('undefined');
+  });
+
 });
