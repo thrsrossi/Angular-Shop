@@ -50,4 +50,20 @@ describe('HomeComponent', () => {
 //         expect(component.modalToggle).toBeTruthy();
 //     });
 
+  it('should get movie from print-movie-child and change variable and boolean', () => {
+    expect(component.movieFromPrintMovie).toBeDefined();
+    expect(component.modalToggle).toBeFalsy();
+
+    component.setMovie(component.test);
+    expect(component.modalToggle).toBeTruthy();
+    expect(component.movieFromPrintMovie).toBe(component.test);
+  });
+
+  it('should toggle boolean', () => {
+        expect(component.modalToggle).not.toBeDefined();
+        component.closeModal();
+        expect(component.modalToggle).toBeFalsy();
+    });
+
+
 });

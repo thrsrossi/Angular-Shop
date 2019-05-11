@@ -9,25 +9,27 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-    // test: IMovie;
+    test: IMovie; // only for testing
     movies: IMovie[];
     movieFromPrintMovie: IMovie;
     modalToggle: boolean;
 
     constructor(dataService: DataService) {
-    dataService.getData().subscribe( (movieAPI) => {
-        this.movies = movieAPI;
-        this.movieFromPrintMovie = this.movies[0];
-        console.log('Observer got a next value: ' + movieAPI);
-    },
-    (error) => {
-    console.log('Observer got an error: ' + error);
-    },
-    () => {
-    console.log('Observer got a complete notification.');
+    dataService.getData().subscribe(
+        (movieAPI) => {
+            this.movies = movieAPI;
+            this.movieFromPrintMovie = this.movies[0];
+            this.test = this.movies[1]; // only for testing
+            console.log('Observer got a next value: ', movieAPI);
+        },
+        (error) => {
+            console.log('Observer got an error: ', error);
+        },
+        () => {
+            console.log('Observer got a complete notification.');
+        }
+        );
     }
-    );
-  }
 
   setMovie(movie: IMovie) {
     this.movieFromPrintMovie = movie;
