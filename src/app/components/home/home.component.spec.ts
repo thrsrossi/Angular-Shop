@@ -44,11 +44,10 @@ describe('HomeComponent', () => {
 //     component.setMovieWithId(2);
 //     expect(component.movieToModal).not.toBe('undefined');
 //   });
-  it('should toggle boolean', () => {
-        expect(component.modalToggle).toBeFalsy();
-        component.toggleModal();
-        expect(component.modalToggle).toBeTruthy();
-
-    });
+//   it('should toggle boolean', () => {
+//         expect(component.modalToggle).toBeFalsy();
+//         component.toggleModal();
+//         expect(component.modalToggle).toBeTruthy();
+//     });
 
 });

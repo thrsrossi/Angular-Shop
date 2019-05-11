@@ -1,16 +1,16 @@
 <div class="inner-content-modal">
-    <h2>{{movieModal.name}}</h2>
+    <h2 *ngIf="movieModal">{{movieModal.name}}</h2>
 
     <div class="modal-row">
         <div class="modal-column">
-            <div class="image-box">
+            <div *ngIf="movieModal" class="image-box">
                 <img [src]="movieModal.imageUrl" alt="Movie poster of {{movieModal.name}}">
             </div>
         </div>
 
         <div class="modal-column">
-            <p>{{movieModal.description}}</p>
-            <h2>{{movieModal.price}}</h2>
+            <p *ngIf="movieModal">{{movieModal.description}}</p>
+            <h2 *ngIf="movieModal">{{movieModal.price}}</h2>
 
 
         </div>

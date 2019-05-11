@@ -14,35 +14,39 @@ export class HomeComponent implements OnInit {
     movieFromPrintMovie: IMovie;
     modalToggle: boolean;
 
-    // @ViewChild('modal') modal: ElementRef;
-    // visible = false;
-
     constructor(dataService: DataService) {
-    dataService.getData().subscribe(movieAPI => {
+    dataService.getData().subscribe( (movieAPI) => {
         this.movies = movieAPI;
         this.movieFromPrintMovie = this.movies[0];
-    });
+        console.log('Observer got a next value: ' + movieAPI);
+    },
+    (error) => {
+    console.log('Observer got an error: ' + error);
+    },
+    () => {
+    console.log('Observer got a complete notification.');
+    }
+    );
   }
 
   setMovie(movie: IMovie) {
     this.movieFromPrintMovie = movie;
-    this.toggleModal();
+    this.modalToggle = true;
+    console.log(this.modalToggle);
     console.log('recieved object in parent', movie);
   }
-  toggleModal() {
-    this.modalToggle = !this.modalToggle;
-    console.log(this.modalToggle);
-  }
+//   toggleModal() {
+//     this.modalToggle = !this.modalToggle;
+//     console.log(this.modalToggle);
+//   }
 
   closeModal() {
-    this.toggleModal();
+    if (this.modalToggle) {
+        this.modalToggle = false;
+        console.log(this.modalToggle);
+    }
   }
 
-//   overlayClicked(event) {
-//     if (event.path.indexOf(this.modal.nativeElement) === -1) {
-//       this.visible = false;
-//     }
-//   }
 
   ngOnInit() {
   }
