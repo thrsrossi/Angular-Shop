@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PrintMoviesComponent } from './components/print-movies/print-movies.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PrintMoviesComponent,
-    ModalComponent
+    ModalComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

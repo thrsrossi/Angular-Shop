@@ -1,0 +1,9 @@
+.header-cart i {
+    font-size: 2rem;
+    margin: 1rem;
+    color: #D22AE1;
+}
+.header-cart i:hover {
+    cursor: pointer;
+    color: #3F0C43;
+}
