@@ -16,4 +16,13 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  quantity: number;
+  movie: string;
+
+  addToCart(quantity: number, movie: string) {
+    this.quantity = quantity;
+    this.movie = movie;
+    console.log('quantity: ', quantity, 'movie: ', movie);
+  }
+
 }
