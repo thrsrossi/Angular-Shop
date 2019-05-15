@@ -25,13 +25,13 @@ describe('ModalComponent', () => {
     expect(ModalComponent).toBeTruthy();
   });
 
-    it('should set value from input', () => {
-    expect(component.quantity).toBeUndefined();
-    expect(component.movie).toBeUndefined();
-    component.addToCart(3, 'hej');
-    expect(component.quantity).toBe(3);
-    expect(component.movie).toBe('hej');
-  });
+//     it('should set value from input', () => {
+//     expect(component.quantity).toBeUndefined();
+//     expect(component.movie).toBeUndefined();
+//     component.addToCart(3, 'hej');
+//     expect(component.quantity).toBe(3);
+//     expect(component.movie).toBe('hej');
+//   });
 
 
 

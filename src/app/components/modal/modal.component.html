@@ -11,8 +11,9 @@
         <div class="modal-column">
             <p *ngIf="movieModal">{{movieModal.description}}</p>
             <h2 *ngIf="movieModal">{{movieModal.price}}</h2>
-            <input type="number" #movieQuantity (keyup.enter)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" > 
-            <button (click)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" >Add To Cart</button>
+            <!-- <input type="number" #movieQuantity (keyup.enter)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" >  -->
+            <!-- <button (click)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" >Add To Cart</button> -->
+            <button (click)="addToCart(movieModal)" >Add To Cart</button>
         </div>
 
 
