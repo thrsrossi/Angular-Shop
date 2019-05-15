@@ -4,11 +4,11 @@
     </div>
 </div>
 
-<div class="modal" [class.toggle-visibility]="modalToggle" >
-        <!-- <div class="modal" [class.toggle-visibility]="modalToggle" (click)="closeModal();"> -->
+<!-- <div class="modal" [class.toggle-visibility]="modalToggle" > -->
+        <div class="modal" [class.toggle-visibility]="modalToggle" (click)="closeModal($event);">
     <div class="overlay">
         <div class="modal-content">
-        <button class="close-modal" (click)="closeModal();"><i class="fas fa-times"></i></button>
+        <button class="close-modal" (click)="closeModal($event);"><i class="fas fa-times"></i></button>
 
         <app-modal [movieModal]='movieFromPrintMovie'></app-modal>
         </div>

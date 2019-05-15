@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
 //     console.log(this.modalToggle);
 //   }
 
-  closeModal() {
+  closeModal(event) {
+      event.stopPropagation();
     if (this.modalToggle) {
         this.modalToggle = false;
         console.log(this.modalToggle);

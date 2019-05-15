@@ -17,7 +17,7 @@
 }
 .inner-content-modal h2 {
     font-size: 2rem;
-    margin: 1rem;
+    margin-top: 1rem;
     /* border-bottom: 1px solid #808080; */
 }
 
@@ -31,4 +31,25 @@
     max-width: 16rem;
     overflow: hidden; 
     object-fit: cover;
+}
+
+button {
+    font-size: 1.2rem;
+    /* color: #686B6D; */
+    text-transform: uppercase;
+    background: transparent;
+    /* padding: 1rem;
+    border: 1px solid #686B6D; */
+    /* border-radius: 5px; */
+    display: inline-block;
+    border: none;
+    margin-top: 1rem;
+    text-align: left;
+}
+button:hover {
+    color: red;
+    /* background: #686B6D; */
+    /* border-color: #686B6D; */
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
 }

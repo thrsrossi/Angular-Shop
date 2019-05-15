@@ -9,6 +9,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PrintMoviesComponent } from './components/print-movies/print-movies.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CartComponent } from './components/cart/cart.component';
+import { DataService } from './services/data.service';
+import { AddToCartService } from './services/add-to-cart.service';
+import { MockDataService } from './services/mock-data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,7 @@ import { CartComponent } from './components/cart/cart.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ DataService, AddToCartService, MockDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

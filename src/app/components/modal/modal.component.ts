@@ -7,8 +7,7 @@ import { AddToCartService } from 'src/app/services/add-to-cart.service';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
-  providers: [AddToCartService]
+  styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
 
@@ -20,7 +19,8 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {}
 
-    addToCart(movieToAdd: IMovie) {
+    addToCart(movieToAdd: IMovie, event) {
+        event.stopPropagation();
         this.addToCartService.serviceMovie(movieToAdd);
         console.log('movie sent to service: ', movieToAdd);
     }

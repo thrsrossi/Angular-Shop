@@ -6,19 +6,18 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
-  providers: [AddToCartService]
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
 
-    movieRecieved: IMovie;
+    // movieRecieved: IMovie;
 
   constructor(private addToCartService: AddToCartService) {
         this.addToCartService.movieToAdd$.subscribe(
-          movieObjectToCart => {
-              this.movieRecieved = movieObjectToCart;
-              console.log('recieved in cart.ts: ', this.movieRecieved);
-          }
+        movieObjectToCart => {
+            this.addToCart(movieObjectToCart);
+            console.log('recieved in cart.ts: ', movieObjectToCart);
+        }
       );
    }
 
