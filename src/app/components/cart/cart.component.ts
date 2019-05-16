@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
-    console.log('recieved from service in cart component', this.cart);
+    // console.log('recieved from service in cart component', this.cart);
 }
 
 
