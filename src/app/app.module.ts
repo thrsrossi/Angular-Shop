@@ -13,6 +13,7 @@ import { DataService } from './services/data.service';
 import { AddToCartService } from './services/add-to-cart.service';
 import { MockDataService } from './services/mock-data.service';
 import { PrintCartItemsComponent } from './components/print-cart-items/print-cart-items.component';
+import { CartContainerComponent } from './components/cart-container/cart-container.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PrintCartItemsComponent } from './components/print-cart-items/print-car
     PrintMoviesComponent,
     ModalComponent,
     CartComponent,
-    PrintCartItemsComponent
+    PrintCartItemsComponent,
+    CartContainerComponent
   ],
   imports: [
     BrowserModule,

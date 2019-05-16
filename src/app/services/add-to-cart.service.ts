@@ -14,7 +14,10 @@ export class AddToCartService {
   movieToAdd$ = this.movieSource.asObservable();
 
   serviceMovie(movie: IMovie) {
+    
+    
     this.movieSource.next(movie);
+
     console.log('service: ', movie);
   }
 
