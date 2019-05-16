@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
-import { AddToCartService } from 'src/app/services/add-to-cart.service';
+import { CartService } from 'src/app/services/cart.service';
 // import { ICartItem } from 'src/app/interfaces/ICartItem';
 
 
@@ -13,16 +13,14 @@ export class ModalComponent implements OnInit {
 
     @Input() movieModal: IMovie;
 
-    // cart: ICartItem[] = [];
-
-  constructor(private addToCartService: AddToCartService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {}
 
     addToCart(movieToAdd: IMovie, event) {
         event.stopPropagation();
-        this.addToCartService.serviceMovie(movieToAdd);
-        console.log('movie sent to service: ', movieToAdd);
+        this.cartService.setCart(movieToAdd);
+        // console.log('movie sent to service: ', movieToAdd);
     }
 
 
@@ -36,22 +34,6 @@ export class ModalComponent implements OnInit {
 //     console.log('quantity: ', quantity, 'movie: ', movie);
 //   }
 
-    // addToCart(movieToAdd: IMovie) {
 
-    //     let addedMovie = false;
-
-    //     for (let i = 0; i < this.cart.length; i++) {
-    //         if (movieToAdd.id === this.cart[i].movie.id) {
-    //             this.cart[i].quantity++;
-    //             addedMovie = true;
-    //             console.log();
-    //         }
-    //     }
-    //     if (addedMovie === false) {
-    //         this.cart.push({movie: movieToAdd, quantity: 1});
-    //     }
-
-    //     console.log('cart content: ', this.cart);
-    // }
 
 }

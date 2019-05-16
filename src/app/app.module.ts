@@ -10,10 +10,11 @@ import { PrintMoviesComponent } from './components/print-movies/print-movies.com
 import { ModalComponent } from './components/modal/modal.component';
 import { CartComponent } from './components/cart/cart.component';
 import { DataService } from './services/data.service';
-import { AddToCartService } from './services/add-to-cart.service';
 import { MockDataService } from './services/mock-data.service';
 import { PrintCartItemsComponent } from './components/print-cart-items/print-cart-items.component';
 import { CartContainerComponent } from './components/cart-container/cart-container.component';
+import { PrintCartContainerComponent } from './components/print-cart-container/print-cart-container.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CartContainerComponent } from './components/cart-container/cart-contain
     ModalComponent,
     CartComponent,
     PrintCartItemsComponent,
-    CartContainerComponent
+    CartContainerComponent,
+    PrintCartContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import { CartContainerComponent } from './components/cart-container/cart-contain
     HttpClientModule,
     FormsModule
   ],
-  providers: [ DataService, AddToCartService, MockDataService],
+  providers: [ DataService, CartService, MockDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
