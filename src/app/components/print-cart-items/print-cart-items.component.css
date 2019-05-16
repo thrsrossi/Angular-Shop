@@ -1,0 +1,10 @@
+.cart-column {
+    display: flex;
+    max-width: 30rem;
+}
+.cart-column img {
+    width: auto;
+    height: 20rem;
+    object-fit: cover;
+    overflow: hidden;
+}

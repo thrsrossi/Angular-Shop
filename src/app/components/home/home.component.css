@@ -21,8 +21,12 @@
     width: 100vw;
     height: 100vh;
     z-index: 990;
+
+    /* position: absolute; */
+
+    background: rgba(0,0,0,0.85);
 }
-.overlay {
+/* .overlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -30,7 +34,7 @@
     height: 100vh;
     z-index: 995;
     background: rgba(0,0,0,0.85);
-  }
+  } */
   .toggle-visibility {
     display: flex;
   }
