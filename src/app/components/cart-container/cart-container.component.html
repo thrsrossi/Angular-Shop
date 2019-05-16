@@ -1,6 +1,11 @@
 <div class="cart-wrapper">
     <div class="cart-row">
-        <!-- <app-print-movies *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovie($event)"></app-print-movies> -->
+        <div class="cart-column">
+            <app-print-cart-container *ngFor='let cartItem of cart' [cartItem]='cartItem' ></app-print-cart-container>
+        </div>
 
+        <aside class="cart-aside">
+
+        </aside>
     </div>
 </div>

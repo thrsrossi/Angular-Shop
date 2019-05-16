@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
-import { IMovie } from 'src/app/interfaces/IMovie';
+// import { IMovie } from 'src/app/interfaces/IMovie';
 
 
 @Component({
@@ -11,12 +11,12 @@ import { IMovie } from 'src/app/interfaces/IMovie';
 export class PrintCartItemsComponent implements OnInit {
 
     @Input() cartItem: ICartItem;
-    tesint: IMovie;
+    // tesint: IMovie;
 
   constructor() { }
 
   ngOnInit() {
-      console.log('print-cart-component', this.cartItem);
+    //   console.log('print-cart-component', this.cartItem);
   }
 
 }

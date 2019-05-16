@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
 
     movieRecieved: IMovie;
 
-  constructor(private service: CartService) {
+  constructor(private cartService: CartService) {
     //     this.addToCartService.movieToAdd$.subscribe(
     //     movieObjectToCart => {
     //         this.addToCart(movieObjectToCart);
@@ -23,11 +23,11 @@ export class CartComponent implements OnInit {
    }
 
 
-  cartFromService: ICartItem[];
+  cart: ICartItem[];
 
   ngOnInit() {
-    this.cartFromService = this.service.getCart();
-    console.log('recieved from service in cart component', this.cartFromService);
+    this.cart = this.cartService.getCart();
+    console.log('recieved from service in cart component', this.cart);
 }
 
 

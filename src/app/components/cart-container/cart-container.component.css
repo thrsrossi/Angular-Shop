@@ -8,5 +8,13 @@
 .cart-row {
     width: 95%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+.cart-column {
+    width: 65%;
+    border: 2px solid red;
+}
+.cart-aside {
+    width: 25%;
+    border: 2px solid red;
 }

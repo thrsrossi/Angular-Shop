@@ -35,13 +35,13 @@ export class HomeComponent implements OnInit {
   setMovie(movie: IMovie) {
     this.movieFromPrintMovie = movie;
     this.modalToggle = true;
-    console.log(this.modalToggle);
-    console.log('recieved object in parent', movie);
+    // console.log(this.modalToggle);
+    // console.log('recieved object in parent', movie);
   }
 
   closeModal(event: any) {
 
-    console.log(event.target.className);
+    // console.log(event.target.className);
     //   event.stopPropagation();
 
     // if (event.target.className !== 'modal' || 'fa-times') {
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
     if (this.modalToggle) {
         this.modalToggle = false;
-        console.log(this.modalToggle);
+        // console.log(this.modalToggle);
     }
   }
 

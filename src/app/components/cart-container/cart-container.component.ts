@@ -9,9 +9,9 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 })
 export class CartContainerComponent implements OnInit {
 
-    cartFromService: ICartItem[];
+    cart: ICartItem[];
 
-   constructor(private service: CartService) {
+   constructor(private cartService: CartService) {
 //     service.serviceCart$.subscribe(
 //         serviceCart => {
 //             this.cartFromService = serviceCart;
@@ -20,11 +20,9 @@ export class CartContainerComponent implements OnInit {
 //       );
    }
 
-
-
   ngOnInit() {
-    this.cartFromService = this.service.getCart();
-    console.log('cart from service to cart-container component', this.cartFromService);
+    this.cart = this.cartService.getCart();
+    console.log('cart from service to cart-container component', this.cart);
   }
 
 }

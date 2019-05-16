@@ -1,0 +1,15 @@
+.cart-item-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+.cart-image,
+.cart-description,
+.cart-calc {
+    flex: 1;
+}
+.cart-image img {
+    width: auto;
+    height: 20rem;
+    overflow: hidden;
+    object-fit: cover;
+}
