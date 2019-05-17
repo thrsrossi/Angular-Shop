@@ -51,9 +51,4 @@ describe('CartComponent', () => {
 //     expect(component.movieRecieved).toBe(movie);
 //   });
 
-//   it('should add movie and quantity in cart array', () => {
-//     expect(component.cart).toContain([]);
-//     component.addToCart(movie);
-//     expect(component.cart).toBeDefined();
-//   });
 });

@@ -1,9 +1,9 @@
-<div *ngIf='cartItem' class="cart-item-row">
+<div class="cart-item-row">
     <div class="cart-image">
-        <img [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
+        <img *ngIf='cartItem' [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
     </div>
     <div class="cart-description">
-        <h2>{{cartItem.movie.name}}</h2>
+        <h2 *ngIf='cartItem'>{{cartItem.movie.name}}</h2>
     </div>
     <div class="cart-crud">
 
