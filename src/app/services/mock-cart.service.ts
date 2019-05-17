@@ -8,7 +8,7 @@ export class MockCartService {
 
   constructor() { }
 
-  private cart: ICartItem[] = [{
+   cart: ICartItem[] = [{
       movie: {
         id: 6,
         name: "hej",

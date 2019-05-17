@@ -17,11 +17,15 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {}
 
-    addToCart(movieToAdd: IMovie, event) {
-        event.stopPropagation();
+    addToCart(movieToAdd: IMovie) {
         this.cartService.setCart(movieToAdd);
-        // console.log('movie sent to service: ', movieToAdd);
     }
+
+    // addToCart(movieToAdd: IMovie, event) {
+    //     event.stopPropagation();
+    //     this.cartService.setCart(movieToAdd);
+    //     // console.log('movie sent to service: ', movieToAdd);
+    // }
 
 
 

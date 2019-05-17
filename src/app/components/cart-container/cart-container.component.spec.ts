@@ -4,20 +4,35 @@ import { CartContainerComponent } from './cart-container.component';
 import { PrintCartContainerComponent } from '../print-cart-container/print-cart-container.component';
 import { CartService } from 'src/app/services/cart.service';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
+import { MockCartService } from 'src/app/services/mock-cart.service';
 
 describe('CartContainerComponent', () => {
   let component: CartContainerComponent;
   let fixture: ComponentFixture<CartContainerComponent>;
-  let service: CartService;
-  let cartItem: ICartItem[];
+  let cartService: CartService;
+  let mockService: MockCartService;
+//   let cartItem: ICartItem[];
+  let cartItem: ICartItem[] = [{
+        movie: {
+          id: 6,
+          name: "hej",
+          description: "string",
+          price: 589,
+          imageUrl: "imageUrl",
+          year: 8898,
+          added: "string",
+          productCategory: []
+      },
+      quantity: 5
+    }];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CartContainerComponent, PrintCartContainerComponent ],
-      providers: [ CartService ]
+      providers: [ MockCartService, CartService ]
     })
     .compileComponents();
-    // service = TestBed.get(service);
+    // service = TestBed.get(mockService);
   }));
 
   beforeEach(() => {
@@ -29,8 +44,18 @@ describe('CartContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should use CartService', () => {
-    service = TestBed.get(CartService);
-    expect(service.getCart()).not.toBe(cartItem);
+
+  it('object for cart should be same as cart in mockservice', () => {
+    mockService = TestBed.get(MockCartService);
+    expect(mockService.cart).toEqual(cartItem);
   });
+//   it('object for cart should be same as cart in mockservice', () => {
+//     mockService = TestBed.get(MockCartService);
+//     expect(mockService.cart).toEqual(cartItem);
+//   });
+
+//   it('#getValue should return real value from the real service', () => {
+//     mockService = new MockCartService(new CartService());
+//     expect(mockService.getValue()).toBe('real value');
+//   });
 });
