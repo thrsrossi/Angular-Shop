@@ -19,17 +19,6 @@ export class CartService {
     }
   }
 
-//   ngOnInit() {
-//     let sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
-//     if (sessionStorageContent === null) {
-//         this.cart = [];
-//         console.log('oninit, cart null: ', this.cart);
-//     } else {
-//         this.cart = sessionStorageContent;
-//         console.log('onint, cart yes: ', this.cart);
-//     }
-//   }
-
   private cartSubject = new Subject<ICartItem[]>();
 
   currentCart$ = this.cartSubject.asObservable();
