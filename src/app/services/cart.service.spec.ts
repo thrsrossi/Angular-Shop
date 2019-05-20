@@ -33,9 +33,6 @@ describe('CartService', () => {
         );
       });
     it('should add to same row in cart if movie added exists in cart', () => {
-        // const service: CartService = TestBed.get(CartService);
-
-        // const mockService = new MockDataService();
         mockService.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
@@ -49,9 +46,6 @@ describe('CartService', () => {
         );
       });
     it('should add new row if movie does not exist in cart', () => {
-        // const service: CartService = TestBed.get(CartService);
-
-        // const mockService = new MockDataService();
         mockService.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
