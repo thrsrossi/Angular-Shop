@@ -1,11 +1,13 @@
-<div class="cart-item-row">
+<div *ngIf='cartItem' class="cart-item-row">
     <div class="cart-image">
-        <img *ngIf='cartItem' [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
+        <img [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
     </div>
     <div class="cart-description">
-        <h2 *ngIf='cartItem'>{{cartItem.movie.name}}</h2>
+        <h2>{{cartItem.movie.name}}</h2>
+        <p>{{cartItem.movie.description}}</p>
+        <p> {{cartItem.quantity}} </p>
     </div>
     <div class="cart-crud">
-        <!-- <button (click)="">remove movie</button> -->
+        <button (click)="removeMovieRow(cartItem.movie)">remove movie</button>
     </div>
 </div>

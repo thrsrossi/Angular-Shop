@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { CartService } from 'src/app/services/cart.service';
-// import { ICartItem } from 'src/app/interfaces/ICartItem';
 
 
 @Component({

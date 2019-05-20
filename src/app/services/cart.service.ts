@@ -70,22 +70,7 @@ export class CartService {
             if (this.cart[i].movie === movie) {
                 this.cart.splice(i, 1);
             }
-
         }
-
-        // for (let cartItem of this.cart) {
-        //     const index = this.cart.indexOf(movie);
-        //     if (cartItem.movie === movie) {
-        //         this.cart.splice(cartItem, 1);
-        //     }
-        // }
-
-        // const index = this.cart.indexOf(movie.id);
-
-
-        // let movieId: number = movie.id;
-        // let movieExists: ICartItem[] = this.cart.filter(x => x.movie.id === movieId);
-        // console.log('result from filter: ', movieExists);
         this.setSessionStorage(this.cart);
 
     }

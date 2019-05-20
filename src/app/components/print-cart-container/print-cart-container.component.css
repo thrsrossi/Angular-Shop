@@ -4,7 +4,7 @@
 }
 .cart-image,
 .cart-description,
-.cart-calc {
+.cart-crud {
     flex: 1;
 }
 .cart-image img {
