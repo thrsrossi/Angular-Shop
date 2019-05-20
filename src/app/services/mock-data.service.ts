@@ -14,28 +14,28 @@ export class MockDataService implements IDataService {
         description: "string",
         price: 589,
         imageUrl: "imageUrl",
-        year: 8898,
+        year: 1954,
         added: "string",
         productCategory: []
     },
     {
-        id: 6,
-        name: "hej",
-        description: "string",
-        price: 589,
-        imageUrl: "imageUrl",
-        year: 8898,
+        id: 7,
+        name: "hopp",
+        description: "annat",
+        price: 5,
+        imageUrl: "bild",
+        year: 1987,
         added: "string",
         productCategory: []
     },
     {
-        id: 6,
-        name: "hej",
-        description: "string",
-        price: 589,
-        imageUrl: "imageUrl",
-        year: 8898,
-        added: "string",
+        id: 8,
+        name: "gubbe",
+        description: "kopp",
+        price: 76,
+        imageUrl: "bilas4",
+        year: 1934,
+        added: "hju",
         productCategory: []
     }];
 

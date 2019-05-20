@@ -4,14 +4,11 @@ import { CartContainerComponent } from './cart-container.component';
 import { PrintCartContainerComponent } from '../print-cart-container/print-cart-container.component';
 import { CartService } from 'src/app/services/cart.service';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
-import { MockCartService } from 'src/app/services/mock-cart.service';
 
 describe('CartContainerComponent', () => {
   let component: CartContainerComponent;
   let fixture: ComponentFixture<CartContainerComponent>;
   let cartService: CartService;
-  let mockService: MockCartService;
-//   let cartItem: ICartItem[];
   let cartItem: ICartItem[] = [{
         movie: {
           id: 6,
@@ -29,7 +26,7 @@ describe('CartContainerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CartContainerComponent, PrintCartContainerComponent ],
-      providers: [ MockCartService, CartService ]
+      providers: [ CartService ]
     })
     .compileComponents();
     // service = TestBed.get(mockService);
@@ -45,17 +42,9 @@ describe('CartContainerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('object for cart should be same as cart in mockservice', () => {
-    mockService = TestBed.get(MockCartService);
-    expect(mockService.cart).toEqual(cartItem);
-  });
 //   it('object for cart should be same as cart in mockservice', () => {
 //     mockService = TestBed.get(MockCartService);
 //     expect(mockService.cart).toEqual(cartItem);
 //   });
 
-//   it('#getValue should return real value from the real service', () => {
-//     mockService = new MockCartService(new CartService());
-//     expect(mockService.getValue()).toBe('real value');
-//   });
 });

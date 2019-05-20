@@ -9,10 +9,8 @@ import { ICartItem } from '../interfaces/ICartItem';
 export class CartService {
 
   constructor() {
-    this.getCart();
+    // const sessionStorageContent = JSON.parse(sessionStorage.getItem('sessionCart'));
 
-
-    // const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
     // if (sessionStorageContent === null) {
     //     this.cart = [];
     //     console.log('constructor, cart null: ', this.cart);
@@ -20,6 +18,16 @@ export class CartService {
     //     this.cart = sessionStorageContent;
     //     console.log('constructor, cart yes: ', this.cart);
     // }
+
+
+    const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
+    if (sessionStorageContent === null) {
+        this.cart = [];
+        console.log('constructor, cart null: ', this.cart);
+    } else {
+        this.cart = sessionStorageContent;
+        console.log('constructor, cart yes: ', this.cart);
+    }
   }
 
   private cartSubject = new Subject<ICartItem[]>();
@@ -54,18 +62,18 @@ export class CartService {
   }
 
   getCart(): ICartItem[] {
-    const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
-    if (sessionStorageContent === null) {
-        this.cart = [];
-        console.log('constructor, cart null: ', this.cart);
-    } else {
-        this.cart = sessionStorageContent;
-        console.log('constructor, cart yes: ', this.cart);
-    }
-    console.log('session storage');
-    for (let i = 0; i < sessionStorage.length; i++) {
-    console.log(sessionStorage.key(i) + '=[' + sessionStorage.getItem(sessionStorage.key(i)) + ']');
-    }
+    // const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
+    // if (sessionStorageContent === null) {
+    //     this.cart = [];
+    //     console.log('constructor, cart null: ', this.cart);
+    // } else {
+    //     this.cart = sessionStorageContent;
+    //     console.log('constructor, cart yes: ', this.cart);
+    // }
+    // console.log('session storage');
+    // for (let i = 0; i < sessionStorage.length; i++) {
+    // console.log(sessionStorage.key(i) + '=[' + sessionStorage.getItem(sessionStorage.key(i)) + ']');
+    // }
     return this.cart;
     }
 
@@ -85,34 +93,4 @@ export class CartService {
     //         return sessionStorageContent;
     //     }
     // }
-
-
-
-    // setCart(movieToCart: IMovie) {
-
-    //     // let sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
-    //     // console.log('setcart, sessionstoragecontent', sessionStorageContent);
-    //     const sessionStorageContent = this.getSessionStorage();
-    //     console.log('result from setcart.getsessionstorager: ', this.getSessionStorage());
-    
-    //     let movieExists = false;
-    
-    //     if (sessionStorageContent) {
-    //         for (let i = 0; i < sessionStorageContent.length; i++) {
-    //             if (movieToCart.id === sessionStorageContent[i].movie.id) {
-    //                 sessionStorageContent[i].quantity++;
-    //                 movieExists = true;
-    //                 console.log(this.cart);
-    //             }
-    //         }
-    //         if (movieExists === false) {
-    //         sessionStorageContent.push({movie: movieToCart, quantity: 1});
-    //         }
-    //         this.setSessionStorage(sessionStorageContent);
-    //     }
-    
-    
-    //     this.cartSubject.next(this.cart);
-    
-
 }
