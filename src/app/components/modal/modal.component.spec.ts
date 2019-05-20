@@ -41,10 +41,10 @@ describe('ModalComponent', () => {
     expect(ModalComponent).toBeTruthy();
   });
 
-  it('should use ValueService', () => {
-    cartService = TestBed.get(CartService);
-    expect(cartService.setCart(movie)).toBe('real value');
-  });
+//   it('should use ValueService', () => {
+//     cartService = TestBed.get(CartService);
+//     expect(cartService.setCart(movie)).toBe('real value');
+//   });
 
 
 //     it('should set value from input', () => {
