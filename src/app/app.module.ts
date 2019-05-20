@@ -15,7 +15,6 @@ import { PrintCartItemsComponent } from './components/print-cart-items/print-car
 import { CartContainerComponent } from './components/cart-container/cart-container.component';
 import { PrintCartContainerComponent } from './components/print-cart-container/print-cart-container.component';
 import { CartService } from './services/cart.service';
-import { MockCartService } from './services/mock-cart.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,7 @@ import { MockCartService } from './services/mock-cart.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ DataService, CartService, MockDataService, MockCartService ],
+  providers: [ DataService, CartService, MockDataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
