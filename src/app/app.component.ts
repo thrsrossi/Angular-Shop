@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movieShop';
+
+    toggleVisibility: boolean;
+
+  toggleCart() {
+    this.toggleVisibility = !this.toggleVisibility;
+  }
 }

@@ -1,0 +1,16 @@
+<div *ngIf='cartItem' class="cart-item-row">
+    <div class="cart-image">
+        <img [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
+    </div>
+    <div class="cart-description">
+        <h2>{{cartItem.movie.name}}</h2>
+        <p>{{cartItem.movie.description}}</p>
+        <p> {{cartItem.quantity}} </p>
+    </div>
+    <div class="cart-crud">
+        <button (click)="removeMovieRow(cartItem.movie)"><i class="fas fa-trash-alt"></i></button><br>
+        <button (click)="subtractMovieQuantity(cartItem.movie)"><i class="fas fa-minus"></i></button><br>
+        <button (click)="addToMovieRow(cartItem.movie)"><i class="fas fa-plus"></i></button>
+
+    </div>
+</div>

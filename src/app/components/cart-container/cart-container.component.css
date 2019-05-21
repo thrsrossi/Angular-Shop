@@ -1,0 +1,20 @@
+.cart-wrapper {
+    /* margin-top: 1rem; */
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.cart-row {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+.cart-column {
+    width: 65%;
+    border: 2px solid red;
+}
+.cart-aside {
+    width: 25%;
+    border: 2px solid red;
+}
