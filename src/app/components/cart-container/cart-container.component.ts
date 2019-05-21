@@ -10,17 +10,19 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 export class CartContainerComponent implements OnInit {
 
     cart: ICartItem[];
+    totalPrice: number;
 
    constructor(private cartService: CartService) {
-//     service.serviceCart$.subscribe(
-//         serviceCart => {
-//             this.cartFromService = serviceCart;
-//             console.log('recieved in cart container ', this.cartFromService);
-//         }
-//       );
-   }
+    cartService.totalPriceCart$.subscribe(
+        cartTotal => {
+            this.totalPrice = cartTotal;
+            console.log('total price from service ', this.totalPrice);
+        }
+      );
+// this.totalPrice = this.cartService.getTotalPrice();
+}
 
-  ngOnInit() {
+ngOnInit() {
     this.cart = this.cartService.getCart();
     // console.log('cart from service to cart-container component', this.cart);
   }

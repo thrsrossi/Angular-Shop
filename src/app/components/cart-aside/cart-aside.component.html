@@ -1,5 +1,12 @@
 
-<div *ngIf="cartItem">
+<div *ngIf="cartItem" class="cart-aside-row">
 
-    {{cartItem.quantity}}
+    <img [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
+    <div class="aside-info">
+        <h3>{{cartItem.movie.name}}</h3>
+        <div class="quantity">
+            <p>QTY:</p>
+            <p>{{cartItem.quantity}}</p>
+        </div>
+    </div>
 </div>

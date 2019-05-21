@@ -10,6 +10,15 @@
                 </div>
             <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
 
+            <div class="total-price">
+                <h3>Total price: </h3> {{totalPrice}}
+
+            </div>
+            <div class="buttons">
+                <button>keep shopping</button>
+                <button>checkout</button>
+            </div>
+
         </aside>
     </div>
 </div>
