@@ -1,4 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Muli|Nunito|Quicksand|Text+Me+One|Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Muli|Nunito|Quicksand|Text+Me+One|Varela+Round|Tangerine:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Cormorant|Crete+Round:400,400i|Enriqueta|Merriweather:400,400i|Playfair+Display:400,400i|Sorts+Mill+Goudy:400,400i|Tangerine:400,700|Yanone+Kaffeesatz:300,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Martel|Playfair+Display|Zilla+Slab&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Kodchasan|Playfair+Display|Raleway&display=swap');
+/* 
+font-family: 'Tangerine', cursive;
+font-family: 'Merriweather', serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+font-family: 'Comfortaa', cursive;
+font-family: 'Crete Round', serif;
+font-family: 'Sorts Mill Goudy', serif;
+font-family: 'Enriqueta', serif;
+font-family: 'Cormorant', serif; */
+/* 
+font-family: 'Playfair Display', serif;
+font-family: 'Zilla Slab', serif;
+font-family: 'Martel', serif;
+font-family: 'Goudy Bookletter 1911', serif; */
+/* 
+font-family: 'Kodchasan', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Playfair Display', serif;
+ */
+
 /* You can add global styles to this file, and also import other style files */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -57,6 +83,7 @@ html {
 }
 body {
     background: #1E2221;
+    /* background: #FFF7EB; */
 }
 
 

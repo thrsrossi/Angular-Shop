@@ -11,10 +11,10 @@
     justify-content: center;
 }
 .cart-column {
-    width: 65%;
+    width: 75%;
     border: 2px solid red;
 }
 .cart-aside {
-    width: 25%;
+    width: 20%;
     border: 2px solid red;
 }
