@@ -13,8 +13,20 @@
 .cart-column {
     width: 75%;
     border: 2px solid red;
+    background: #343837;
 }
 .cart-aside {
     width: 20%;
     border: 2px solid red;
+}
+.aside-header {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+.aside-header h3 {
+    border-bottom: 1px solid #ADAFAF;
+    padding: 2rem 4rem;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
 }

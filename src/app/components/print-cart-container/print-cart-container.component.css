@@ -1,9 +1,9 @@
 .cart-item-row {
     display: flex;
     color: #fff;
-    margin: 2rem 1rem;
+    margin: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #ADAFAF;
 }
 
 .cart-item-row h2 {
@@ -108,3 +108,13 @@ button {
     font-size: .8rem;
     font-family: 'Varela Round', sans-serif;
 } */
+
+
+@media screen and (max-width: 992px) {
+    .cart-item-row {
+        flex-flow: wrap;
+    }
+    .cart-crud {
+        height: 10rem;
+    }
+}
