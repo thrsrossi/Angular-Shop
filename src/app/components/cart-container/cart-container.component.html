@@ -8,16 +8,27 @@
                 <div class="aside-header">
                     <h3>Cart</h3>
                 </div>
-            <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
 
-            <div class="total-price">
-                <h4>Total price: </h4> <h3>{{totalPrice}}</h3>
+                <!-- <div *ngIf="!cart; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
 
-            </div>
-            <div class="buttons">
-                <button>keep shopping</button>
-                <button>checkout</button>
-            </div>
+                
+                <!-- <div *ngIf="cart; else " class=""> -->
+                    <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
+                    
+                    <div class="total-price">
+                        <h4>Total price: </h4> 
+                        <h3>{{totalPrice}}</h3> 
+                        <p>SEK</p>
+                        
+                    </div>
+                    <div class="buttons">
+                        <button>keep shopping</button>
+                        <button>checkout</button>
+                    </div>
+                <!-- </div> -->
+                
 
         </aside>
     </div>

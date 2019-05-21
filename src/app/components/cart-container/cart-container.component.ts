@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, EmbeddedViewRef } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
 
@@ -34,3 +34,8 @@ ngOnInit() {
   }
 
 }
+
+abstract class TemplateRef<C> {
+    abstract elementRef: ElementRef;
+    abstract createEmbeddedView(context: C): EmbeddedViewRef<C>;
+  }
