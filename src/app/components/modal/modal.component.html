@@ -1,16 +1,16 @@
-<div class="inner-content-modal">
-    <h2 *ngIf="movieModal">{{movieModal.name}}</h2>
+<div *ngIf="movieModal" class="inner-content-modal">
+    <h2>{{movieModal.name}}</h2>
 
     <div class="modal-row">
         <div class="modal-column">
-            <div *ngIf="movieModal" class="image-box">
+            <div class="image-box">
                 <img [src]="movieModal.imageUrl" alt="Movie poster of {{movieModal.name}}">
             </div>
         </div>
 
         <div class="modal-column">
-            <p *ngIf="movieModal">{{movieModal.description}}</p>
-            <h2 *ngIf="movieModal">{{movieModal.price}}</h2>
+            <p>{{movieModal.description}}</p>
+            <h2>{{movieModal.price}}</h2>
             <!-- <input type="number" #movieQuantity (keyup.enter)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" >  -->
             <!-- <button (click)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" >Add To Cart</button> -->
             <button (click)="addToCart(movieModal)" >Add To Cart</button>

@@ -13,18 +13,24 @@ export class CartContainerComponent implements OnInit {
     totalPrice: number;
 
    constructor(private cartService: CartService) {
-    cartService.totalPriceCart$.subscribe(
+    this.cartService.totalPriceCart$.subscribe(
         cartTotal => {
             this.totalPrice = cartTotal;
-            console.log('total price from service ', this.totalPrice);
         }
       );
+    console.log('total price from servie constructor', this.totalPrice);
 // this.totalPrice = this.cartService.getTotalPrice();
 }
 
 ngOnInit() {
     this.cart = this.cartService.getCart();
-    // console.log('cart from service to cart-container component', this.cart);
+    this.totalPrice = this.cartService.getTotalPrice();
+    // this.cartService.getTotalPrice().subscribe(
+    //     total => {
+    //         this.totalPrice = total;
+    //     }
+    // );
+    console.log('total price from servie ngoninit', this.totalPrice);
   }
 
 }

@@ -19,6 +19,10 @@ export class ModalComponent implements OnInit {
     addToCart(movieToAdd: IMovie) {
         this.cartService.setCart(movieToAdd);
     }
+    // addToPrice() {
+    //     this.cartService.culculateTotalPrice();
+    //     console.log('addtoprice in modal running');
+    // }
 
     // addToCart(movieToAdd: IMovie, event) {
     //     event.stopPropagation();
