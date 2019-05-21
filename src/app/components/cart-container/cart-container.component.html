@@ -5,6 +5,10 @@
         </div>
 
         <aside class="cart-aside">
+                <div class="aside-header">
+                    <h3>Cart</h3>
+                </div>
+            <app-cart-aside *ngFor='let cartAsideItem of cart' [cartAside]='cartAsideItem'></app-cart-aside>
 
         </aside>
     </div>
