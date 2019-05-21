@@ -22,4 +22,12 @@ export class PrintCartContainerComponent implements OnInit {
     this.cartService.removeCartItem(movieToRemove);
   }
 
+  addToMovieRow(movieToAddTo: IMovie) {
+    this.cartService.addOneMovie(movieToAddTo);
+  }
+
+  subtractMovieQuantity(movieRowToSubtractFrom: IMovie) {
+    this.cartService.removeOneMovie(movieRowToSubtractFrom);
+  }
+
 }

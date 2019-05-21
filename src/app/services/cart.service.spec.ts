@@ -84,4 +84,46 @@ describe('CartService', () => {
         );
       });
 
+    it('addOneMovie() should add to quantity in cart', () => {
+        mockData.getData().subscribe(
+            movies => {
+                expect(service.getCart().length).toBe(0);
+                service.setCart(movies[0]);
+                expect(service.getCart().length).toBe(1);
+                expect(service.getCart()[0].quantity).toBe(1);
+
+                service.setCart(movies[0]);
+                expect(service.getCart().length).toBe(1);
+                expect(service.getCart()[0].quantity).toBe(2);
+
+                service.addOneMovie(movies[0]);
+                expect(service.getCart().length).toBe(1);
+                expect(service.getCart()[0].quantity).toBe(3);
+            }
+        );
+      });
+
+    it('removeOneMovie() should subtract to quantity in cart and remove row if quantity is zero', () => {
+        mockData.getData().subscribe(
+            movies => {
+                expect(service.getCart().length).toBe(0);
+                service.setCart(movies[0]);
+                expect(service.getCart().length).toBe(1);
+                expect(service.getCart()[0].quantity).toBe(1);
+
+                service.setCart(movies[0]);
+                expect(service.getCart().length).toBe(1);
+                expect(service.getCart()[0].quantity).toBe(2);
+
+                service.removeOneMovie(movies[0]);
+                expect(service.getCart().length).toBe(1);
+                expect(service.getCart()[0].quantity).toBe(1);
+
+                service.removeOneMovie(movies[0]);
+                expect(service.getCart().length).toBe(0);
+                expect(service.getCart()[0].quantity).toBe(0);
+            }
+        );
+      });
+
 });

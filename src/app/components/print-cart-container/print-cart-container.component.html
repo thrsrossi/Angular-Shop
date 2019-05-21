@@ -8,6 +8,9 @@
         <p> {{cartItem.quantity}} </p>
     </div>
     <div class="cart-crud">
-        <button (click)="removeMovieRow(cartItem.movie)">remove movie</button>
+        <button (click)="removeMovieRow(cartItem.movie)"><i class="fas fa-trash-alt"></i></button><br>
+        <button (click)="subtractMovieQuantity(cartItem.movie)"><i class="fas fa-minus"></i></button><br>
+        <button (click)="addToMovieRow(cartItem.movie)"><i class="fas fa-plus"></i></button>
+
     </div>
 </div>

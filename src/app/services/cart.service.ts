@@ -65,7 +65,6 @@ export class CartService {
     }
 
     removeCartItem(movie: IMovie) {
-
         for (let i = 0; i < this.cart.length; i++) {
             if (this.cart[i].movie === movie) {
                 this.cart.splice(i, 1);
@@ -75,12 +74,29 @@ export class CartService {
 
     }
 
-    addOneMovie() {
-
+    addOneMovie(movie: IMovie) {
+        for (const cartItem of this.cart) {
+            if (cartItem.movie === movie) {
+                cartItem.quantity++;
+            }
+        }
+        this.setSessionStorage(this.cart);
     }
 
-    removeOneMovie() {
+    removeOneMovie(movie: IMovie) {
+        for (let i = 0; i < this.cart.length; i++) {
+            if (this.cart[i].movie === movie) {
+                this.cart[i].quantity--;
+                // do {
+                //     this.cart[i].quantity--;
+                // } while (this.cart.length > 0);
+            }
+            if (this.cart[i].quantity === 0) {
+                this.cart.splice(i, 1);
+            }
 
+        }
+        this.setSessionStorage(this.cart);
     }
 
     updateQuantity() {
