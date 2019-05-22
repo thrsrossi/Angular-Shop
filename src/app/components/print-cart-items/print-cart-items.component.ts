@@ -16,7 +16,6 @@ export class PrintCartItemsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('print-cart-component', this.cartItem);
   }
 
 }

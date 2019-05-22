@@ -8,7 +8,7 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 })
 export class CartAsideComponent implements OnInit {
 
-    @Input() cartAside: ICartItem;
+    @Input() cartItem: ICartItem;
 
   constructor() { }
 

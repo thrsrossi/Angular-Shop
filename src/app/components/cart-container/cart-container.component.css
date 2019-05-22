@@ -18,11 +18,11 @@
 .cart-aside {
     width: 20%;
     border: 2px solid red;
+    color: #fff;
 }
 .aside-header {
     display: flex;
     justify-content: center;
-    color: #fff;
 }
 .aside-header h3 {
     border-bottom: 1px solid #ADAFAF;

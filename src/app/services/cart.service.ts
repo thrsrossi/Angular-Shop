@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { ICartItem } from '../interfaces/ICartItem';
 
@@ -16,7 +16,25 @@ export class CartService {
     } else {
         this.cart = sessionStorageContent;
         console.log('constructor, cart yes: ', this.cart);
+
+        let calculatedPrice: number = 0;
+        let priceOfMovie: number;
+        let quantityOfMovies: number;
+
+        for (const cartItem of this.cart) {
+            priceOfMovie = cartItem.movie.price;
+            quantityOfMovies = cartItem.quantity;
+            // calculatedPrice += this.cart[i].quantity * this.cart[i].movie.price;
+            console.log('priceofmovieinloop: ', priceOfMovie);
+            console.log('quantityinloop: ', quantityOfMovies);
+            calculatedPrice += priceOfMovie * quantityOfMovies;
+        }
+
+        console.log('calculated price after loop: ', calculatedPrice);
+        this.totalPrice = calculatedPrice;
+        // this.totalPriceCart$ = calculatedPrice;
     }
+    console.log('constructor, totalprice: ', this.totalPrice);
     // console.log('session storage');
     // for (let i = 0; i < sessionStorage.length; i++) {
     // console.log(sessionStorage.key(i) + '=[' + sessionStorage.getItem(sessionStorage.key(i)) + ']');
@@ -24,11 +42,15 @@ export class CartService {
   }
 
   private cartSubject = new Subject<ICartItem[]>();
+  private cartTotalSubject = new Subject<number>();
+
 
   currentCart$ = this.cartSubject.asObservable();
+  totalPriceCart$ = this.cartTotalSubject.asObservable();
 
 
   private cart: ICartItem[] = [];
+  private totalPrice: number;
 
 
 
@@ -37,11 +59,11 @@ export class CartService {
     let movieExists = false;
 
 
-    for (let i = 0; i < this.cart.length; i++) {
-        if (movieToCart.id === this.cart[i].movie.id) {
-            this.cart[i].quantity++;
+    for (const cartItem of this.cart) {
+        if (movieToCart.id === cartItem.movie.id) {
+            cartItem.quantity++;
             movieExists = true;
-            console.log(this.cart, movieExists);
+            // console.log(this.cart, movieExists);
         }
     }
     if (movieExists === false) {
@@ -50,18 +72,22 @@ export class CartService {
     // console.log('cart content in service: ', this.cart);
 
 
+    this.culculateTotalPrice();
     this.setSessionStorage(this.cart);
     this.cartSubject.next(this.cart);
+    this.cartTotalSubject.next(this.totalPrice);
   }
 
   getCart(): ICartItem[] {
-    return this.cart;
+    //   this.cartSubject.next(this.cart);
+      return this.cart;
     }
 
 
     setSessionStorage(sessionCart: ICartItem[] = []) {
         sessionStorage.setItem('sessionCart', JSON.stringify(sessionCart));
         console.log('setsessionrunning, session', sessionCart, 'cart: ', this.cart);
+        this.culculateTotalPrice();
     }
 
     removeCartItem(movie: IMovie) {
@@ -70,6 +96,7 @@ export class CartService {
                 this.cart.splice(i, 1);
             }
         }
+        this.culculateTotalPrice();
         this.setSessionStorage(this.cart);
 
     }
@@ -80,6 +107,7 @@ export class CartService {
                 cartItem.quantity++;
             }
         }
+        this.culculateTotalPrice();
         this.setSessionStorage(this.cart);
     }
 
@@ -96,21 +124,35 @@ export class CartService {
             }
 
         }
+        this.culculateTotalPrice();
         this.setSessionStorage(this.cart);
     }
 
-    updateQuantity() {
+    culculateTotalPrice() {
+        let calculatedPrice: number = 0;
+        let priceOfMovie: number;
+        let quantityOfMovies: number;
 
+        for (const cartItem of this.cart) {
+            priceOfMovie = cartItem.movie.price;
+            quantityOfMovies = cartItem.quantity;
+            // calculatedPrice += this.cart[i].quantity * this.cart[i].movie.price;
+            console.log('priceofmovieinloop: ', priceOfMovie);
+            console.log('quantityinloop: ', quantityOfMovies);
+            calculatedPrice += priceOfMovie * quantityOfMovies;
+        }
+
+        console.log('calculated price after loop: ', calculatedPrice);
+        this.totalPrice = calculatedPrice;
+        this.cartTotalSubject.next(this.totalPrice);
+
+        // return this.totalPriceCart$;
+        // return this.totalPrice;
     }
 
-    // getSessionStorage(): ICartItem[] {
-    //     let sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
-    //     if (sessionStorageContent === null) {
-    //         console.log('No items in sessionStorage');
-    //         return [];
-    //     } else {
-    //         console.log('getsession', sessionStorageContent);
-    //         return sessionStorageContent;
-    //     }
-    // }
+    getTotalPrice(): number {
+        // return this.cartTotalSubject.next(this.totalPrice);
+        return this.totalPrice;
+    }
+
 }

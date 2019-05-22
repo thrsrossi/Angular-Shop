@@ -8,7 +8,16 @@
                 <div class="aside-header">
                     <h3>Cart</h3>
                 </div>
-            <app-cart-aside *ngFor='let cartAsideItem of cart' [cartAside]='cartAsideItem'></app-cart-aside>
+            <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
+
+            <div class="total-price">
+                <h4>Total price: </h4> <h3>{{totalPrice}}</h3>
+
+            </div>
+            <div class="buttons">
+                <button>keep shopping</button>
+                <button>checkout</button>
+            </div>
 
         </aside>
     </div>

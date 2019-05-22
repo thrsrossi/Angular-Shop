@@ -64,7 +64,7 @@ describe('CartService', () => {
         );
       });
 
-    it('should remove film in cart - whole row', () => {
+    it('removeCartItem() should remove whole row in cart', () => {
         mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
@@ -125,5 +125,35 @@ describe('CartService', () => {
             }
         );
       });
+
+    // it('culculateTotalPrice() should calculate total price', () => {
+    //     mockData.getData().subscribe(
+    //         movies => {
+    //             expect(service.getCart().length).toBe(0);
+    //             service.setCart(movies[0]);
+    //             expect(service.getCart().length).toBe(1);
+    //             expect(service.getCart()[0].quantity).toBe(1);
+    //             expect(service.getCart()[0].quantity.valueOf()).toBe(80);
+
+    //             // service.setCart(movies[0]);
+    //             // expect(service.getCart().length).toBe(1);
+    //             // expect(service.getCart()[0].quantity).toBe(2);
+    //             // expect(service.getCart()[0].quantity).toContain(160);
+
+    //             // service.setCart(movies[1]);
+    //             // expect(service.getCart().length).toBe(2);
+    //             // expect(service.getCart()[1].quantity).toBe(1);
+
+    //             // service.setCart(movies[1]);
+    //             // expect(service.getCart().length).toBe(2);
+    //             // expect(service.getCart()[1].quantity).toBe(2);
+
+    //             // service.culculateTotalPrice();
+                
+
+
+    //         }
+    //     );
+    //   });
 
 });
