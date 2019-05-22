@@ -30,3 +30,39 @@
     font-size: 2rem;
     font-family: 'Playfair Display', serif;
 }
+.total-price {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0 3rem 0;
+}
+.total-price h4 {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+.total-price h3 {
+    font-family: 'Cormorant', serif;
+    font-size: 1.5rem;
+}
+.total-price p {
+    font-family: 'Raleway', sans-serif;
+    font-size: .8rem;
+}
+.buttons {
+    display: flex;
+    margin: 2rem 0;
+}
+button {
+    border-radius: 50px;
+    height: 40px;
+    width: 50%;
+    color: #fff;
+    padding: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    background: rgb(209, 178, 39);
+    margin: 0 .5rem;
+}
