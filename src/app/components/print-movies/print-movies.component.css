@@ -28,9 +28,9 @@
 .image-box {
     height: 25rem;
     max-width: 16rem;
+    /* position: relative; */
 }
 .image-hover {
-    font-family: 'Quicksand', sans-serif;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -40,7 +40,7 @@
     color: #fff;
     visibility: hidden;
     opacity: 0;
-
+    
     /* transition effect. not necessary */
     transition: opacity .3s, visibility .3s;
     /* transition: .4s;
@@ -48,15 +48,17 @@
     /* cursor: pointer; */
 }
 h2 {
+    font-family: 'Playfair Display', serif;
     padding: 1rem;
     font-size: 1.5rem;
     /* font-family: 'Varela Round', sans-serif; */
     letter-spacing: 1px;
 }
 p {
+    font-family: 'Raleway', sans-serif;
     padding: 0 1rem;
     /* font-family: 'Varela Round', sans-serif; */
-    line-height: 120%;
+    line-height: 130%;
 
 }
 .movie-column:hover .image-hover {
@@ -85,15 +87,31 @@ button {
     outline: 0;
     text-align: center;
     background: rgb(209, 178, 39);
-    margin: 0 .5rem;
-    text-transform: uppercase;
-
-    display: inline-block;
+    
+    /* display: inline-block; */
     position: absolute;
-    bottom: 0;
-    margin-bottom: 1rem;
-    right: 0;
+    /* margin: 0 auto; */
+    
 }
+.add-button {
+    /* margin-bottom: 2rem; */
+    /* bottom: 0; */
+    top: 70%;
+    right: 0;
+    left: 38px;
+}
+.modal-button {
+    /* margin-bottom: 2rem; */
+    /* bottom: 0; */
+    top: 83%;
+    right: 0;
+    left: 38px;
+}
+/* button.fade-in {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+} */
 /* button:hover {
     transition: all 0.2s ease 0s;
     cursor: pointer;

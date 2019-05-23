@@ -52,18 +52,18 @@ export class CartService {
 
 
 
-  setCart(movieToCart: IMovie) {
+  setCart(movieToCart: IMovie, quantityToAdd: number) {
 
     let movieExists = false;
 
     for (const cartItem of this.cart) {
         if (movieToCart.id === cartItem.movie.id) {
-            cartItem.quantity++;
+            cartItem.quantity += quantityToAdd;
             movieExists = true;
         }
     }
     if (movieExists === false) {
-        this.cart.push({movie: movieToCart, quantity: 1});
+        this.cart.push({movie: movieToCart, quantity: quantityToAdd});
     }
 
     this.culculateTotalPrice();

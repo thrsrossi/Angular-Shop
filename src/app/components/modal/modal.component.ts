@@ -16,8 +16,9 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {}
 
-    addToCart(movieToAdd: IMovie) {
-        this.cartService.setCart(movieToAdd);
+    addToCart(movieToAdd: IMovie, quantity: string) {
+        let quantityToAdd = +quantity;
+        this.cartService.setCart(movieToAdd, quantityToAdd);
     }
     // addToPrice() {
     //     this.cartService.culculateTotalPrice();
