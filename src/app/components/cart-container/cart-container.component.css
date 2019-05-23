@@ -4,37 +4,43 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    margin-top: 6rem;
+    background: #343837;
 }
 .cart-row {
     width: 95%;
     display: flex;
     justify-content: center;
+    margin: 3rem 0 6rem 0;
 }
 .cart-column {
     width: 75%;
-    border: 2px solid red;
-    background: #343837;
+    /* border: 2px solid red; */
+    /* background: #343837; */
 }
 .cart-aside {
-    width: 20%;
-    border: 2px solid red;
+    width: 25%;
+    /* border: 2px solid red; */
     color: #fff;
+    /* background: #292C2C; */
+    border-left: 1px solid rgba(173, 175, 175, 0.5);
+    padding-left: 1rem;
 }
 .aside-header {
     display: flex;
     justify-content: center;
 }
 .aside-header h3 {
-    border-bottom: 1px solid #ADAFAF;
+    /* border-bottom: 1px solid #ADAFAF; */
     padding: 2rem 4rem;
     font-size: 2rem;
     font-family: 'Playfair Display', serif;
 }
 .total-price {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin: 2rem 0 3rem 0;
+    margin: 5rem 1rem 3rem 1rem;
 }
 .total-price h4 {
     font-size: 1.5rem;
@@ -42,11 +48,15 @@
 }
 .total-price h3 {
     font-family: 'Cormorant', serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 .total-price p {
     font-family: 'Raleway', sans-serif;
     font-size: .8rem;
+    padding-left: .5rem;
+}
+.right {
+    display: flex;
 }
 .buttons {
     display: flex;

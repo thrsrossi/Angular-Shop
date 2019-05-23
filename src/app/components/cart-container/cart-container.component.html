@@ -21,8 +21,10 @@
             
                 <div *ngIf="totalPrice > 0" class="total-price">
                     <h4>Total price: </h4> 
-                    <h3>{{totalPrice}}</h3>
-                    <p>SEK</p>
+                    <div class="right">
+                        <h3>{{totalPrice}}</h3>
+                        <p>SEK</p>
+                    </div>
                 </div>
 
                 <div class="buttons">

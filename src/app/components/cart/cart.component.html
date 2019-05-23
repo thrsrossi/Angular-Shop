@@ -1,4 +1,11 @@
-<a routerLink="cart"><i data-count="3" class="fas fa-shopping-cart badge"></i></a>
+
+<div class="icon">
+  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+  <a routerLink="cart"><i class="fa fa-shopping-cart"></i></a>
+  <span *ngIf="cartCount > 0" class="badge">{{cartCount}}</span>
+</div>
+
+
 <!-- <div class="wrapper">
     <div class="row">
         <app-print-cart-items *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-print-cart-items>

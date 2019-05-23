@@ -12,7 +12,7 @@ export class CartService {
     const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
     if (sessionStorageContent === null) {
         this.cart = [];
-        this.rowCount = 0;
+        this.cartCount = 0;
         console.log('constructor, cart null: ', this.cart);
     } else {
         this.cart = sessionStorageContent;
@@ -29,7 +29,7 @@ export class CartService {
             calculatedPrice += priceOfMovie * quantityOfMovies;
         }
         this.totalPrice = calculatedPrice;
-        this.rowCount = this.cart.length;
+        this.cartCount = this.cart.length;
     }
     console.log('constructor cartservice, totalprice: ', this.totalPrice);
   }
@@ -38,17 +38,17 @@ export class CartService {
 
   private cartSubject = new Subject<ICartItem[]>();
   private cartTotalSubject = new Subject<number>();
-  private cartRow = new Subject<number>();
+//   private cartRow = new Subject<number>();
 
 
   currentCart$ = this.cartSubject.asObservable();
   totalPriceCart$ = this.cartTotalSubject.asObservable();
-  rowCountO$ = this.cartRow.asObservable();
+//   rowCountO$ = this.cartRow.asObservable();
 
 
   private cart: ICartItem[] = [];
   private totalPrice: number;
-  rowCount: number;
+  cartCount: number;
 
 
 
@@ -66,7 +66,6 @@ export class CartService {
         this.cart.push({movie: movieToCart, quantity: 1});
     }
 
-    // this.getRowCount();
     this.culculateTotalPrice();
     this.setSessionStorage(this.cart);
     this.cartSubject.next(this.cart);
@@ -82,7 +81,6 @@ export class CartService {
     setSessionStorage(sessionCart: ICartItem[] = []) {
         sessionStorage.setItem('sessionCart', JSON.stringify(sessionCart));
         // console.log('setsessionrunning, session', sessionCart, 'cart: ', this.cart);
-        // this.culculateTotalPrice();
     }
 
     removeCartItem(movie: IMovie) {
@@ -91,7 +89,6 @@ export class CartService {
                 this.cart.splice(i, 1);
             }
         }
-        // this.getRowCount();
         this.culculateTotalPrice();
         this.cartSubject.next(this.cart);
         this.setSessionStorage(this.cart);
@@ -103,7 +100,6 @@ export class CartService {
                 cartItem.quantity++;
             }
         }
-        // this.getRowCount();
         this.culculateTotalPrice();
         this.cartSubject.next(this.cart);
         this.setSessionStorage(this.cart);
@@ -119,7 +115,6 @@ export class CartService {
             }
 
         }
-        // this.getRowCount();
         this.culculateTotalPrice();
         this.cartSubject.next(this.cart);
         this.setSessionStorage(this.cart);
@@ -150,11 +145,6 @@ export class CartService {
     getTotalPrice(): number {
         // return this.cartTotalSubject.next(this.totalPrice);
         return this.totalPrice;
-    }
-
-    getRowCount(): number {
-        this.rowCount = this.cart.length;
-        return this.rowCount;
     }
 
 }

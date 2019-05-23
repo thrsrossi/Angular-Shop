@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { IMovie } from 'src/app/interfaces/IMovie';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
 
 @Component({
@@ -13,26 +12,12 @@ export class CartComponent implements OnInit {
     // movieRecieved: IMovie;
 
     cart: ICartItem[];
-    cartRow: number;
+    cartCount: number;
 
   constructor(private cartService: CartService) {
-    //     this.addToCartService.movieToAdd$.subscribe(
-    //     movieObjectToCart => {
-    //         this.addToCart(movieObjectToCart);
-    //         this.movieRecieved = movieObjectToCart;
-    //         console.log('recieved in cart.ts: ', this.movieRecieved);
-    //     }
-    //   );
     this.cart = this.cartService.getCart();
-    this.cartRow = this.cart.length;
-    console.log('cartcomponent constructor cart: ', this.cart, 'row: ', this.cartRow);
-    // this.cartService.currentCart$.subscribe(
-    //     cart => {
-    //         this.cart = cart;
-    //         this.updateCartCount();
-    //         console.log('cartrow from cart component', this.cartRowAmount, 'and cart: ', this.cart);
-    //     }
-    //   );
+    this.cartCount = this.cart.length;
+    console.log('cartcomponent constructor cart: ', this.cart, 'row: ', this.cartCount);
    }
 
 
@@ -49,8 +34,8 @@ export class CartComponent implements OnInit {
     this.cartService.currentCart$.subscribe(
         cart => {
             this.cart = cart;
-            this.cartRow = this.cart.length;
-            console.log('cartrow from cart component', this.cartRow, 'and cart: ', this.cart);
+            this.cartCount = this.cart.length;
+            console.log('cartrow from cart component', this.cartCount, 'and cart: ', this.cart);
         }
       );
 
