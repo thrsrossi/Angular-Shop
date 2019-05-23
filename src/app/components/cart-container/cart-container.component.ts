@@ -17,13 +17,13 @@ export class CartContainerComponent implements OnInit {
 ngOnInit() {
     this.cart = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
-    console.log('total price from servie ngoninit gettotalprice', this.totalPrice);
+    console.log('cartcontainer. total price from servie ngoninit gettotalprice', this.totalPrice);
 
     this.cartService.totalPriceCart$.subscribe(
         cartTotal => {
             this.totalPrice = cartTotal;
         }
       );
-    console.log('total price from servie subscribe', this.totalPrice);
+    console.log('cartcontainer, total price from servie subscribe', this.totalPrice);
   }
 }

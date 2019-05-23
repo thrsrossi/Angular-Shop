@@ -10,7 +10,10 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 })
 export class CartComponent implements OnInit {
 
-    movieRecieved: IMovie;
+    // movieRecieved: IMovie;
+
+    cart: ICartItem[];
+    cartRow: number;
 
   constructor(private cartService: CartService) {
     //     this.addToCartService.movieToAdd$.subscribe(
@@ -20,15 +23,41 @@ export class CartComponent implements OnInit {
     //         console.log('recieved in cart.ts: ', this.movieRecieved);
     //     }
     //   );
+    this.cart = this.cartService.getCart();
+    this.cartRow = this.cart.length;
+    console.log('cartcomponent constructor cart: ', this.cart, 'row: ', this.cartRow);
+    // this.cartService.currentCart$.subscribe(
+    //     cart => {
+    //         this.cart = cart;
+    //         this.updateCartCount();
+    //         console.log('cartrow from cart component', this.cartRowAmount, 'and cart: ', this.cart);
+    //     }
+    //   );
    }
 
 
-  cart: ICartItem[];
 
   ngOnInit() {
-    this.cart = this.cartService.getCart();
-    // console.log('recieved from service in cart component', this.cart);
-}
+    // this.cart = this.cartService.getCart();
 
+    // this.cartService.currentCart$.subscribe(
+    //     cart => {
+    //         this.cart = cart;
+    //         this.updateCartCount();
+    //     }
+    //   );
+    this.cartService.currentCart$.subscribe(
+        cart => {
+            this.cart = cart;
+            this.cartRow = this.cart.length;
+            console.log('cartrow from cart component', this.cartRow, 'and cart: ', this.cart);
+        }
+      );
+
+    }
+
+    // updateCartCount() {
+    //     this.cartRowAmount = this.cart.length;
+    // }
 
 }

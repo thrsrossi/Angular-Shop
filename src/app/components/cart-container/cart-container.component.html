@@ -12,14 +12,14 @@
                 <h3>Cart</h3>
             </div>
 
-            <div *ngIf="cart.length === 0" class="">  
+            <div *ngIf="cart.length === 0" class="">
                 <h3>cart is empty</h3>
             </div>
 
             <div *ngIf="cart" class="">
                 <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
             
-                <div class="total-price">
+                <div *ngIf="totalPrice > 0" class="total-price">
                     <h4>Total price: </h4> 
                     <h3>{{totalPrice}}</h3>
                     <p>SEK</p>
