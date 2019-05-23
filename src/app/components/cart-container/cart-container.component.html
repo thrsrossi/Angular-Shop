@@ -1,35 +1,37 @@
 <div class="cart-wrapper">
     <div class="cart-row">
-        <div class="cart-column">
+        <div *ngIf="cart" class="cart-column">
+            <div *ngIf="cart.length === 0">
+                <h3>cart is empty</h3>
+            </div>
             <app-print-cart-container *ngFor='let cartItem of cart' [cartItem]='cartItem' ></app-print-cart-container>
         </div>
 
         <aside class="cart-aside">
-                <div class="aside-header">
-                    <h3>Cart</h3>
+            <div class="aside-header">
+                <h3>Cart</h3>
+            </div>
+
+            <div *ngIf="cart.length === 0" class="">
+                <h3>cart is empty</h3>
+            </div>
+
+            <div *ngIf="cart" class="">
+                <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
+            
+                <div *ngIf="totalPrice > 0" class="total-price">
+                    <h4>Total price: </h4> 
+                    <div class="right">
+                        <h3>{{totalPrice}}</h3>
+                        <p>SEK</p>
+                    </div>
                 </div>
 
-                <!-- <div *ngIf="!cart; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>Content to render when condition is true.</ng-template>
-<ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
-
-                
-                <!-- <div *ngIf="cart; else " class=""> -->
-                    <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
-                    
-                    <div class="total-price">
-                        <h4>Total price: </h4> 
-                        <h3>{{totalPrice}}</h3> 
-                        <p>SEK</p>
-                        
-                    </div>
-                    <div class="buttons">
-                        <button>keep shopping</button>
-                        <button>checkout</button>
-                    </div>
-                <!-- </div> -->
-                
-
+                <div class="buttons">
+                    <button>keep shopping</button>
+                    <button>checkout</button>
+                </div>
+            </div>
         </aside>
     </div>
 </div>

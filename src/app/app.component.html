@@ -1,13 +1,14 @@
 <header>
-    <h1>Welcome to the most wonderful Movie Shop!</h1>
-    <app-cart class="cart-header" [class.visibility]="toggleVisibility"></app-cart>
-    <div class="header-cart">
-        <a routerLink="cart"><i class="fas fa-shopping-bag badge" (click)="toggleCart()"></i></a>
+    <div class="left">
 
-        <!-- <span class="fa-stack fa-2x">
-                <i class="fas fa-shopping-bag fa-stack-2x"></i>
-                <i class="badge fa-stack-1x fa-inverse"></i>
-              </span> -->
+    </div>
+
+    <h1>Movie magic</h1>
+
+    <div class="right">
+        <!-- <a routerLink="cart"><i data-count="3" class="fas fa-shopping-cart badge"></i></a> -->
+        <!-- <app-cart class="cart-header" [class.visibility]="toggleVisibility"></app-cart> -->
+        <app-cart></app-cart>
     </div>
 </header>
 

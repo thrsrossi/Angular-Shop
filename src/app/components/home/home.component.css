@@ -4,14 +4,16 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    margin-top: 6rem;
+    background: #343837;
 }
 .movie-row {
     width: 95%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 3rem;
 }
-
 
 .modal {
     display: none;

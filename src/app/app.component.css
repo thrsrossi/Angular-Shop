@@ -6,12 +6,23 @@ header {
     align-items: center;
     /* background: #1E2221; */
     /* border-bottom: 2px solid #fff; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(30, 34, 33, 0.85);
+    z-index: 100;
+}
+.left,
+.right {
+    flex: 1;
 }
 h1 {
-    font-family: 'Text Me One', sans-serif;
-    color: #D22AE1;
+    font-family: 'Playfair Display', serif;
+    color: #B0CDAE;
     font-size: 2.5rem;
-    text-transform: uppercase;
+    flex: 3;
+    text-align: center;
+    /* text-transform: uppercase; */
 }
 .cart-header {
     display: none;
@@ -19,37 +30,7 @@ h1 {
 /* .visibility {
     display: flex;
 } */
-a {
-    display: inline-block;
-    font-size: 2.5rem;
-    margin: 0 2rem;
-    line-height: 200%;
-}
-i .fa-shopping-bag {
-    position: relative;
 
-}
 
-i {   
-    width:100px;
-    text-align:center;
-    vertical-align:middle;
-    position: relative;
-}
-.badge:after{
-    content:"1";
-    position: absolute;
-    background: black;
-    height:2rem;
-    top:1rem;
-    right:1.5rem;
-    width:2rem;
-    text-align: center;
-    line-height: 2rem;;
-    font-size: 1rem;
-    border-radius: 50%;
-    color:white;
-    border:1px solid black;
-}
 
   
