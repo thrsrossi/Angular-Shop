@@ -3,12 +3,12 @@
     color: #fff;
     margin: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #ADAFAF;
+    border-bottom: 1px solid rgba(173, 175, 175, 0.5);
 }
 
 .cart-item-row h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .cart-description p {
     font-family: 'Raleway', sans-serif;
@@ -55,8 +55,11 @@ button {
     text-align: center;
     background: rgb(209, 178, 39);
 }
+.left {
+    background: #B0CDAE;
+}
 .price-remove button {
-    background: #990000;
+    background: #5B0000;
 }
 .quantity {
     display: flex;
@@ -74,8 +77,11 @@ button {
     font-family: 'Raleway', sans-serif;
     font-size: .8rem;
 }
+.price-remove .sed {
+    padding-left: .5rem;
+}
 .qty {
-    margin-left: 2rem;
+    margin-left: 1rem;
     flex: 1;
 }
 .buttons {
@@ -100,6 +106,7 @@ button {
 .cursive {
     font-family: 'Cormorant', serif;
     font-size: 2rem;
+    margin-top: -.5rem;
 }
 .price {
     display: flex;

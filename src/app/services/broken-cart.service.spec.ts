@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { CartService } from './cart.service';
 import { MockDataService } from './mock-data.service';
+import { Subscription } from 'rxjs';
 
 describe('CartService', () => {
     let service: CartService;
@@ -15,6 +16,11 @@ describe('CartService', () => {
         //   });
       });
 
+    // afterEach(() => {
+
+    //     // let subscription.unsubscribe();
+    // });
+
     it('should be created', () => {
         // const service: CartService = TestBed.get(CartService);
         expect(service).toBeTruthy();
@@ -24,16 +30,17 @@ describe('CartService', () => {
         // const service: CartService = TestBed.get(CartService);
 
         // const mockService = new MockDataService();
-        mockData.getData().subscribe(
+        const subscription = mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
                 service.setCart(movies[0]);
                 expect(service.getCart().length).toBe(1);
             }
         );
+        subscription.unsubscribe();
       });
     it('should add to same row in cart and add to quantity if movie added exists in cart', () => {
-        mockData.getData().subscribe(
+        const subscription = mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
                 service.setCart(movies[0]);
@@ -45,9 +52,10 @@ describe('CartService', () => {
                 expect(service.getCart()[0].quantity).toBe(2);
             }
         );
+        subscription.unsubscribe();
       });
     it('should add new row if movie does not exist in cart', () => {
-        mockData.getData().subscribe(
+        const subscription = mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
                 service.setCart(movies[0]);
@@ -62,10 +70,11 @@ describe('CartService', () => {
                 // expect(service.getCart().length).toBe(3);
             }
         );
+        subscription.unsubscribe();
       });
 
     it('removeCartItem() should remove whole row in cart', () => {
-        mockData.getData().subscribe(
+        const subscription = mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
                 service.setCart(movies[0]);
@@ -82,10 +91,11 @@ describe('CartService', () => {
                 // expect(service.getCart().length).toBe(1);
             }
         );
+        subscription.unsubscribe();
       });
 
     it('addOneMovie() should add to quantity in cart', () => {
-        mockData.getData().subscribe(
+        const subscription = mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
                 service.setCart(movies[0]);
@@ -101,10 +111,11 @@ describe('CartService', () => {
                 expect(service.getCart()[0].quantity).toBe(3);
             }
         );
+        subscription.unsubscribe();
       });
 
     it('removeOneMovie() should subtract to quantity in cart and remove row if quantity is zero', () => {
-        mockData.getData().subscribe(
+        const subscription = mockData.getData().subscribe(
             movies => {
                 expect(service.getCart().length).toBe(0);
                 service.setCart(movies[0]);
@@ -124,6 +135,7 @@ describe('CartService', () => {
                 expect(service.getCart()[0].quantity).toBe(0);
             }
         );
+        subscription.unsubscribe();
       });
 
     // it('removeOneMovie() ... should subtract to quantity in cart and remove row if quantity is zero', () => {

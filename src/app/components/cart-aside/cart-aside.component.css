@@ -1,18 +1,18 @@
 .cart-aside-row {
     display: flex;
-    padding: 1rem;
+    padding: 2rem 1rem 1rem 1rem;
     margin: 1rem;
-    border-bottom: 1px solid #ADAFAF;
+    border-top: 1px solid rgba(173, 175, 175, 0.5);
     color: #fff;
 
 }
 .cart-aside-row img {
-    height: 4rem;
+    height: 5rem;
     width: auto;
 }
 h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 p {
     font-family: 'Raleway', sans-serif;
