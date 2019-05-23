@@ -4,7 +4,8 @@
         <div class="image-hover">
             <h2 class="fade-in">{{movie.name}}</h2>
             <p class="fade-in">{{movie.description}}</p>
-            <button [id]="movie.id" (click)="sendMovieToParent()" class="fade-in">Read more ...</button>
+            <button (click)="addToCart(movie, 1)" class="fade-in add-button">add to <i class="fa fa-shopping-cart"></i></button>
+            <button (click)="sendMovieToParent()" class="fade-in modal-button">get info</button>
         </div>
     </div>
 </div>
