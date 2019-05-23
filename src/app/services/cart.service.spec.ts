@@ -126,30 +126,42 @@ describe('CartService', () => {
         );
       });
 
-    // it('culculateTotalPrice() should calculate total price', () => {
-    //     mockData.getData().subscribe(
+    // it('removeOneMovie() ... should subtract to quantity in cart and remove row if quantity is zero', () => {
+    //     const mockService = new MockDataService();
+    //     mockService.getData().subscribe(
     //         movies => {
     //             expect(service.getCart().length).toBe(0);
     //             service.setCart(movies[0]);
     //             expect(service.getCart().length).toBe(1);
-    //             expect(service.getCart()[0].quantity).toBe(1);
-    //             expect(service.getCart()[0].quantity.valueOf()).toBe(80);
+
+    //             console.log(service.getCart());
+    //             console.log(service.getCart()[0].quantity);
+
+    //             // expect(service.getCart()[0].quantity).toBe(1);
+    //         }
+    //     );
+    //   });
+
+    // it('culculateTotalPrice should calculate total price', () => {
+    //     mockData.getData().subscribe(
+    //         movies => {
+    //             // expect(service.getCart().length).toBe(0);
+    //             // service.setCart(movies[0]);
+    //             // expect(service.getCart().length).toBe(1);
+    //             // expect(service.getCart()[0].quantity).toBe(1);
+    //             // expect(service.getCart()[0].movie.price).toBe(80);
 
     //             // service.setCart(movies[0]);
     //             // expect(service.getCart().length).toBe(1);
     //             // expect(service.getCart()[0].quantity).toBe(2);
-    //             // expect(service.getCart()[0].quantity).toContain(160);
 
     //             // service.setCart(movies[1]);
     //             // expect(service.getCart().length).toBe(2);
     //             // expect(service.getCart()[1].quantity).toBe(1);
 
-    //             // service.setCart(movies[1]);
-    //             // expect(service.getCart().length).toBe(2);
-    //             // expect(service.getCart()[1].quantity).toBe(2);
-
     //             // service.culculateTotalPrice();
-                
+    //             // service.getTotalPrice();
+    //             // expect(service.getTotalPrice()).toBe(165);
 
 
     //         }

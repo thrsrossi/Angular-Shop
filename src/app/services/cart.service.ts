@@ -17,6 +17,7 @@ export class CartService {
         this.cart = sessionStorageContent;
         console.log('constructor, cart yes: ', this.cart);
 
+        // get total price
         let calculatedPrice: number = 0;
         let priceOfMovie: number;
         let quantityOfMovies: number;
@@ -24,21 +25,11 @@ export class CartService {
         for (const cartItem of this.cart) {
             priceOfMovie = cartItem.movie.price;
             quantityOfMovies = cartItem.quantity;
-            // calculatedPrice += this.cart[i].quantity * this.cart[i].movie.price;
-            console.log('priceofmovieinloop: ', priceOfMovie);
-            console.log('quantityinloop: ', quantityOfMovies);
             calculatedPrice += priceOfMovie * quantityOfMovies;
         }
-
-        console.log('calculated price after loop: ', calculatedPrice);
         this.totalPrice = calculatedPrice;
-        // this.totalPriceCart$ = calculatedPrice;
     }
-    console.log('constructor, totalprice: ', this.totalPrice);
-    // console.log('session storage');
-    // for (let i = 0; i < sessionStorage.length; i++) {
-    // console.log(sessionStorage.key(i) + '=[' + sessionStorage.getItem(sessionStorage.key(i)) + ']');
-    // }
+    console.log('constructor cartservice, totalprice: ', this.totalPrice);
   }
 
   private cartSubject = new Subject<ICartItem[]>();
@@ -58,19 +49,15 @@ export class CartService {
 
     let movieExists = false;
 
-
     for (const cartItem of this.cart) {
         if (movieToCart.id === cartItem.movie.id) {
             cartItem.quantity++;
             movieExists = true;
-            // console.log(this.cart, movieExists);
         }
     }
     if (movieExists === false) {
         this.cart.push({movie: movieToCart, quantity: 1});
     }
-    // console.log('cart content in service: ', this.cart);
-
 
     this.culculateTotalPrice();
     this.setSessionStorage(this.cart);
@@ -86,7 +73,7 @@ export class CartService {
 
     setSessionStorage(sessionCart: ICartItem[] = []) {
         sessionStorage.setItem('sessionCart', JSON.stringify(sessionCart));
-        console.log('setsessionrunning, session', sessionCart, 'cart: ', this.cart);
+        // console.log('setsessionrunning, session', sessionCart, 'cart: ', this.cart);
         this.culculateTotalPrice();
     }
 
@@ -98,7 +85,6 @@ export class CartService {
         }
         this.culculateTotalPrice();
         this.setSessionStorage(this.cart);
-
     }
 
     addOneMovie(movie: IMovie) {
@@ -115,9 +101,6 @@ export class CartService {
         for (let i = 0; i < this.cart.length; i++) {
             if (this.cart[i].movie === movie) {
                 this.cart[i].quantity--;
-                // do {
-                //     this.cart[i].quantity--;
-                // } while (this.cart.length > 0);
             }
             if (this.cart[i].quantity === 0) {
                 this.cart.splice(i, 1);
@@ -137,12 +120,12 @@ export class CartService {
             priceOfMovie = cartItem.movie.price;
             quantityOfMovies = cartItem.quantity;
             // calculatedPrice += this.cart[i].quantity * this.cart[i].movie.price;
-            console.log('priceofmovieinloop: ', priceOfMovie);
-            console.log('quantityinloop: ', quantityOfMovies);
+            // console.log('priceofmovieinloop: ', priceOfMovie);
+            // console.log('quantityinloop: ', quantityOfMovies);
             calculatedPrice += priceOfMovie * quantityOfMovies;
         }
 
-        console.log('calculated price after loop: ', calculatedPrice);
+        console.log('calculatetotalprice - after loop: ', calculatedPrice);
         this.totalPrice = calculatedPrice;
         this.cartTotalSubject.next(this.totalPrice);
 

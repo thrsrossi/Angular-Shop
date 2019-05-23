@@ -10,7 +10,8 @@ export class AppComponent {
 
     toggleVisibility: boolean;
 
-  toggleCart() {
-    this.toggleVisibility = !this.toggleVisibility;
-  }
+//   toggleCart() {
+//     this.toggleVisibility = !this.toggleVisibility;
+//   }
+
 }
