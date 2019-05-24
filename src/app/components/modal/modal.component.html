@@ -11,11 +11,17 @@
         <div class="modal-column">
             <p>{{movieModal.description}}</p>
             <h2>{{movieModal.price}}</h2>
-            <input type="number" #movieQuantity (keyup.enter)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" > 
-            <button (click)="addToCart(movieModal, movieQuantity.value); movieQuantity.value = ''" >add to <i class="fa fa-shopping-cart"></i></button>
-            <!-- <button (click)="addToCart(movieModal)">add to cart</button> -->
+            <!-- <input type="number" min="1" max="20" step="1" value="1" #movieQuantity (keyup.enter)="addToCart(movieQuantity.value, movieModal); movieQuantity.value = ''" > 
+            <button (click)="addToCart(movieModal, movieQuantity.value); movieQuantity.value = ''" >add to <i class="fa fa-shopping-cart"></i></button> -->
+
+            <div class="adding-quantity">
+                <button class="round-button" (click)="removeValue()"><i class="fas fa-minus"></i></button>
+                <p>{{quantityValue}}</p>
+                <button class="round-button" (click)="addValue()"><i class="fas fa-plus"></i></button>
+                <!-- <button (click)="addToCart(movieModal)">add to cart</button> -->
+                <button class="add-button" (click)="addToCart(movieModal)">add to <i class="fa fa-shopping-cart"></i></button>
+            </div>
+
         </div>
-
-
     </div>
 </div>
