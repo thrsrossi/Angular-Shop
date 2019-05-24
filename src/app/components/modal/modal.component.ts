@@ -16,14 +16,28 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {}
 
-    addToCart(movieToAdd: IMovie, quantity: string) {
-        let quantityToAdd = +quantity;
-        this.cartService.setCart(movieToAdd, quantityToAdd);
+  quantityValue = 1;
+
+    addToCart(movieToAdd: IMovie) {
+        // let quantityToAdd = +quantity;
+        console.log('addtocartmodal quantityvalue', this.quantityValue);
+
+        this.cartService.setCart(movieToAdd, this.quantityValue);
+        this.quantityValue = 1;
     }
-    // addToPrice() {
-    //     this.cartService.culculateTotalPrice();
-    //     console.log('addtoprice in modal running');
-    // }
+
+
+    addValue() {
+        this.quantityValue++;
+    }
+
+    removeValue() {
+        this.quantityValue--;
+        if (this.quantityValue <= 0) {
+            this.quantityValue = 0;
+        }
+        // do while?
+    }
 
     // addToCart(movieToAdd: IMovie, event) {
     //     event.stopPropagation();
