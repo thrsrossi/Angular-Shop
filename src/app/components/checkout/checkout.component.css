@@ -1,0 +1,11 @@
+.wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    margin-top: 9rem;
+    background: #343837;
+}
+.checkout-row {
+    width: 95%;
+    display: flex;
+}
