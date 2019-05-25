@@ -16,6 +16,7 @@ import { CartContainerComponent } from './components/cart-container/cart-contain
 import { PrintCartContainerComponent } from './components/print-cart-container/print-cart-container.component';
 import { CartService } from './services/cart.service';
 import { CartAsideComponent } from './components/cart-aside/cart-aside.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CartAsideComponent } from './components/cart-aside/cart-aside.component
     PrintCartItemsComponent,
     CartContainerComponent,
     PrintCartContainerComponent,
-    CartAsideComponent
+    CartAsideComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

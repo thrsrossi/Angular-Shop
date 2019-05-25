@@ -62,10 +62,11 @@
     display: flex;
     margin: 2rem 0;
 }
-button {
+button,
+a {
     border-radius: 50px;
     height: 40px;
-    width: 50%;
+    width: 100%;
     color: #fff;
     padding: 0px;
     font-size: 1rem;
@@ -74,5 +75,25 @@ button {
     outline: 0;
     text-align: center;
     background: rgb(209, 178, 39);
-    margin: 0 .5rem;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+
+}
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Playfair Display', serif;
+    height: 20rem;
+    color: #fff;
+}
+.empty h2 {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+.empty h3 {
+    font-size: 2rem;
 }
