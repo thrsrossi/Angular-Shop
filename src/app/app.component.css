@@ -9,7 +9,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(30, 34, 33, 0.85);
+    background: rgba(30, 34, 33, 0.9);
     z-index: 100;
 }
 .left,
@@ -20,7 +20,7 @@ h1 {
     font-family: 'Playfair Display', serif;
     color: #B0CDAE;
     font-size: 2.5rem;
-    flex: 3;
+    /* flex: 3; */
     text-align: center;
     /* text-transform: uppercase; */
 }
@@ -30,6 +30,11 @@ h1 {
 /* .visibility {
     display: flex;
 } */
+a {
+    display: inline-block;
+    text-decoration: none;
+    flex: 3;
+}
 
 
 
