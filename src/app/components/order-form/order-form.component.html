@@ -1,0 +1,41 @@
+
+
+<!-- <input type='text' [formControl]="name" />
+{{name.value}} -->
+
+<!-- <form [formGroup]='searchForm' (ngSubmit)="movieSearch()">
+    <input type="text" formControlName="movieName" placeholder="Find movie..">
+    <button type="submit">Search</button>
+</form> -->
+
+
+<!-- <form [formGroup]='orderForm' (ngSubmit)="setUserValues()"> -->
+<form [formGroup]='orderForm'>
+    <input type="text" formControlName="userName" placeholder="Name" required>
+    <input type="email" formControlName="userEmail" placeholder="Email" required>
+    <button type="submit" [disabled]="!orderForm.valid" (click)="setUserValues()">Place order</button>
+</form>
+
+Form Status: {{ orderForm.status }}
+<!-- name: {{ orderForm.userName }}
+email {{ orderForm.userEmail }} -->
+
+
+<!-- <button type=“submit” [disabled]=“!group.valid”>Save</button> -->
+
+
+
+<!-- <form [formGroup]=‘myForm’ (ngSubmit)=“myFunction()”>
+        <label for=‘name’>Namn</label>
+        <input type=‘text’ formControlName=“name” name=‘name’/>
+        <input type=‘text’ formControlName=“type” />
+        <input type=‘number’ formControlName=“age” />
+        <button type=“submit” [disabled]=“!myForm.valid”>Save</button>
+        {{myForm.value}}
+    </form>
+    
+    {{ myForm.value | json }} //skriver ut alla värden i formuläret
+    {{ myForm.status }}
+    {{ myForm.valid }}
+    {{ myForm.get(‘firstName’).valid }} -->
+

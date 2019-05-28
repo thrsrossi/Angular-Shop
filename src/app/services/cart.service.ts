@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { ICartItem } from '../interfaces/ICartItem';
 

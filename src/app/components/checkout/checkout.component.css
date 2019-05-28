@@ -2,10 +2,17 @@
     width: 100vw;
     min-height: 100vh;
     display: flex;
+    justify-content: center;
     margin-top: 9rem;
     background: #343837;
 }
 .checkout-row {
     width: 95%;
     display: flex;
+    justify-content: center;
+}
+.checkout-column {
+    flex: 1;
+    display: flex;
+    /* justify-content: center; */
 }
