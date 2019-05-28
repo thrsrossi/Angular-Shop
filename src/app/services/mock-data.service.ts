@@ -13,7 +13,7 @@ export class MockDataService implements IDataService {
         name: "hej",
         description: "string",
         price: 80,
-        imageUrl: "imageUrl",
+        imageUrl: "https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
         year: 1954,
         added: "string",
         productCategory: []
@@ -23,7 +23,7 @@ export class MockDataService implements IDataService {
         name: "hopp",
         description: "annat",
         price: 5,
-        imageUrl: "bild",
+        imageUrl: "https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
         year: 1987,
         added: "string",
         productCategory: []
@@ -33,7 +33,7 @@ export class MockDataService implements IDataService {
         name: "gubbe",
         description: "kopp",
         price: 100,
-        imageUrl: "bilas4",
+        imageUrl: "https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
         year: 1934,
         added: "hju",
         productCategory: []
