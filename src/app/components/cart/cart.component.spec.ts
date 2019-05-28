@@ -11,17 +11,17 @@ describe('CartComponent', () => {
   let component: CartComponent;
   let fixture: ComponentFixture<CartComponent>;
   let service: CartService;
-  let movie: IMovie = {
-    id: 6,
-    name: "hej",
-    description: "string",
-    price: 589,
-    imageUrl: "imageUrl",
-    year: 8898,
-    added: "string",
-    productCategory: []
-};
-    let cart: ICartItem = {movie: {id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}, quantity: 5};
+//   let movie: IMovie = {
+//     id: 6,
+//     name: "hej",
+//     description: "string",
+//     price: 589,
+//     imageUrl: "imageUrl",
+//     year: 8898,
+//     added: "string",
+//     productCategory: []
+// };
+    // let cart: ICartItem = {movie: {id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}, quantity: 5};
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

@@ -13,15 +13,15 @@ export class CartService {
     if (sessionStorageContent === null) {
         this.cart = [];
         this.cartCount = 0;
-        console.log('constructor, cart null: ', this.cart);
+        // console.log('constructor, cart null: ', this.cart);
     } else {
         this.cart = sessionStorageContent;
         console.log('constructor, cart yes: ', this.cart);
 
         // get total price
         let calculatedPrice: number = 0;
-        let priceOfMovie: number;
-        let quantityOfMovies: number;
+        let priceOfMovie: number = 0;
+        let quantityOfMovies: number = 0;
 
         for (const cartItem of this.cart) {
             priceOfMovie = cartItem.movie.price;
@@ -31,7 +31,7 @@ export class CartService {
         this.totalPrice = calculatedPrice;
         this.cartCount = this.cart.length;
     }
-    console.log('constructor cartservice, totalprice: ', this.totalPrice);
+    // console.log('constructor cartservice, totalprice: ', this.totalPrice);
   }
 
 
@@ -122,15 +122,15 @@ export class CartService {
 
     culculateTotalPrice() {
         let calculatedPrice: number = 0;
-        let priceOfMovie: number;
-        let quantityOfMovies: number;
+        let priceOfMovie: number = 0;
+        let quantityOfMovies: number = 0;
 
         for (const cartItem of this.cart) {
             priceOfMovie = cartItem.movie.price;
             quantityOfMovies = cartItem.quantity;
             // calculatedPrice += this.cart[i].quantity * this.cart[i].movie.price;
-            // console.log('priceofmovieinloop: ', priceOfMovie);
-            // console.log('quantityinloop: ', quantityOfMovies);
+            console.log('priceofmovieinloop: ', priceOfMovie);
+            console.log('quantityinloop: ', quantityOfMovies);
             calculatedPrice += priceOfMovie * quantityOfMovies;
         }
 
