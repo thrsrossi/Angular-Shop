@@ -8,7 +8,7 @@ describe('PrintCartItemsComponent', () => {
 
     @Component({
         selector: `host-component`,
-        template: `<app-print-cart-items [cartItem]="{movie: {id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}, quantity: 5}"></app-print-cart-items>`
+        template: `<app-print-cart-items [cartItem]="{movie: {id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80', year: 8898, added: 'string', productCategory: []}, quantity: 5}"></app-print-cart-items>`
         })
         class TestHostComponent {
         cartItem: ICartItem;
@@ -44,7 +44,7 @@ describe('PrintCartItemsComponent', () => {
   });
 
     it('should show movie title', () => {
-    testHostComponent.setInput({movie: {id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'imageUrl', year: 8898, added: 'string', productCategory: []}, quantity: 5});
+    testHostComponent.setInput({movie: {id: 6, name: 'hej', description: 'string', price: 589, imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80', year: 8898, added: 'string', productCategory: []}, quantity: 5});
     testHostFixture.detectChanges();
     // expect(testHostFixture.nativeElement.querySelector('div').innerText).toContain('hej');
     expect(testHostComponent.cartItem.movie.name).toBe('hej');
