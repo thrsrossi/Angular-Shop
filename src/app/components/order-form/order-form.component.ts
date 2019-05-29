@@ -5,7 +5,8 @@ import { IOrderRow } from 'src/app/interfaces/IOrderRow';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
 import * as moment from 'moment';
 import { CartService } from 'src/app/services/cart.service';
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-order-form',
@@ -21,13 +22,15 @@ orderRow: IOrderRow[] = [];
 totalPrice: number;
 submitted = false;
 
+orderResponse: any;
+
 orderForm: FormGroup = this.formBuilder.group({
         userName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
         userEmail: ['', [Validators.required, Validators.email]]
     });
 
 
-constructor(private formBuilder: FormBuilder, private cartService: CartService, private http: HttpClient) {
+constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService) {
     this.cartContent = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
     console.log('constructor form comp cart: ', this.cartContent);
@@ -36,9 +39,9 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
 
     onSubmit(e): void {
     e.preventDefault();
-      console.log(this.orderForm.value);
-      console.log(this.orderForm);
-      console.log(this.userName.value);
+    console.log(this.orderForm.value);
+    console.log(this.orderForm);
+    console.log(this.userName.value);
 
     //   this.submitted = true;
 
@@ -46,6 +49,8 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     //         return;
     //     }
     this.placeOrder();
+    console.log('onsubmit, order: ', this.order);
+    this.postOrder();
     }
 
     get userName(): FormControl {
@@ -68,6 +73,18 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             orderRows: this.orderRow
         };
         console.log('placeOrder, order: ', this.order);
+    }
+
+    postOrder() {
+        this.dataService.postData(this.order).subscribe(
+            POSTorder => {
+                this.orderResponse = POSTorder;
+                console.log('next value: ', POSTorder);
+            },
+            error => {
+                console.log('error', error);
+            }
+        );
     }
 
     ngOnInit() {

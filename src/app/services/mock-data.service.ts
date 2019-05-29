@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { IDataService } from '../interfaces/IDataService';
 import { Observable, of } from 'rxjs';
+import { IOrder } from '../interfaces/IOrder';
 
 @Injectable({
   providedIn: 'root'
@@ -39,9 +40,24 @@ export class MockDataService implements IDataService {
         productCategory: []
     }];
 
+    order: IOrder = {
+        id: 0,
+        companyId: 3,
+        created: 'string',
+        createdBy: 'string',
+        paymentMethod: null,
+        totalPrice: 879,
+        status: 0,
+        orderRows: [{productId: 67, amount: 5}]
+    };
+
 
     getData(): Observable<IMovie[]> {
         return of(this.movies);
+    }
+
+    postData(order: IOrder) {
+        return of(order);
     }
 
   constructor() { }
