@@ -14,4 +14,5 @@ export class DataService implements IDataService {
   getData(): Observable<IMovie[]> {
       return this.httpClient.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
+
 }

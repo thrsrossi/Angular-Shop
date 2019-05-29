@@ -1,27 +1,18 @@
 
 
-<!-- <input type='text' [formControl]="name" />
-{{name.value}} -->
-
-<!-- <form [formGroup]='searchForm' (ngSubmit)="movieSearch()">
-    <input type="text" formControlName="movieName" placeholder="Find movie..">
-    <button type="submit">Search</button>
-</form> -->
-
-
-<!-- <form [formGroup]='orderForm' (ngSubmit)="setUserValues()"> -->
-<form [formGroup]='orderForm'>
-    <input type="text" formControlName="userName" placeholder="Name" required>
-    <input type="email" formControlName="userEmail" placeholder="Email" required>
-    <button type="submit" [disabled]="!orderForm.valid" (click)="setUserValues()">Place order</button>
+<form [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
+    <input type="text" formControlName="userName" placeholder="Name">
+    <!-- [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }"> -->
+    <!-- <div *ngIf="submitted && formControls.userName.errors" class="invalid-feedback">
+            <div *ngIf="formControls.userName.errors.required">First Name is required</div>
+        </div> -->
+    <input type="email" formControlName="userEmail" placeholder="Email"><br>
+    <button type="submit" [disabled]="!orderForm.valid">Place order</button>
 </form>
 
-Form Status: {{ orderForm.status }}
-<!-- name: {{ orderForm.userName }}
-email {{ orderForm.userEmail }} -->
+<p>  Form Status: {{ orderForm.status }} </p>
+<p> userName: {{ orderForm.get('userName').value }} </p>
 
-
-<!-- <button type=“submit” [disabled]=“!group.valid”>Save</button> -->
 
 
 
