@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IOrder } from 'src/app/interfaces/IOrder';
 import { IOrderRow } from 'src/app/interfaces/IOrderRow';
+import { ICartItem } from 'src/app/interfaces/ICartItem';
 
 @Component({
   selector: 'app-order-form',
@@ -11,8 +12,8 @@ import { IOrderRow } from 'src/app/interfaces/IOrderRow';
 export class OrderFormComponent implements OnInit {
 
 
-private order: IOrder;
-private orderRow: IOrderRow;
+order: IOrder;
+orderRow: IOrderRow;
 
 
 orderForm: FormGroup = this.formBuilder.group({
@@ -22,26 +23,38 @@ orderForm: FormGroup = this.formBuilder.group({
     });
 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+    let date=new Date();
+
+    let today_date = date.getFullYear().toString()+'-'+(date.getMonth()+1).toString()+'-'+date.getDate().toString();
+    //   let timestamp = new Date().toLocaleString();
+    //   let timestamp = new Date();
+      console.log(today_date);
+    //   console.log(Math.round(+new Date()/1000));
+    //   console.log(timestamp.toISOString());
+  }
 
   setUserValues() {
     // this.name.setValue('Nancy');
     console.log('submit');
   }
 
-ngOnInit() {
-  }
+  ngOnInit() {
+
+    // this.cartToOrder = this.mapCart();
+    // console.log(this.cartToOrder);
+
+    }
 
 
-//   get MovieName() {
-//       return this.searchForm.get('movieName') as FormControl;
+//   mapCart() {
+//       return this.cartContent.cartItems.map((item: ICartItem) => {
+//             return {
+//                 productId: item.movie.id,
+//                 amount: item.quantity
+//             }
+//       });
 //   }
-    // movieSearch() {
-    //     this.searchService.searchThis(this.movieName.value);
-    // }
-    // searchForm: FormGroup = this.fb.group({
-    //     movieName:[''];
-    // });
 
 
 }
