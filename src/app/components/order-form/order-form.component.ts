@@ -5,7 +5,7 @@ import { IOrderRow } from 'src/app/interfaces/IOrderRow';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
 import * as moment from 'moment';
 import { CartService } from 'src/app/services/cart.service';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order-form',
@@ -14,11 +14,12 @@ import { HttpClient } from 'selenium-webdriver/http';
 })
 export class OrderFormComponent implements OnInit {
 
-
 order: IOrder;
-orderRow: IOrderRow;
+
+cartContent: ICartItem[];
+orderRow: IOrderRow[] = [];
+totalPrice: number;
 submitted = false;
-// console.log(moment().format().substring(0, 19));
 
 orderForm: FormGroup = this.formBuilder.group({
         userName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
@@ -27,7 +28,10 @@ orderForm: FormGroup = this.formBuilder.group({
 
 
 constructor(private formBuilder: FormBuilder, private cartService: CartService, private http: HttpClient) {
-
+    this.cartContent = this.cartService.getCart();
+    this.totalPrice = this.cartService.getTotalPrice();
+    console.log('constructor form comp cart: ', this.cartContent);
+    console.log('constructor form comp totalprice: ', this.totalPrice);
 }
 
     onSubmit(e): void {
@@ -41,34 +45,48 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     // if (this.orderForm.invalid) {
     //         return;
     //     }
-         
+    this.placeOrder();
     }
 
     get userName(): FormControl {
         return this.orderForm.get('userName') as FormControl;
       }
 
-    get formControls() {
-        console.log('formcontrols: ', this.orderForm.controls);
-        return this.orderForm.controls;
+    // get formControls() {
+    //     console.log('formcontrols: ', this.orderForm.controls);
+    //     return this.orderForm.controls;
+    // }
+    placeOrder() {
+        this.order = {
+            id: 0,
+            companyId: 3,
+            created: moment().format().substring(0, 19),
+            createdBy: this.userName.value,
+            paymentMethod: null,
+            totalPrice: this.totalPrice,
+            status: 0,
+            orderRows: this.orderRow
+        };
+        console.log('placeOrder, order: ', this.order);
     }
 
     ngOnInit() {
-        // this.cartToOrder = this.mapCart();
-        // console.log(this.cartToOrder);
-
+        this.orderRow = this.mapCart();
+        console.log(this.orderRow);
+        // this.orderRow.push(this.cartContent);
     }
+
+
+    mapCart(): any[] {
+        return this.cartContent.map((item: ICartItem) => {
+              return {
+                  productId: item.movie.id,
+                  amount: item.quantity
+              };
+        });
+    }
+
 }
-
-
-//   mapCart() {
-//       return this.cartContent.cartItems.map((item: ICartItem) => {
-//             return {
-//                 productId: item.movie.id,
-//                 amount: item.quantity
-//             }
-//       });
-//   }
 
 
 
