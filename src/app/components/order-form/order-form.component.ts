@@ -22,7 +22,7 @@ orderRow: IOrderRow[] = [];
 totalPrice: number;
 submitted = false;
 
-orderResponse: any[] = [];
+orderResponse: any;
 
 orderForm: FormGroup = this.formBuilder.group({
         userName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
@@ -81,10 +81,11 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     postOrder() {
         this.dataService.postData(this.order).subscribe(
             POSTorder => {
-                this.orderResponse.push(POSTorder);
+                this.orderResponse = POSTorder;
                 console.log('next value: ', POSTorder);
-                console.log('orderresponse', this.orderResponse);
-                this.dataService.postResponse(POSTorder);
+                this.router.navigate(['../confirmed']);
+                // console.log('orderresponse', this.orderResponse);
+                // this.dataService.postResponse(POSTorder);
             },
             error => {
                 console.log('error', error);

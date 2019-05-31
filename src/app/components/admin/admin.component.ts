@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrder } from 'src/app/interfaces/IOrder';
 import { DataService } from 'src/app/services/data.service';
-// import { HttpClient } from '@angular/common/http';
+import { IOrdersById } from 'src/app/interfaces/IOrdersById';
 
 @Component({
   selector: 'app-admin',
@@ -11,32 +10,18 @@ import { DataService } from 'src/app/services/data.service';
 export class AdminComponent implements OnInit {
 
     // order: IOrder;
-    postResponse: any[];
+    orders: IOrdersById[] = [];
 
   constructor(private dataService: DataService) {
-      this.dataService.order$.subscribe(
-          order => {
-              this.postResponse = order;
+      this.dataService.getOrders().subscribe(
+          ordersAPI => {
+              this.orders = ordersAPI;
 
-              console.log('order in admin constructor postresponse', this.postResponse);
+              console.log('orders in admin constructor', this.orders);
           }
       );
 
    }
-
-
-//    postOrder() {
-//     this.dataService.postData(this.order).subscribe(
-//         POSTorder => {
-//             this.orderResponse = POSTorder;
-//             console.log('next value: ', POSTorder);
-//             console.log('orderresponse', this.orderResponse);
-//         },
-//         error => {
-//             console.log('error', error);
-//         }
-//     );
-// }
 
   ngOnInit() {
   }
