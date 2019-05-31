@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { CartService } from 'src/app/services/cart.service';
 // import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-form',
@@ -30,7 +31,7 @@ orderForm: FormGroup = this.formBuilder.group({
     });
 
 
-constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService) {
+constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router) {
     this.cartContent = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
     console.log('constructor form comp cart: ', this.cartContent);
@@ -50,7 +51,8 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     //     }
     this.placeOrder();
     console.log('onsubmit, order: ', this.order);
-    this.postOrder();
+    // this.postOrder();
+    this.router.navigate(['../confirmed']);
     }
 
     get userName(): FormControl {

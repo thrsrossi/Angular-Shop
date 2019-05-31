@@ -19,6 +19,9 @@ import { CartService } from './services/cart.service';
 import { CartAsideComponent } from './components/cart-aside/cart-aside.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderFormComponent } from './components/order-form/order-form.component';
+import { OrderConfirmedComponent } from './components/order-confirmed/order-confirmed.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { OrderFormComponent } from './components/order-form/order-form.component
     PrintCartContainerComponent,
     CartAsideComponent,
     CheckoutComponent,
-    OrderFormComponent
+    OrderFormComponent,
+    OrderConfirmedComponent,
+    AdminComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
