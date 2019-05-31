@@ -52,10 +52,4 @@ describe('ModalComponent', () => {
     expect(testHostComponent.movie.name).toBe('hej');
     });
 
-    // it('should update variables with input value from modal', () => {
-    //     expect(testHostComponent.quantity);
-        
-    //     expect(testHostComponent.movie.name).toBe('hej');
-    //     });
-
 });

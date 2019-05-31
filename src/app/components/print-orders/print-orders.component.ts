@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IOrder } from 'src/app/interfaces/IOrder';
+import { IOrdersById } from 'src/app/interfaces/IOrdersById';
 
 @Component({
   selector: 'app-print-orders',
@@ -8,7 +8,7 @@ import { IOrder } from 'src/app/interfaces/IOrder';
 })
 export class PrintOrdersComponent implements OnInit {
 
-    @Input() order: IOrder;
+    @Input() order: IOrdersById;
 
   constructor() { }
 

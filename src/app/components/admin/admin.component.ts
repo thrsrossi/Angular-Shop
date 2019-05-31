@@ -9,15 +9,16 @@ import { IOrdersById } from 'src/app/interfaces/IOrdersById';
 })
 export class AdminComponent implements OnInit {
 
-    // order: IOrder;
     orders: IOrdersById[] = [];
 
   constructor(private dataService: DataService) {
       this.dataService.getOrders().subscribe(
           ordersAPI => {
               this.orders = ordersAPI;
-
               console.log('orders in admin constructor', this.orders);
+          },
+          error => {
+              console.log('getOrders could not get', error);
           }
       );
 
