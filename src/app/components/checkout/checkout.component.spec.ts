@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CheckoutComponent } from './checkout.component';
 import { OrderFormComponent } from '../order-form/order-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('CheckoutComponent', () => {
@@ -12,7 +14,7 @@ describe('CheckoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CheckoutComponent, OrderFormComponent ],
-      imports: [ FormsModule, ReactiveFormsModule ]
+      imports: [ FormsModule, ReactiveFormsModule, HttpClientTestingModule, RouterTestingModule ]
     })
     .compileComponents();
   }));

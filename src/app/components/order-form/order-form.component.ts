@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order-form',
@@ -30,7 +31,7 @@ orderForm: FormGroup = this.formBuilder.group({
     });
 
 
-constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router) {
+constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router, private http: HttpClient) {
     this.cartContent = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
     console.log('constructor form comp cart: ', this.cartContent);
