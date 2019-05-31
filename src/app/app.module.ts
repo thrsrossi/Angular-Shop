@@ -22,6 +22,7 @@ import { OrderFormComponent } from './components/order-form/order-form.component
 import { OrderConfirmedComponent } from './components/order-confirmed/order-confirmed.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PrintOrdersComponent } from './components/print-orders/print-orders.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     OrderFormComponent,
     OrderConfirmedComponent,
     AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PrintOrdersComponent
   ],
   imports: [
     BrowserModule,

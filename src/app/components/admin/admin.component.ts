@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IOrder } from 'src/app/interfaces/IOrder';
+import { DataService } from 'src/app/services/data.service';
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+    order: IOrder[] = [];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
