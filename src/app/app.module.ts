@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,11 @@ import { PrintCartContainerComponent } from './components/print-cart-container/p
 import { CartService } from './services/cart.service';
 import { CartAsideComponent } from './components/cart-aside/cart-aside.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrderFormComponent } from './components/order-form/order-form.component';
+import { OrderConfirmedComponent } from './components/order-confirmed/order-confirmed.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PrintOrdersComponent } from './components/print-orders/print-orders.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +35,19 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     CartContainerComponent,
     PrintCartContainerComponent,
     CartAsideComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderFormComponent,
+    OrderConfirmedComponent,
+    AdminComponent,
+    NotFoundComponent,
+    PrintOrdersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ DataService, CartService, MockDataService ],
   bootstrap: [AppComponent]

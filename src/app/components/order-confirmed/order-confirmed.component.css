@@ -1,0 +1,9 @@
+.confirmed-wrapper {
+    /* margin-top: 1rem; */
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 9rem;
+    background: #343837;
+}

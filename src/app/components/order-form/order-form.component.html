@@ -1,0 +1,35 @@
+
+
+<form [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
+    <label>Name: </label><br>
+    <input type="text" formControlName="userName" placeholder="Name"> <br>
+    <!-- [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }"> -->
+    <!-- <div *ngIf="submitted && formControls.userName.errors" class="invalid-feedback">
+            <div *ngIf="formControls.userName.errors.required">First Name is required</div>
+        </div> -->
+        <label>Email: </label> <br>
+    <input type="email" formControlName="userEmail" placeholder="Email"><br>
+    <button type="submit" [disabled]="!orderForm.valid">Place order</button>
+</form>
+
+<p>  Form Status: {{ orderForm.status }} </p>
+<p> userName: {{ orderForm.get('userName').value }} </p>
+<p> order: {{ order | json }}</p>
+
+
+
+
+<!-- <form [formGroup]=‘myForm’ (ngSubmit)=“myFunction()”>
+        <label for=‘name’>Namn</label>
+        <input type=‘text’ formControlName=“name” name=‘name’/>
+        <input type=‘text’ formControlName=“type” />
+        <input type=‘number’ formControlName=“age” />
+        <button type=“submit” [disabled]=“!myForm.valid”>Save</button>
+        {{myForm.value}}
+    </form>
+    
+    {{ myForm.value | json }} //skriver ut alla värden i formuläret
+    {{ myForm.status }}
+    {{ myForm.valid }}
+    {{ myForm.get(‘firstName’).valid }} -->
+

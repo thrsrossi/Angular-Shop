@@ -1,4 +1,5 @@
-.wrapper {
+.admin-wrapper {
+    /* margin-top: 1rem; */
     width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -6,13 +7,9 @@
     margin-top: 9rem;
     background: #343837;
 }
-.checkout-row {
+.admin-row {
     width: 95%;
     display: flex;
     justify-content: center;
-}
-.checkout-column {
-    flex: 1;
-    display: flex;
-    /* justify-content: center; */
+    margin: 3rem 0 6rem 0;
 }

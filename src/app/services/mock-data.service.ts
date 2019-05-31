@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { IDataService } from '../interfaces/IDataService';
 import { Observable, of } from 'rxjs';
+import { IOrder } from '../interfaces/IOrder';
+import { IOrdersById } from '../interfaces/IOrdersById';
 
 @Injectable({
   providedIn: 'root'
@@ -39,9 +41,66 @@ export class MockDataService implements IDataService {
         productCategory: []
     }];
 
+    orders: IOrdersById[] = [{
+        id: 187,
+        companyId: 3,
+        created: '201908128',
+        createdBy: 'string',
+        paymentMethod: 'string',
+        totalPrice: 87,
+        status: 0,
+        orderRows: [{id: 879,
+                    productId: 76,
+                    product: 'string',
+                    amount: 9,
+                    orderId: 187,
+                    },
+                    {id: 879,
+                    productId: 76,
+                    product: 'string',
+                    amount: 5,
+                    orderId: 187,
+                    }],
+    },
+    {
+        id: 876,
+        companyId: 3,
+        created: '87576590',
+        createdBy: 'heja',
+        paymentMethod: 'string',
+        totalPrice: 980,
+        status: 0,
+        orderRows: [{id: 790,
+                    productId: 76,
+                    product: 'string',
+                    amount: 7,
+                    orderId: 876,
+                    },
+                    {id: 879,
+                    productId: 76,
+                    product: 'string',
+                    amount: 1,
+                    orderId: 876,
+                    },
+                    {id: 879,
+                    productId: 76,
+                    product: 'string',
+                    amount: 1,
+                    orderId: 876,
+                    }],
+    }];
+
 
     getData(): Observable<IMovie[]> {
         return of(this.movies);
+    }
+
+    postData(order: IOrder) {
+        return of(order);
+    }
+
+    getOrders(): Observable<IOrdersById[]> {
+        return of(this.orders);
     }
 
   constructor() { }
