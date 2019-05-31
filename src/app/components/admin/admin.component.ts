@@ -10,9 +10,33 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class AdminComponent implements OnInit {
 
-    order: IOrder[] = [];
+    // order: IOrder;
+    postResponse: any[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+      this.dataService.order$.subscribe(
+          order => {
+              this.postResponse = order;
+
+              console.log('order in admin constructor postresponse', this.postResponse);
+          }
+      );
+
+   }
+
+
+//    postOrder() {
+//     this.dataService.postData(this.order).subscribe(
+//         POSTorder => {
+//             this.orderResponse = POSTorder;
+//             console.log('next value: ', POSTorder);
+//             console.log('orderresponse', this.orderResponse);
+//         },
+//         error => {
+//             console.log('error', error);
+//         }
+//     );
+// }
 
   ngOnInit() {
   }

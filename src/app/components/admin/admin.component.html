@@ -3,7 +3,7 @@
         <p>admin works!</p>
 
         <!-- <app-print-orders *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovie($event)"></app-print-orders> -->
-        <app-print-orders></app-print-orders>
+        <app-print-orders *ngFor='let order of postResponse' [order]='order'></app-print-orders>
     </div>
 </div>
 

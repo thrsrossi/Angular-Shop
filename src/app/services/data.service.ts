@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { IDataService } from '../interfaces/IDataService';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,10 @@ import { IOrder } from '../interfaces/IOrder';
 })
 export class DataService implements IDataService {
 
+    private orderSubject = new Subject<any[]>();
+    order$ = this.orderSubject.asObservable();
+    orders: any[] = [];
+
   constructor(private httpClient: HttpClient) { }
 
   getData(): Observable<IMovie[]> {
@@ -18,6 +22,13 @@ export class DataService implements IDataService {
 
   postData(order: IOrder) {
       return this.httpClient.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', order);
+  }
+
+  postResponse(response: any) {
+      this.orders.push(response);
+      this.orderSubject.next(this.orders);
+      console.log('dataservice, nextvalue', response, 'orders', this.orders);
+    //   return this.order;
   }
 
 }
