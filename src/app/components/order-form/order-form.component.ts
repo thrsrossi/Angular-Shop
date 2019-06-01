@@ -116,7 +116,7 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             lastName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
             email: ['', [Validators.required, Validators.email]],
             payment: [this.payments[0], Validators.required],
-            address: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            address: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
             county: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
             zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]]
         });

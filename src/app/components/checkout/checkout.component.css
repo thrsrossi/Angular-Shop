@@ -26,3 +26,32 @@
     border-left: 1px solid rgba(173, 175, 175, 0.5);
     padding-left: 1rem;
 }
+.order-form {
+    width: 65%;
+}
+
+
+@media screen and (max-width: 992px) {
+    .order-form {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .checkout-row {
+        width: 95%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .checkout-aside {
+        width: 85%;
+        
+    }
+    .checkout-column {
+        width: 90%;
+    }
+    .order-form {
+        width: 100%;
+    }
+}
