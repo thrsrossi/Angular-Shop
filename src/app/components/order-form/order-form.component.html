@@ -1,20 +1,36 @@
 
 
-<form [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
-    <label>Name: </label><br>
-    <input type="text" formControlName="userName" placeholder="Name"> <br>
+<form class="checkout-form" id="orderForm" [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
+    <label>First name: </label><br>
+    <input type="text" formControlName="firstName" placeholder="First name"> <br>
     <!-- [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }"> -->
     <!-- <div *ngIf="submitted && formControls.userName.errors" class="invalid-feedback">
             <div *ngIf="formControls.userName.errors.required">First Name is required</div>
         </div> -->
-        <label>Email: </label> <br>
-    <input type="email" formControlName="userEmail" placeholder="Email"><br>
+    <label>Last name: </label> <br>
+    <input type="text" formControlName="lastName" placeholder="Last name"><br>
+    <label>Email: </label> <br>
+    <input type="email" formControlName="email" placeholder="Email"><br>
+    <label>Address: </label> <br>
+    <input type="text" formControlName="address" placeholder="Address"><br>
+    <label>Zip code: </label> <br>
+    <input type="text" formControlName="zip" placeholder="Zip code"><br>
+    <label>County: </label> <br>
+    <input type="text" formControlName="county" placeholder="County"><br>
+    <label>Select payment: </label>
+    <select formControlName="payment" form="orderForm">
+        <option *ngFor="let payment of payments" [ngValue]="payment">{{payment}}</option>
+    </select>
+
     <button type="submit" [disabled]="!orderForm.valid">Place order</button>
 </form>
 
 <p>  Form Status: {{ orderForm.status }} </p>
-<p> userName: {{ orderForm.get('userName').value }} </p>
+<p> firstnme: {{ orderForm.get('firstName').value }} </p>
 <p> order: {{ order | json }}</p>
+<p> lastname: {{ orderForm.get('lastName').value }} </p>
+<p> email: {{ orderForm.get('email').value }} </p>
+<p> payment: {{ orderForm.get('payment').value }} </p>
 
 
 

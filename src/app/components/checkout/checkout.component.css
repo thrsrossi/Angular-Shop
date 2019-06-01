@@ -12,7 +12,17 @@
     justify-content: center;
 }
 .checkout-column {
-    flex: 1;
+    width: 75%;
     display: flex;
+    justify-content: center;
+    padding: 3rem;
     /* justify-content: center; */
+}
+.checkout-aside {
+    width: 25%;
+    /* border: 2px solid red; */
+    color: #fff;
+    /* background: #292C2C; */
+    border-left: 1px solid rgba(173, 175, 175, 0.5);
+    padding-left: 1rem;
 }
