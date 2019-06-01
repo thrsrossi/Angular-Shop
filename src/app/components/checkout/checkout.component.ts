@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ICartItem } from 'src/app/interfaces/ICartItem';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+    cart: ICartItem[];
+    totalPrice: number;
 
-  ngOnInit() {
+   constructor(private cartService: CartService) {}
+
+ngOnInit() {
+    this.cart = this.cartService.getCart();
+    this.totalPrice = this.cartService.getTotalPrice();
+
+    this.cartService.totalPriceCart$.subscribe(
+        cartTotal => {
+            this.totalPrice = cartTotal;
+        }
+      );
   }
 
 }

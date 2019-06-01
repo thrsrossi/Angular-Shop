@@ -7,7 +7,6 @@ import * as moment from 'moment';
 import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-order-form',
@@ -17,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class OrderFormComponent implements OnInit {
 
 order: IOrder;
+payments: string[] = ['Paypal', 'Venmo', 'Debit card'];
 
 cartContent: ICartItem[];
 orderRow: IOrderRow[] = [];
@@ -25,13 +25,11 @@ submitted = false;
 
 orderResponse: any;
 
-orderForm: FormGroup = this.formBuilder.group({
-        userName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-        userEmail: ['', [Validators.required, Validators.email]]
-    });
+orderForm: FormGroup;
 
 
-constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router, private http: HttpClient) {
+
+constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router) {
     this.cartContent = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
     console.log('constructor form comp cart: ', this.cartContent);
@@ -42,7 +40,7 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     e.preventDefault();
     console.log(this.orderForm.value);
     console.log(this.orderForm);
-    console.log(this.userName.value);
+    console.log(this.payment.value);
 
     //   this.submitted = true;
 
@@ -57,9 +55,28 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     // this.router.navigate(['../confirmed']);
     }
 
-    get userName(): FormControl {
-        return this.orderForm.get('userName') as FormControl;
+    get firstName(): FormControl {
+        return this.orderForm.get('firstName') as FormControl;
     }
+    get lastName(): FormControl {
+        return this.orderForm.get('lasttName') as FormControl;
+    }
+    get email(): FormControl {
+        return this.orderForm.get('email') as FormControl;
+    }
+    get payment(): FormControl {
+        return this.orderForm.get('payment') as FormControl;
+    }
+    get address(): FormControl {
+        return this.orderForm.get('address') as FormControl;
+    }
+    get zip(): FormControl {
+        return this.orderForm.get('zip') as FormControl;
+    }
+    get county(): FormControl {
+        return this.orderForm.get('county') as FormControl;
+    }
+
 
     // get formControls() {
     //     console.log('formcontrols: ', this.orderForm.controls);
@@ -70,8 +87,8 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             id: 0,
             companyId: 3,
             created: moment().format().substring(0, 19),
-            createdBy: this.userName.value,
-            paymentMethod: null,
+            createdBy: this.firstName.value,
+            paymentMethod: this.payment.value,
             totalPrice: this.totalPrice,
             status: 0,
             orderRows: this.orderRow
@@ -84,7 +101,6 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             POSTorder => {
                 this.orderResponse = POSTorder;
                 console.log('next value: ', POSTorder);
-                this.router.navigate(['../confirmed']);
                 // console.log('orderresponse', this.orderResponse);
                 // this.dataService.postResponse(POSTorder);
             },
@@ -95,6 +111,15 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     }
 
     ngOnInit() {
+        this.orderForm = this.formBuilder.group({
+            firstName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            lastName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            email: ['', [Validators.required, Validators.email]],
+            payment: [this.payments[0], Validators.required],
+            address: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            county: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]]
+        });
         this.orderRow = this.mapCart();
         console.log(this.orderRow);
         // this.orderRow.push(this.cartContent);

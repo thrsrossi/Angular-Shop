@@ -1,35 +1,30 @@
 
-
-<form [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
-    <label>Name: </label><br>
-    <input type="text" formControlName="userName" placeholder="Name"> <br>
+<h2>Enter customer details</h2>
+<form class="checkout-form" id="orderForm" [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
+    <input type="text" formControlName="firstName" placeholder="First name..">
     <!-- [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }"> -->
     <!-- <div *ngIf="submitted && formControls.userName.errors" class="invalid-feedback">
             <div *ngIf="formControls.userName.errors.required">First Name is required</div>
         </div> -->
-        <label>Email: </label> <br>
-    <input type="email" formControlName="userEmail" placeholder="Email"><br>
-    <button type="submit" [disabled]="!orderForm.valid">Place order</button>
+    <input type="text" formControlName="lastName" placeholder="Last name..">
+    <input type="email" formControlName="email" placeholder="Email..">
+    <input type="text" formControlName="address" placeholder="Address..">
+    <input type="text" formControlName="zip" placeholder="Zip code..">
+    <input type="text" formControlName="county" placeholder="County..">
+    <div class="payment-row">
+        <label>Select payment method: </label>
+        <select formControlName="payment" form="orderForm">
+            <option *ngFor="let payment of payments" [ngValue]="payment">{{payment}}</option>
+        </select>
+    </div>
+
+
+    <button type="submit" [disabled]="!orderForm.valid">place order</button>
 </form>
 
 <p>  Form Status: {{ orderForm.status }} </p>
-<p> userName: {{ orderForm.get('userName').value }} </p>
+<p> firstnme: {{ orderForm.get('firstName').value }} </p>
 <p> order: {{ order | json }}</p>
-
-
-
-
-<!-- <form [formGroup]=‘myForm’ (ngSubmit)=“myFunction()”>
-        <label for=‘name’>Namn</label>
-        <input type=‘text’ formControlName=“name” name=‘name’/>
-        <input type=‘text’ formControlName=“type” />
-        <input type=‘number’ formControlName=“age” />
-        <button type=“submit” [disabled]=“!myForm.valid”>Save</button>
-        {{myForm.value}}
-    </form>
-    
-    {{ myForm.value | json }} //skriver ut alla värden i formuläret
-    {{ myForm.status }}
-    {{ myForm.valid }}
-    {{ myForm.get(‘firstName’).valid }} -->
-
+<p> lastname: {{ orderForm.get('lastName').value }} </p>
+<p> email: {{ orderForm.get('email').value }} </p>
+<p> payment: {{ orderForm.get('payment').value }} </p>

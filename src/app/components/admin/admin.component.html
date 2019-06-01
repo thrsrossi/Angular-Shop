@@ -1,7 +1,11 @@
 <div class="admin-wrapper">
     <div class="admin-row">
+        <h2>All orders from customer 3</h2>
 
-        <app-print-orders *ngFor='let order of orders' [order]='order'></app-print-orders>
+        <div class="print-orders">
+            <app-print-orders *ngFor='let order of orders' [order]='order'></app-print-orders>
+        </div>
+
     </div>
 </div>
 

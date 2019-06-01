@@ -1,0 +1,60 @@
+input {
+    height: 3rem;
+    padding: 0 30px 0 30px;
+    /* position: relative; */
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: #000;
+    line-height: 1.2;
+    margin: 1rem 0;
+}
+input:focus {
+    outline: none;
+    border: 3px solid rgb(209, 178, 39);
+}
+button {
+    border-radius: 50px;
+    height: 3rem;
+    width: 100%;
+    color: #fff;
+    padding: 0px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    background: rgb(209, 178, 39);
+    margin: 1rem 0;
+}
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+label {
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 18px;
+}
+select {
+    width: 40%;
+    cursor: pointer;
+    height: 3rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+}
+.payment-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media screen and (max-width: 992px) {
+    
+}
