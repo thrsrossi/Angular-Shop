@@ -17,7 +17,7 @@
     <input type="text" formControlName="zip" placeholder="Zip code"><br>
     <label>County: </label> <br>
     <input type="text" formControlName="county" placeholder="County"><br>
-    <label>Select payment: </label>
+    <label>Select payment: </label><br>
     <select formControlName="payment" form="orderForm">
         <option *ngFor="let payment of payments" [ngValue]="payment">{{payment}}</option>
     </select>

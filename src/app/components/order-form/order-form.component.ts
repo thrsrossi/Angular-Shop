@@ -67,6 +67,15 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     get payment(): FormControl {
         return this.orderForm.get('payment') as FormControl;
     }
+    get address(): FormControl {
+        return this.orderForm.get('address') as FormControl;
+    }
+    get zip(): FormControl {
+        return this.orderForm.get('zip') as FormControl;
+    }
+    get county(): FormControl {
+        return this.orderForm.get('county') as FormControl;
+    }
 
 
     // get formControls() {
@@ -92,7 +101,6 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             POSTorder => {
                 this.orderResponse = POSTorder;
                 console.log('next value: ', POSTorder);
-                this.router.navigate(['../confirmed']);
                 // console.log('orderresponse', this.orderResponse);
                 // this.dataService.postResponse(POSTorder);
             },
@@ -107,7 +115,10 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             firstName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
             lastName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
             email: ['', [Validators.required, Validators.email]],
-            payment: [this.payments[0], Validators.required]
+            payment: [this.payments[0], Validators.required],
+            address: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            county: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+            zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]]
         });
         this.orderRow = this.mapCart();
         console.log(this.orderRow);
