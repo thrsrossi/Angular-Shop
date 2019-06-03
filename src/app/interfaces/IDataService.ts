@@ -10,4 +10,6 @@ export interface IDataService {
     postData(order: IOrder);
 
     getOrders(): Observable<IOrdersById[]>;
+
+    deleteOrder(orderId: number);
 }
