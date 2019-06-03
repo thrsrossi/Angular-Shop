@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { IOrdersById } from 'src/app/interfaces/IOrdersById';
+import { IOrderRow } from 'src/app/interfaces/IOrderRow';
 
 @Component({
   selector: 'app-admin',
