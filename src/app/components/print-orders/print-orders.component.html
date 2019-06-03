@@ -11,7 +11,6 @@
         </div>
         <div class="order-rows">
             <h3 class="total-price">Total price in SEK: </h3><p>{{order.totalPrice}}</p>
-            
         </div>
         <div class="order-rows">
             <h3 class="date">Order created: </h3><p>{{order.created.substring(0,10)}}</p>
@@ -28,8 +27,7 @@
     </div>
     
     <div class="button-column">
-            <!-- <button (click)="removeMovieRow(cartItem.movie)"><i class="fas fa-trash-alt"></i></button> -->
-        <button><i class="fas fa-trash-alt"></i></button>
+        <button (click)='sendIdToDelete()'><i class="fas fa-trash-alt"></i></button>
     </div>
 </div>
 

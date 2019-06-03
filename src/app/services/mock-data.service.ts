@@ -103,5 +103,9 @@ export class MockDataService implements IDataService {
         return of(this.orders);
     }
 
+    deleteOrder(orderId: number) {
+        return of(orderId);
+    }
+
   constructor() { }
 }

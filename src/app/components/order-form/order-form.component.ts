@@ -52,7 +52,8 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     // this.dataService.getOrderToPost(this.order);
     // console.log('onsubmit, order: ', this.order);
     this.postOrder();
-    // this.router.navigate(['../confirmed']);
+    sessionStorage.clear();
+    this.router.navigate(['../confirmed']);
     }
 
     get firstName(): FormControl {
