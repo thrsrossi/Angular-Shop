@@ -12,43 +12,46 @@ export class CartService {
     const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
     if (sessionStorageContent === null) {
         this.cart = [];
-        this.cartCount = 0;
+        this.totalQuantity = 0;
         // console.log('constructor, cart null: ', this.cart);
     } else {
         this.cart = sessionStorageContent;
         console.log('constructor, cart yes: ', this.cart);
 
-        // get total price
+        // get total price and totalquantity
         let calculatedPrice: number = 0;
         let priceOfMovie: number = 0;
         let quantityOfMovies: number = 0;
+        let totalQuantityLoop: number = 0;
 
         for (const cartItem of this.cart) {
             priceOfMovie = cartItem.movie.price;
             quantityOfMovies = cartItem.quantity;
             calculatedPrice += priceOfMovie * quantityOfMovies;
+            totalQuantityLoop += quantityOfMovies;
         }
         this.totalPrice = calculatedPrice;
-        this.cartCount = this.cart.length;
+        // this.cartCount = this.cart.length;
+        this.totalQuantity = totalQuantityLoop;
     }
-    // console.log('constructor cartservice, totalprice: ', this.totalPrice);
   }
 
 
 
   private cartSubject = new Subject<ICartItem[]>();
   private cartTotalSubject = new Subject<number>();
-//   private cartRow = new Subject<number>();
+  private quantitySubject = new Subject<number>();
 
 
   currentCart$ = this.cartSubject.asObservable();
   totalPriceCart$ = this.cartTotalSubject.asObservable();
-//   rowCountO$ = this.cartRow.asObservable();
+  totalQuantity$ = this.quantitySubject.asObservable();
 
 
   private cart: ICartItem[] = [];
   private totalPrice: number;
-  cartCount: number;
+//   cartCount: number;
+  totalQuantity: number;
 
 
 
@@ -73,7 +76,6 @@ export class CartService {
   }
 
   getCart(): ICartItem[] {
-    //   this.cartSubject.next(this.cart);
       return this.cart;
     }
 
@@ -113,7 +115,6 @@ export class CartService {
             if (this.cart[i].quantity === 0) {
                 this.cart.splice(i, 1);
             }
-
         }
         this.culculateTotalPrice();
         this.cartSubject.next(this.cart);
@@ -124,19 +125,23 @@ export class CartService {
         let calculatedPrice: number = 0;
         let priceOfMovie: number = 0;
         let quantityOfMovies: number = 0;
+        let totalQuantityLoop: number = 0;
 
         for (const cartItem of this.cart) {
             priceOfMovie = cartItem.movie.price;
             quantityOfMovies = cartItem.quantity;
-            // calculatedPrice += this.cart[i].quantity * this.cart[i].movie.price;
-            console.log('priceofmovieinloop: ', priceOfMovie);
-            console.log('quantityinloop: ', quantityOfMovies);
+            // console.log('priceofmovieinloop: ', priceOfMovie);
+            // console.log('quantityinloop: ', quantityOfMovies);
             calculatedPrice += priceOfMovie * quantityOfMovies;
+            totalQuantityLoop += quantityOfMovies;
         }
 
-        console.log('calculatetotalprice - after loop: ', calculatedPrice);
+        // console.log('calculatetotalprice - after loop: ', calculatedPrice);
         this.totalPrice = calculatedPrice;
+        this.totalQuantity = totalQuantityLoop;
+        console.log('calctoatalprice, quantity after loop', this.totalQuantity);
         this.cartTotalSubject.next(this.totalPrice);
+        this.quantitySubject.next(this.totalQuantity);
 
         // return this.totalPriceCart$;
         // return this.totalPrice;
@@ -145,6 +150,18 @@ export class CartService {
     getTotalPrice(): number {
         // return this.cartTotalSubject.next(this.totalPrice);
         return this.totalPrice;
+    }
+    getTotalQuantity(): number {
+        // this.quantitySubject.next(this.totalQuantity);
+        return this.totalQuantity;
+    }
+
+    clearCart() {
+        sessionStorage.clear();
+        this.cart = [];
+        this.totalQuantity = 0;
+        this.cartSubject.next(this.cart);
+        this.quantitySubject.next(this.totalQuantity);
     }
 
 }

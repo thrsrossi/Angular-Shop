@@ -3,7 +3,7 @@
         <h2>All orders from customer 3</h2>
 
         <div class="print-orders">
-            <app-print-orders *ngFor='let order of orders' [order]='order'></app-print-orders>
+            <app-print-orders *ngFor='let order of orders' [order]='order' (remove)='deleteOrder($event)'></app-print-orders>
         </div>
 
     </div>
