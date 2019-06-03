@@ -12,12 +12,13 @@ export class CartComponent implements OnInit {
     // movieRecieved: IMovie;
 
     cart: ICartItem[];
-    cartCount: number;
+    // cartCount: number;
+    totalQuantity: number;
 
   constructor(private cartService: CartService) {
     this.cart = this.cartService.getCart();
-    this.cartCount = this.cart.length;
-    console.log('cartcomponent constructor cart: ', this.cart, 'row: ', this.cartCount);
+    // this.cartCount = this.cart.length;
+    this.totalQuantity = this.cartService.getTotalQuantity();
    }
 
 
@@ -34,11 +35,16 @@ export class CartComponent implements OnInit {
     this.cartService.currentCart$.subscribe(
         cart => {
             this.cart = cart;
-            this.cartCount = this.cart.length;
-            console.log('cartrow from cart component', this.cartCount, 'and cart: ', this.cart);
+            // this.cartCount = this.cart.length;
+            // console.log('cartrow from cart component', this.cartCount, 'and cart: ', this.cart);
         }
       );
-
+    this.cartService.totalQuantity$.subscribe(
+          quantity => {
+              this.totalQuantity = quantity;
+              console.log('cart oninit quantity: ', this.totalQuantity);
+          }
+      );
     }
 
     // updateCartCount() {

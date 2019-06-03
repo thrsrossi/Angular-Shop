@@ -52,7 +52,7 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     // this.dataService.getOrderToPost(this.order);
     // console.log('onsubmit, order: ', this.order);
     this.postOrder();
-    sessionStorage.clear();
+    this.cartService.clearCart();
     this.router.navigate(['../confirmed']);
     }
 
