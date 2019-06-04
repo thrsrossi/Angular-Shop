@@ -1,16 +1,43 @@
 
 <h2>Enter customer details</h2>
-<form class="checkout-form" id="orderForm" [formGroup]='orderForm' (ngSubmit)="onSubmit($event)" novalidate>
-    <input type="text" formControlName="firstName" placeholder="First name..">
-    <!-- [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }"> -->
-    <!-- <div *ngIf="submitted && formControls.userName.errors" class="invalid-feedback">
-            <div *ngIf="formControls.userName.errors.required">First Name is required</div>
-        </div> -->
-    <input type="text" formControlName="lastName" placeholder="Last name..">
-    <input type="email" formControlName="email" placeholder="Email..">
-    <input type="text" formControlName="address" placeholder="Address..">
-    <input type="text" formControlName="zip" placeholder="Zip code..">
-    <input type="text" formControlName="county" placeholder="County..">
+<!-- novalidate -->
+<form class="checkout-form" id="orderForm" [formGroup]='orderForm' (ngSubmit)="onSubmit($event)">
+    <input type="text" formControlName="firstName" placeholder="First name.." required>
+    <div *ngIf="formControls['firstName'].errors?.required && (firstName.dirty || firstName.touched)" class="alert-danger">
+        * First name is required
+    </div>
+    <div *ngIf="formControls['firstName'].errors?.pattern && (firstName.dirty || firstName.touched)" class="alert-danger">
+            * First name cannot contain special characters
+        </div>
+
+    <input type="text" formControlName="lastName" placeholder="Last name.." required>
+    <div *ngIf="formControls['lastName'].errors?.required && (lastName.dirty || lastName.touched)" class="alert-danger">
+            * Last name is required
+        </div>
+        <div *ngIf="formControls['lastName'].errors?.pattern && (lastName.dirty || lastName.touched)" class="alert-danger">
+                * Last name cannot contain special characters
+            </div>
+
+    <input type="email" formControlName="email" placeholder="Email.." required>
+    <div *ngIf="formControls['email'].errors?.required && (email.dirty || email.touched)" class="alert-danger">
+            * Email is required
+        </div>
+        <div *ngIf="formControls['email'].errors?.email && (email.dirty || email.touched)" class="alert-danger">
+                * Email format is invalid
+            </div>
+
+    <input type="text" formControlName="address" placeholder="Address.." required>
+    <div *ngIf="formControls['address'].errors?.required && (address.dirty || address.touched)" class="alert-danger">
+            * Address is required
+        </div>
+    <input type="text" formControlName="zip" placeholder="Zip code.." required>
+    <div *ngIf="formControls['zip'].errors?.required && (zip.dirty || zip.touched)" class="alert-danger">
+            * Zip code is required
+        </div>
+    <input type="text" formControlName="county" placeholder="County.." required>
+    <div *ngIf="formControls['county'].errors?.required && (county.dirty || county.touched)" class="alert-danger">
+            * County is required
+        </div>
     <div class="payment-row">
         <label>Select payment method: </label>
         <select formControlName="payment" form="orderForm">
@@ -18,9 +45,9 @@
         </select>
     </div>
 
-
     <button type="submit" [disabled]="!orderForm.valid">place order</button>
 </form>
+
 
 <p>  Form Status: {{ orderForm.status }} </p>
 <p> firstnme: {{ orderForm.get('firstName').value }} </p>
