@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     border-top: 1px solid #808080;
+    margin-top: 1rem;
 }
 .modal-column {
     margin: 1rem;
@@ -23,6 +24,15 @@
 .inner-content-modal p {
     font-family: 'Raleway', sans-serif;
     line-height: 130%;
+}
+.price-info {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: flex-end;
+}
+.price-info h3 {
+    font-size: 2.5rem;
+    font-family: 'Cormorant', serif;
 }
 
 
@@ -58,6 +68,7 @@ button {
     outline: 0;
     text-align: center;
     background: rgb(209, 178, 39);
+    font-family: 'Raleway', sans-serif;
 }
 /* button:hover {
     color: red;
@@ -79,15 +90,74 @@ input[type="number"] {
     width: 40px;
 }
 .add-button {
-    width: 6rem;
+    width: 8rem;
 }
 .adding-quantity {
     margin: 2rem 0;
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 .adding-quantity p {
     font-size: 2rem;
+}
+.adding-buttons {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 987px) {
+    .image-box {
+        height: 20rem;
+    }
+    .image-box img {
+        height: 20rem;
+    }
+}
+@media screen and (max-width: 567px) {
+    .image-box {
+        height: 15rem;
+    }
+    .image-box img {
+        height: 15rem;
+        margin-right: 1rem;
+    }
+    .adding-quantity {
+        flex-direction: column;
+    }
+    .modal-column {
+        min-height: auto;
+        margin: 1rem 0 0 0;
+    }
+    .modal-row {
+        align-items: flex-start;
+    }
+    .price-info {
+        margin-top: 2rem;
+    }
+    .adding-buttons {
+        width: 100%
+    }
+    .add-button {
+        width: 100%;
+        margin-top: 2rem;
+    }
+}
+@media screen and (max-width: 356px) {
+    .image-box {
+        height: 11rem;
+    }
+    .image-box img {
+        height: 11rem;
+    }
+    .description {
+        display: none;
+    }
+    .price-info {
+        margin-top: 0;
+    }
+
+
 }

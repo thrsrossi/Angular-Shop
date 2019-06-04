@@ -55,6 +55,16 @@ i {
     color: rgb(209, 178, 39);
 }
 
-
-
-  
+@media screen and (max-width: 824px) {
+    .left {
+        flex: 0;
+    }
+    .right {
+        flex: 2;
+    }
+}
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 2rem;
+    }
+}

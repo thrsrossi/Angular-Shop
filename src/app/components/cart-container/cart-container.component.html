@@ -4,17 +4,14 @@
             <div *ngIf="cart.length === 0" class="empty">
                 <h2>Oops!</h2>
                 <h3>Your cart seems to be empty.</h3>
+                <a routerLink="../" activatedRouterLink="active">get shopping</a>
             </div>
             <app-print-cart-container *ngFor='let cartItem of cart' [cartItem]='cartItem' ></app-print-cart-container>
         </div>
 
-        <aside class="cart-aside">
+        <aside *ngIf="cart.length > 0" class="cart-aside">
             <div class="aside-header">
                 <h3>Cart</h3>
-            </div>
-
-            <div *ngIf="cart.length === 0">
-                <!-- <h3>cart is empty</h3> -->
             </div>
 
             <div *ngIf="cart">
@@ -29,8 +26,8 @@
                 </div>
 
                 <div class="buttons">
-                    <a routerLink="../" activatedRouterLink="active"><button>keep shopping</button></a>
-                    <a routerLink="../checkout" activatedRouterLink="active"><button>checkout</button></a>
+                    <a routerLink="../" activatedRouterLink="active">keep shopping</a>
+                    <a routerLink="../checkout" activatedRouterLink="active">checkout</a>
                 </div>
             </div>
         </aside>

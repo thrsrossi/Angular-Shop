@@ -160,8 +160,9 @@ export class CartService {
         sessionStorage.clear();
         this.cart = [];
         this.totalQuantity = 0;
+        this.totalPrice = 0;
         this.cartSubject.next(this.cart);
         this.quantitySubject.next(this.totalQuantity);
+        this.cartTotalSubject.next(this.totalPrice);
     }
-
 }
