@@ -109,22 +109,34 @@ a {
 }
 
 
+@media screen and (max-width: 1200px) {
+    .checkout-aside {
+        width: 35%;
+    }
+    .checkout-column {
+        width: 65%;
+    }
+    .order-form {
+        width: 75%;
+    }
+}
 @media screen and (max-width: 992px) {
     .order-form {
         width: 95%;
     }
 }
 
-@media screen and (max-width: 678px) {
+
+@media screen and (max-width: 825px) {
     .checkout-row {
         width: 95%;
         display: flex;
         align-items: center;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     .checkout-aside {
-        width: 85%;
-        
+        width: 100%;
+        border-left: none;
     }
     .checkout-column {
         width: 90%;
@@ -132,4 +144,10 @@ a {
     .order-form {
         width: 100%;
     }
+    .checkout-column {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+}
+@media screen and (max-width: 529px) {
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { IOrder } from 'src/app/interfaces/IOrder';
 import { IOrderRow } from 'src/app/interfaces/IOrderRow';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { IFormData } from 'src/app/interfaces/IFormData';
 
 @Component({
   selector: 'app-order-form',
@@ -26,14 +27,17 @@ submitted = false;
 orderResponse: any;
 
 orderForm: FormGroup;
+error: any;
+// formValues: IFormData;
+errors = [];
 
 
 
 constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router) {
     this.cartContent = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
-    console.log('constructor form comp cart: ', this.cartContent);
-    console.log('constructor form comp totalprice: ', this.totalPrice);
+    // console.log('constructor form comp cart: ', this.cartContent);
+    // console.log('constructor form comp totalprice: ', this.totalPrice);
 }
 
     onSubmit(e): void {
@@ -42,11 +46,12 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     console.log(this.orderForm);
     console.log(this.payment.value);
 
-    //   this.submitted = true;
+    // this.submitted = true;
 
+    // // stop here if form is invalid
     // if (this.orderForm.invalid) {
-    //         return;
-    //     }
+    //     return;
+    // }
 
     this.placeOrder();
     // this.dataService.getOrderToPost(this.order);
@@ -60,7 +65,7 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
         return this.orderForm.get('firstName') as FormControl;
     }
     get lastName(): FormControl {
-        return this.orderForm.get('lasttName') as FormControl;
+        return this.orderForm.get('lastName') as FormControl;
     }
     get email(): FormControl {
         return this.orderForm.get('email') as FormControl;
@@ -79,10 +84,35 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     }
 
 
-    // get formControls() {
-    //     console.log('formcontrols: ', this.orderForm.controls);
-    //     return this.orderForm.controls;
+    get formControls() {
+        console.log('formcontrols: ', this.orderForm.controls);
+        return this.orderForm.controls;
+    }
+
+
+
+    //  patternValidator(regexp: RegExp): ValidatorFn {
+    //   return (control: AbstractControl): { [key: string]: any } => {
+    //     const value = control.value;
+    //     if (value === '') {
+    //       return null;
+    //     }
+    //     return !regexp.test(value) ? { 'patternInvalid': { regexp } } : null;
+    //   };
     // }
+        // getErrorMessage(controlName, displayName) {
+        //     let result = "";
+        //     let errors  = loginForm.controls[controlName].errors;
+        //     if (errors.required) {
+        //         result += (displayName + " is required.");
+        //     }
+        //     if (errors.whatever) {
+        //         result += "Whatever you like";
+        //     }
+        //     return result;
+        // }
+
+
     placeOrder() {
         this.order = {
             id: 0,
@@ -111,20 +141,84 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
         );
     }
 
+
     ngOnInit() {
+        // this.orderForm = new FormGroup({
+        //     'firstName': new FormControl(this.formValues.firstName,
+        //     [Validators.required,
+        //     Validators.minLength(4),
+        //     Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)
+        //     ]),
+        //     'lastName': new FormControl(this.formValues.lastName,
+        //     [Validators.required,
+        //     Validators.minLength(4),
+        //     Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)
+        //     ]),
+        //     'email': new FormControl(this.formValues.email,
+        //     [Validators.required, Validators.email
+        //     ]),
+        //     'address': new FormControl(this.formValues.address,
+        //     [Validators.required,
+        //     Validators.minLength(6),
+        //     Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)
+        //     ]),
+        //     'zip': new FormControl(this.formValues.zip,
+        //     [Validators.required,
+        //     Validators.maxLength(6),
+        //     Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)
+        //     ]),
+        //     'county': new FormControl(this.formValues.county,
+        //     [Validators.required,
+        //     Validators.minLength(4),
+        //     Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)
+        //     ]),
+        //     'payment': new FormControl(this.formValues.paymentMethod,
+        //     Validators.required
+        //     )
+        // });
+
         this.orderForm = this.formBuilder.group({
-            firstName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-            lastName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-            email: ['', [Validators.required, Validators.email]],
-            payment: [this.payments[0], Validators.required],
-            address: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-            county: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-            zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]]
+        firstName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        lastName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        email: ['', [Validators.required, Validators.email]],
+        payment: [this.payments[0], Validators.required],
+        address: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        county: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]]
         });
+
         this.orderRow = this.mapCart();
-        console.log(this.orderRow);
-        // this.orderRow.push(this.cartContent);
+
+
+        // this.control.valueChanges.subscribe(() => {
+        //     const controlErrors = this.control.errors;
+        //     if (controlErrors) {
+        //         console.log(controlErrors);
+        //     }
+        // });
     }
+
+    // get firstName() {
+    //     return this.orderForm.get('firstName');
+    // }
+    // get lastName() {
+    //     return this.orderForm.get('lasttName');
+    // }
+    // get email() {
+    //     return this.orderForm.get('email');
+    // }
+    // get payment() {
+    //     return this.orderForm.get('payment');
+    // }
+    // get address() {
+    //     return this.orderForm.get('address');
+    // }
+    // get zip() {
+    //     return this.orderForm.get('zip');
+    // }
+    // get county() {
+    //     return this.orderForm.get('county');
+    // }
 
 
     mapCart(): any[] {
