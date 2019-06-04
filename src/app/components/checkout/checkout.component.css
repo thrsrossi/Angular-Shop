@@ -81,12 +81,16 @@ a {
     outline: 0;
     text-align: center;
     background: rgb(209, 178, 39);
+    line-height: 40px;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    display: inline-block;
 }
-a {
+/* a {
     display: inline-block;
     text-decoration: none;
 
-}
+} */
 .empty {
     display: flex;
     justify-content: center;

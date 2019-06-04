@@ -26,7 +26,7 @@
 
     /* position: absolute; */
 
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.7);
 }
 /* .overlay {
     position: absolute;
@@ -37,11 +37,11 @@
     z-index: 995;
     background: rgba(0,0,0,0.85);
   } */
-  .toggle-visibility {
-    display: flex;
-  }
+.toggle-visibility {
+display: flex;
+}
 
-  .modal-content {
+.modal-content {
     z-index: 999;
     position: absolute;
     top: 50%;
@@ -71,12 +71,33 @@
     padding: 1rem;
   }
   
-  .close-modal:hover {
-    opacity: 0.9;
-  }
+.close-modal:hover {
+opacity: 0.9;
+}
   
 
+@media screen and (max-width: 1245px) {
+    .modal-content {
+        width: 60%;
+    }
+}
 
+@media screen and (max-width: 1068px) {
+    .modal-content {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 868px) {
+    .modal-content {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 657px) {
+    .modal-content {
+        width: 92%;
+        padding: 1rem;
+    }
+}
 
 
 

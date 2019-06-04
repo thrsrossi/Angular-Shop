@@ -1,5 +1,4 @@
 <div class="wrapper">
-
     <div class="checkout-row">
         <div class="checkout-column">
             <div class="order-form">
@@ -8,14 +7,10 @@
 
         </div>
 
-        <div class="checkout-aside">
+        <div *ngIf="cart.length > 0" class="checkout-aside">
                 
             <div class="aside-header">
                 <h3>Cart</h3>
-            </div>
-
-            <div *ngIf="cart.length === 0">
-                <!-- <h3>cart is empty</h3> -->
             </div>
 
             <div *ngIf="cart">
@@ -30,14 +25,10 @@
                 </div>
 
                 <div class="buttons">
-                    <a routerLink="../" activatedRouterLink="active"><button>keep shopping</button></a>
-                    <a routerLink="../cart" activatedRouterLink="active"><button>change cart</button></a>
+                    <a routerLink="../" activatedRouterLink="active">keep shopping</a>
+                    <a routerLink="../cart" activatedRouterLink="active">view cart</a>
                 </div>
+            </div>
         </div>
-                  
-
-        </div>
-
     </div>
-
 </div>
