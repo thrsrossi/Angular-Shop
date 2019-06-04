@@ -102,3 +102,25 @@ a {
     width: 40%;
     margin-top: 3rem;
 }
+
+@media screen and (max-width: 1076px) {
+    .cart-column {
+        width: 65%;
+    }
+    .cart-aside {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    .cart-row {
+        flex-direction: column;
+    }
+    .cart-column {
+        width: 100%;
+    }
+    .cart-aside {
+        width: 100%;
+        border-left: none;
+    }
+}
