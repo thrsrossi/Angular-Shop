@@ -29,6 +29,7 @@ button {
     text-align: center;
     background: rgb(209, 178, 39);
     margin: 1rem 0;
+    font-family: 'Raleway', sans-serif;
 }
 h2 {
     font-family: 'Playfair Display', serif;

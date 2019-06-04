@@ -62,7 +62,6 @@
     display: flex;
     margin: 2rem 0;
 }
-button,
 a {
     border-radius: 50px;
     height: 40px;
@@ -75,12 +74,14 @@ a {
     outline: 0;
     text-align: center;
     background: rgb(209, 178, 39);
-}
-a {
-    display: inline-block;
+    line-height: 40px;
+    font-family: 'Raleway', sans-serif;
     text-decoration: none;
-
+    display: inline-block;
 }
+/* a {
+    width: 100%;
+} */
 .empty {
     display: flex;
     justify-content: center;
@@ -96,4 +97,8 @@ a {
 }
 .empty h3 {
     font-size: 2rem;
+}
+.empty a {
+    width: 40%;
+    margin-top: 3rem;
 }

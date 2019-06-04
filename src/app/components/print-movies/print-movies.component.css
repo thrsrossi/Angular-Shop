@@ -87,6 +87,7 @@ button {
     outline: 0;
     text-align: center;
     background: rgb(209, 178, 39);
+    font-family: 'Raleway', sans-serif;
     
     /* display: inline-block; */
     position: absolute;
