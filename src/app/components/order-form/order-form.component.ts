@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IOrder } from 'src/app/interfaces/IOrder';
 import { IOrderRow } from 'src/app/interfaces/IOrderRow';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
@@ -8,6 +8,9 @@ import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { IFormData } from 'src/app/interfaces/IFormData';
+import { IOrdersById } from 'src/app/interfaces/IOrdersById';
+import { OrderService } from 'src/app/services/order.service';
+import { IOrderRows } from 'src/app/interfaces/IOrderRows';
 
 @Component({
   selector: 'app-order-form',
@@ -22,18 +25,17 @@ payments: string[] = ['Paypal', 'Venmo', 'Debit card'];
 cartContent: ICartItem[];
 orderRow: IOrderRow[] = [];
 totalPrice: number;
-submitted = false;
+// submitted = false;
 
 orderResponse: any;
 
 orderForm: FormGroup;
-error: any;
-// formValues: IFormData;
-errors = [];
+formValues: IFormData;
 
 
 
-constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router) {
+
+constructor(private formBuilder: FormBuilder, private cartService: CartService, private dataService: DataService, private router: Router, private orderService: OrderService) {
     this.cartContent = this.cartService.getCart();
     this.totalPrice = this.cartService.getTotalPrice();
     // console.log('constructor form comp cart: ', this.cartContent);
@@ -42,21 +44,16 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
 
     onSubmit(e): void {
     e.preventDefault();
-    console.log(this.orderForm.value);
-    console.log(this.orderForm);
-    console.log(this.payment.value);
-
-    // this.submitted = true;
-
-    // // stop here if form is invalid
-    // if (this.orderForm.invalid) {
-    //     return;
-    // }
+    console.log('orderformvalueorderformcomp', this.orderForm.value);
+    // console.log('orderform', this.orderForm);
+    // console.log('payment value', this.payment.value);
 
     this.placeOrder();
-    // this.dataService.getOrderToPost(this.order);
-    // console.log('onsubmit, order: ', this.order);
     this.postOrder();
+    this.formValues = this.orderForm.value;
+    console.log('formvalues component', this.formValues);
+    this.orderService.setFormValues(this.formValues);
+    this.orderService.setCartContent(this.cartContent);
     this.cartService.clearCart();
     this.router.navigate(['../confirmed']);
     }
@@ -83,34 +80,16 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
         return this.orderForm.get('county') as FormControl;
     }
 
-
-    get formControls() {
-        console.log('formcontrols: ', this.orderForm.controls);
-        return this.orderForm.controls;
-    }
-
-
-
-    //  patternValidator(regexp: RegExp): ValidatorFn {
-    //   return (control: AbstractControl): { [key: string]: any } => {
-    //     const value = control.value;
-    //     if (value === '') {
-    //       return null;
-    //     }
-    //     return !regexp.test(value) ? { 'patternInvalid': { regexp } } : null;
-    //   };
+    // get orderInfo(): FormControl {
+    //     return this.orderForm as FormControl;
     // }
-        // getErrorMessage(controlName, displayName) {
-        //     let result = "";
-        //     let errors  = loginForm.controls[controlName].errors;
-        //     if (errors.required) {
-        //         result += (displayName + " is required.");
-        //     }
-        //     if (errors.whatever) {
-        //         result += "Whatever you like";
-        //     }
-        //     return result;
-        // }
+
+
+    // get formControls() {
+    //     console.log('formcontrols: ', this.orderForm.controls);
+    //     return this.orderForm.controls;
+    // }
+
 
 
     placeOrder() {
@@ -131,9 +110,9 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
         this.dataService.postData(this.order).subscribe(
             POSTorder => {
                 this.orderResponse = POSTorder;
-                console.log('next value: ', POSTorder);
-                // console.log('orderresponse', this.orderResponse);
-                // this.dataService.postResponse(POSTorder);
+                this.orderService.setPostResponse(this.orderResponse);
+                // console.log('post orderresponse', this.orderResponse);
+                // console.log('next value: ', POSTorder);
             },
             error => {
                 console.log('error', error);
@@ -188,14 +167,6 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
         });
 
         this.orderRow = this.mapCart();
-
-
-        // this.control.valueChanges.subscribe(() => {
-        //     const controlErrors = this.control.errors;
-        //     if (controlErrors) {
-        //         console.log(controlErrors);
-        //     }
-        // });
     }
 
     // get firstName() {
