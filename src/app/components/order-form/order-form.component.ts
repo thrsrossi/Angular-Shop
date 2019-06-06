@@ -111,7 +111,7 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
             POSTorder => {
                 this.orderResponse = POSTorder;
                 this.orderService.setPostResponse(this.orderResponse);
-                // console.log('post orderresponse', this.orderResponse);
+                console.log('post orderresponse', this.orderResponse);
                 // console.log('next value: ', POSTorder);
             },
             error => {

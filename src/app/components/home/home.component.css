@@ -14,6 +14,11 @@
     justify-content: space-evenly;
     margin-top: 3rem;
 }
+.movie-row:after {
+    content: "";
+    flex: 0 1 50rem;
+    /* flex: auto; */
+}
 
 .modal {
     display: none;

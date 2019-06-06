@@ -13,7 +13,7 @@ import { IFormData } from '../interfaces/IFormData';
 export class OrderService {
 
     private orderCartSubject = new Subject<ICartItem[]>();
-    private postResponseSubject = new Subject<any>();
+    private postResponseSubject = new Subject<IOrdersById>();
     private orderRowSubject = new Subject<IOrderRow>();
     private orderRowsSubject = new Subject<IOrderRows>();
     private formInfoSubject = new Subject<IFormData>();
@@ -32,7 +32,7 @@ export class OrderService {
     formInfo: IFormData;
 
 
-    setPostResponse(response: any) {
+    setPostResponse(response: IOrdersById) {
         this.orderResponse = response;
         console.log('orderservice: response', response);
         this.postResponseSubject.next(response);
@@ -49,7 +49,7 @@ export class OrderService {
     }
 
     getPostResponse(): any {
-        return this.orderCart;
+        return this.orderResponse;
     }
     getCartContent(): ICartItem[] {
         return this.orderCart;
