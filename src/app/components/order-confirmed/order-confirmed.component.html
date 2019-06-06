@@ -1,6 +1,46 @@
-<div class="confirmed-wrapper">
+<div  *ngIf='orderCart && orderResponse && formValues' class="confirmed-wrapper">
+    <!-- <div class="confirmed-row"> -->
+        <div class="confirmed-row">
 
-    <h2>Thank you for your order</h2>
+            <div class="thanks">
+                <h2>Thank you <span>{{orderResponse.createdBy}}</span> for your order!</h2>
+                <!-- <h3>Order number #{{orderResponse.id}}</h3> -->
+                <p>An email has been sent to {{formValues.email}} with all the order details</p>
+            </div>
+        <div class="order-details">
 
+            <div class="cart-wrapper">
+                <div class="cart-content" *ngFor='let movie of movieInfo'>
+                    <div class="image">
+                        <img [src]="movie.movieUrl" alt="Movie poster of {{movie.movieUrl}}">
+                    </div>
+                    <div class="cart-content-column">
+                        <h4>{{movie.movieTitle}}</h4>
+                        <p>QTY: {{movie.movieQuantity}}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="delivery">
+                <div class="order-number">
+                    <h4>Order number: </h4>
+                    <p>#{{orderResponse.id}}</p>
+                </div>
+                <div class="mobile-bottom">
+
+                    <div class="address">
+                        <h4>Delivery details: </h4>
+                        <p>{{formValues.firstName}} {{formValues.lastName}}</p>
+                        <p>{{formValues.address}}</p>
+                        <p>{{formValues.zip}} {{formValues.county}}</p>
+                    </div>
+                    <div class="price">
+                        <h4>Total price: </h4>
+                        <p>{{orderResponse.totalPrice}} SEK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
 </div>
-
