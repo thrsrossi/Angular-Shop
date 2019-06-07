@@ -86,11 +86,6 @@ a {
     text-decoration: none;
     display: inline-block;
 }
-/* a {
-    display: inline-block;
-    text-decoration: none;
-
-} */
 .empty {
     display: flex;
     justify-content: center;
