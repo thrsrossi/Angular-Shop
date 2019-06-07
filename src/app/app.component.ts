@@ -9,9 +9,19 @@ export class AppComponent {
   title = 'movieShop';
 
     toggleVisibility: boolean;
+    inputValue: string;
 
 //   toggleCart() {
 //     this.toggleVisibility = !this.toggleVisibility;
 //   }
+
+    handleInput(input: string) {
+        console.log('inout on eneter', input);
+    }
+    searchMovie(movie: string) {
+        console.log('search movie, ', movie);
+    }
+
+
 
 }

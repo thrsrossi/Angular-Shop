@@ -13,9 +13,9 @@
         <div class="quantity">
             <p class="qty">QTY:</p>
             <div class="buttons">
-                <button class="left" (click)="subtractMovieQuantity(cartItem.movie)"><i class="fas fa-minus"></i></button>
+                <button class="left small" (click)="subtractMovieQuantity(cartItem.movie)"><i class="fas fa-minus"></i></button>
                 <h3>{{cartItem.quantity}}</h3>
-                <button (click)="addToMovieRow(cartItem.movie)"><i class="fas fa-plus"></i></button>
+                <button class="small" (click)="addToMovieRow(cartItem.movie)"><i class="fas fa-plus"></i></button>
             </div>
         </div>
         <div class="price-remove">
@@ -23,7 +23,7 @@
                 <p class="cursive">{{cartItem.movie.price}}</p>
                 <p class="sek">SEK</p>
             </div>
-            <button (click)="removeMovieRow(cartItem.movie)"><i class="fas fa-trash-alt"></i></button>
+            <button class="small" (click)="removeMovieRow(cartItem.movie)"><i class="fas fa-trash-alt"></i></button>
         </div>
 
     </div>

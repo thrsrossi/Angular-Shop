@@ -1,7 +1,7 @@
 .cart-item-row {
     display: flex;
     color: #fff;
-    margin: 3rem;
+    margin: 2.5rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(173, 175, 175, 0.5);
 }
@@ -24,12 +24,12 @@
 
 
 .cart-content {
-    flex: 1;
+    flex: 55%;
     display: flex;
 }
 
 .cart-crud {
-    flex: 1;
+    flex: 45%;
 }
 
 .cart-image img {
@@ -43,17 +43,7 @@
 }
 
 button {
-    border-radius: 100%;
-    height: 40px;
     width: 40px;
-    color: #fff;
-    padding: 0px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-    text-align: center;
-    background: rgb(209, 178, 39);
 }
 .left {
     background: #B0CDAE;
@@ -64,13 +54,13 @@ button {
 .quantity {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 55%;
     align-items: center; 
-    margin-right: 2rem;
 }
 .quantity h3 {
     font-family: 'Kodchasan', sans-serif;
     font-size: 2rem;
+    /* margin: 0 .5rem; */
 }
 .quantity p,
 .price-remove .sek  {
@@ -81,14 +71,13 @@ button {
     padding-left: .5rem;
 }
 .qty {
-    margin-left: 1rem;
-    flex: 1;
+    flex: 20%;
 }
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    flex: 2;
+    flex: 80%;
 }
 
 .cart-crud {
@@ -98,8 +87,8 @@ button {
 }
 .price-remove {
     display: flex;
-    width: 50%;
-    justify-content: space-around;
+    width: 45%;
+    justify-content: space-between;
     align-items: center;
 
 }
@@ -110,6 +99,7 @@ button {
 }
 .price {
     display: flex;
+    margin-left: 1.5rem;
 }
 /* .price-remove .sek {
     font-size: .8rem;
@@ -119,7 +109,7 @@ button {
 
 @media screen and (max-width: 1200px) {
     .cart-item-row {
-        margin: 2rem 1rem;
+        margin: 2.5rem 1rem;
     }
     
 }

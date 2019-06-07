@@ -3,9 +3,10 @@
         <img [src]="movie.imageUrl" alt="Movie poster of {{movie.name}}">
         <div class="image-hover">
             <h2 class="fade-in">{{movie.name}}</h2>
-            <p class="fade-in">{{movie.description}}</p>
-            <button (click)="addToCart(movie, 1)" class="fade-in add-button">add to <i class="fa fa-shopping-cart"></i></button>
-            <button (click)="sendMovieToParent()" class="fade-in modal-button">get info</button>
+            <p class="fade-in nunito">{{movie.description}}</p>
+            <button (click)="sendMovieToParent()" class="fade-in modal-button small">get info</button>
+
+            <button (click)="addToCart(movie, 1)" class="fade-in add-button small">add to <i class="fa fa-shopping-cart"></i></button>
         </div>
     </div>
 </div>

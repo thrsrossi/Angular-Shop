@@ -12,4 +12,6 @@ export interface IDataService {
     getOrders(): Observable<IOrdersById[]>;
 
     deleteOrder(orderId: number);
+
+    searchMovie(movie: string): Observable<IMovie[]>;
 }

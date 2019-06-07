@@ -106,6 +106,9 @@ export class MockDataService implements IDataService {
     deleteOrder(orderId: number) {
         return of(orderId);
     }
+    searchMovie(movie: string): Observable<IMovie[]>  {
+        return of(this.movies);
+    }
 
   constructor() { }
 }

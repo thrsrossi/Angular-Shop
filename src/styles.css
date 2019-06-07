@@ -4,6 +4,19 @@
 @import url('https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Martel|Playfair+Display|Zilla+Slab&display=swap');
 
 @import url('https://fonts.googleapis.com/css?family=Kodchasan|Playfair+Display|Raleway&display=swap');
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant|Kodchasan|Nunito:300,400|Playfair+Display&display=swap');
+/* 
+font-family: 'Nunito', sans-serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Cormorant', serif;
+font-family: 'Kodchasan', sans-serif; 
+*/
+
+
 /* 
 font-family: 'Tangerine', cursive;
 font-family: 'Merriweather', serif;
@@ -85,5 +98,61 @@ body {
     background: #1E2221;
     /* background: #FFF7EB; */
 }
+
+
+h1 {
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    /* font-size: 2rem; */
+}
+h3 {
+    font-family: 'Playfair Display', serif;
+    /* font-size: 1.5rem; */
+}
+
+h4 {
+    font-family: 'Playfair Display', serif;
+    /* font-size: 1.2rem; */
+}
+p {
+    line-height: 140%;
+}
+p.nunito {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+p.cormorant {
+    font-family: 'Cormorant', serif;
+}
+p.kodchasan {
+    font-family: 'Kodchasan', sans-serif; 
+}
+p.raleway {
+    font-family: 'Raleway', sans-serif;
+}
+button.small {
+    border-radius: 50px;
+    height: 40px;
+    color: #fff;
+    padding: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    background: rgb(209, 178, 39);
+    font-family: 'Raleway', sans-serif;
+}
+button.small:active {
+    background: #B0CDAE;
+    /* color: #1E2221; */
+    transition-property: color;
+    transition-duration: .5s;
+    transition-timing-function: ease-out;
+}
+
 
 
