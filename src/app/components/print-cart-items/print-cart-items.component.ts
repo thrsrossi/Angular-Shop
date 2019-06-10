@@ -11,7 +11,6 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 export class PrintCartItemsComponent implements OnInit {
 
     @Input() cartItem: ICartItem;
-    // tesint: IMovie;
 
   constructor() { }
 

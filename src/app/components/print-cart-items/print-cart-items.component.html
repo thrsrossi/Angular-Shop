@@ -1,5 +1,5 @@
-<div class="cart-column">
-    <p *ngIf='cartItem'>{{cartItem.movie.name}} </p>
+<div *ngIf='cartItem' class="cart-column">
+    <img [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
+    <p>{{cartItem.movie.name}} </p>
         <!-- <img [src]="movie.imageUrl" alt="Movie poster of {{movie.name}}"> -->
-        <img [src]="cartItem.movie.imageUrl" alt="Movie poster of {{cartItem.movie.name}}">
 </div>

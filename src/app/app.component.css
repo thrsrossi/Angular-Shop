@@ -67,7 +67,6 @@ a {
     text-decoration: none;
     flex: 3;
 }
-
 .icon {
     width: 4rem;
     height: 2rem;
@@ -76,7 +75,6 @@ a {
     position: relative;
     margin-left: 2rem;
 }
-
 i {   
     width: 100%;
     text-align: center;
@@ -84,7 +82,6 @@ i {
     font-size: 2.5rem;
     color: rgb(209, 178, 39);
 }
-
 @media screen and (max-width: 824px) {
     .left {
         flex: 0;

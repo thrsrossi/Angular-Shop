@@ -1,13 +1,12 @@
+<div class="wrapper">
 
-<div class="icon">
-  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-  <a routerLink="cart" activatedRouterLink="active"><i class="fa fa-shopping-cart"></i></a>
-  <span *ngIf="totalQuantity > 0" class="badge">{{totalQuantity}}</span>
-</div>
-
-
-<!-- <div class="wrapper">
-    <div class="row">
+    <div class="icon">
+        <!-- <a routerLink="cart" activatedRouterLink="active"><i class="fa fa-shopping-cart"></i></a> -->
+        <button (click)='toggleCart()'><i class="fa fa-shopping-cart"></i></button>
+        <span *ngIf="totalQuantity > 0" class="badge">{{totalQuantity}}</span>
+    </div>
+    
+    <div class="drop-down" [class.visible]="toggleVisibility">
         <app-print-cart-items *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-print-cart-items>
     </div>
-</div> -->
+</div>
