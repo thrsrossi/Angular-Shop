@@ -9,11 +9,14 @@ import { ICartItem } from 'src/app/interfaces/ICartItem';
 })
 export class CartComponent implements OnInit {
 
-    // movieRecieved: IMovie;
 
     cart: ICartItem[];
-    // cartCount: number;
+    toggleVisibility: boolean;
     totalQuantity: number;
+
+    toggleCart() {
+    this.toggleVisibility = !this.toggleVisibility;
+    }
 
   constructor(private cartService: CartService) {
     this.cart = this.cartService.getCart();
@@ -46,9 +49,5 @@ export class CartComponent implements OnInit {
           }
       );
     }
-
-    // updateCartCount() {
-    //     this.cartRowAmount = this.cart.length;
-    // }
 
 }
