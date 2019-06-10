@@ -1,4 +1,7 @@
-
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
 .icon {
     width: 4rem;
     height: 2rem;
@@ -7,7 +10,6 @@
     position: relative;
     margin-left: 2rem;
 }
-
 i {   
     width: 100%;
     text-align: center;
@@ -36,4 +38,12 @@ i {
     /* border: 1px solid #000; */
     font-family: sans-serif;
     font-weight: bold;
+}
+.drop-down {
+    display: none;
+    position: absolute;
+    top: 8rem;
+}
+.visible {
+    display: block;
 }

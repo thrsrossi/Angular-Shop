@@ -36,7 +36,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(30, 34, 33, 0.75);
+    background: rgba(30, 34, 33, 0.85);
     color: #fff;
     visibility: hidden;
     opacity: 0;
@@ -48,17 +48,21 @@
     /* cursor: pointer; */
 }
 h2 {
-    font-family: 'Playfair Display', serif;
     padding: 1rem;
     font-size: 1.5rem;
     /* font-family: 'Varela Round', sans-serif; */
     letter-spacing: 1px;
 }
+
 p {
-    font-family: 'Raleway', sans-serif;
     padding: 0 1rem;
-    /* font-family: 'Varela Round', sans-serif; */
-    line-height: 130%;
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch; */
+    /* -webkit-line-clamp: 3; */
+    /* display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  */
 
 }
 .movie-column:hover .image-hover {
@@ -76,44 +80,14 @@ p {
     transform: translateY(0);
 }
 button {
-    border-radius: 50px;
-    height: 40px;
-    width: 70%;
-    color: #fff;
-    padding: 0px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-    text-align: center;
-    background: rgb(209, 178, 39);
-    font-family: 'Raleway', sans-serif;
-    
-    /* display: inline-block; */
+    width: 80%;
     position: absolute;
-    /* margin: 0 auto; */
-    
+    left: 25px;
+    right: 0;
 }
 .add-button {
-    /* margin-bottom: 2rem; */
-    /* bottom: 0; */
-    top: 70%;
-    right: 0;
-    left: 38px;
+    top: 83%;
 }
 .modal-button {
-    /* margin-bottom: 2rem; */
-    /* bottom: 0; */
-    top: 83%;
-    right: 0;
-    left: 38px;
+    top: 70%;
 }
-/* button.fade-in {
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-
-} */
-/* button:hover {
-    transition: all 0.2s ease 0s;
-    cursor: pointer;
-} */

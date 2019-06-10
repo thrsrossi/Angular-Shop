@@ -11,10 +11,6 @@ import { IOrdersById } from '../interfaces/IOrdersById';
 })
 export class DataService implements IDataService {
 
-    // private orderSubject = new Subject<any[]>();
-    // order$ = this.orderSubject.asObservable();
-    // orders: any[] = [];
-
   constructor(private httpClient: HttpClient) { }
 
   getData(): Observable<IMovie[]> {
@@ -33,4 +29,11 @@ export class DataService implements IDataService {
         return this.httpClient.delete('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + orderId);
     }
 
+    searchMovie(movie: string): Observable<IMovie[]> {
+        if (movie === '' || movie === undefined) {
+            return this.getData();
+        } else {
+            return this.httpClient.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/search?=' + movie);
+        }
+    }
 }

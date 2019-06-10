@@ -18,6 +18,36 @@ header {
     display: flex;
     justify-content: space-around;
 }
+.left input {
+    height: 3rem;
+    padding: 0 30px;
+    /* position: relative; */
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: #000;
+    line-height: 1.2;
+    margin: 1rem;
+}
+.left input:before {
+    
+}
+/* .fas:before {
+
+        font-family: FontAwesome;
+        content: "\f002";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+http://www.abc.net.au/res/bundles/2.0.5/images/icon-search-grey@1x.png
+} */
+input:focus {
+    outline: none;
+    border: 3px solid rgb(209, 178, 39);
+}
 h1 {
     font-family: 'Playfair Display', serif;
     color: #B0CDAE;
@@ -37,7 +67,6 @@ a {
     text-decoration: none;
     flex: 3;
 }
-
 .icon {
     width: 4rem;
     height: 2rem;
@@ -46,7 +75,6 @@ a {
     position: relative;
     margin-left: 2rem;
 }
-
 i {   
     width: 100%;
     text-align: center;
@@ -54,7 +82,6 @@ i {
     font-size: 2.5rem;
     color: rgb(209, 178, 39);
 }
-
 @media screen and (max-width: 824px) {
     .left {
         flex: 0;
