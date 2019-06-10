@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { IMovie } from './IMovie';
 import { IOrder } from './IOrder';
 import { IOrdersById } from './IOrdersById';
+import { ICategories } from './ICategories';
 
 
 export interface IDataService {
@@ -14,4 +15,6 @@ export interface IDataService {
     deleteOrder(orderId: number);
 
     searchMovie(movie: string): Observable<IMovie[]>;
+
+    getCategories(): Observable<ICategories[]>;
 }

@@ -4,6 +4,7 @@ import { IDataService } from '../interfaces/IDataService';
 import { Observable, of } from 'rxjs';
 import { IOrder } from '../interfaces/IOrder';
 import { IOrdersById } from '../interfaces/IOrdersById';
+import { ICategories } from '../interfaces/ICategories';
 
 @Injectable({
   providedIn: 'root'
@@ -107,6 +108,9 @@ export class MockDataService implements IDataService {
         return of(orderId);
     }
     searchMovie(movie: string): Observable<IMovie[]>  {
+        return of(this.movies);
+    }
+    getCategories(): Observable<ICategories[]> {
         return of(this.movies);
     }
 
