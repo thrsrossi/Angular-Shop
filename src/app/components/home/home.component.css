@@ -3,9 +3,32 @@
     width: 100vw;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 9rem;
     background: #343837;
+}
+.search {
+    width: 90%;
+    height: 4rem;
+}
+.search input {
+    height: 3rem;
+    padding: 0 30px;
+    /* position: relative; */
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: #000;
+    line-height: 1.2;
+    margin: 1rem;
+}
+.search input:focus {
+    outline: none;
+    border: 3px solid rgb(209, 178, 39);
 }
 .movie-row {
     width: 95%;

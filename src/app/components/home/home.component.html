@@ -1,7 +1,15 @@
 <div class="home-wrapper">
+    <div class="search">
+        <input type="text" #searchInput (keyup.enter)="searchMovie(searchInput.value); searchInput.value=''" placeholder="Search movie by name..." >
+        <p *ngIf='error'>{{error}}</p>
+    </div>
+    <div class="categories">
+
+    </div>
     <div class="movie-row">
         <app-print-movies *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovie($event)"></app-print-movies>
     </div>
+
 </div>
 
 <div class="modal" [class.toggle-visibility]="modalToggle" >

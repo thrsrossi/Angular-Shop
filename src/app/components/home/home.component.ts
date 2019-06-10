@@ -14,9 +14,11 @@ export class HomeComponent implements OnInit {
 
     movieFromPrintMovie: IMovie;
     modalToggle: boolean;
+    error: string;
+    // inputValue: string;
 
-    constructor(dataService: DataService) {
-    dataService.getData().subscribe(
+    constructor(private dataService: DataService) {
+    this.dataService.getData().subscribe(
         (movieAPI) => {
             this.movies = movieAPI;
             this.movieFromPrintMovie = this.movies[0];
@@ -25,10 +27,10 @@ export class HomeComponent implements OnInit {
         },
         (error) => {
             console.log('Observer got an error: ', error);
-        },
-        () => {
-            console.log('Observer got a complete notification.');
         }
+        // () => {
+        //     console.log('Observer got a complete notification.');
+        // }
         );
     }
 
@@ -55,9 +57,38 @@ export class HomeComponent implements OnInit {
 
     if (this.modalToggle) {
         this.modalToggle = false;
+        // this.movieFromPrintMovie = null;
         // console.log(this.modalToggle);
     }
   }
+
+
+    // handleInput(input: string) {
+    //     console.log('inopt on eneter', input);
+    //     if (input === '') {
+    //         this.dataService.getData();
+    //         return;
+    //     } else {
+    //         this.searchMovie(input);
+    //     }
+    // }
+    searchMovie(movie: string) {
+        console.log('search movie, ', movie);
+        console.log('moviefromppm', this.movieFromPrintMovie);
+        this.dataService.searchMovie(movie).subscribe(
+            search => {
+                if (search.length > 0) {
+                    this.movies = search;
+                    this.error = '';
+                } else if (search.length <= 0) {
+                    this.error = 'Movie not found';
+                }
+            },
+            error => {
+                console.log('Movie not found');
+            }
+        );
+    }
 
 
   ngOnInit() {
