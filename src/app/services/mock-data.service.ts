@@ -110,7 +110,7 @@ export class MockDataService implements IDataService {
     searchMovie(movie: string): Observable<IMovie[]>  {
         return of(this.movies);
     }
-    getCategories(): Observable<ICategories[]> {
+    getCategories(): Observable<any[]> {
         return of(this.movies);
     }
 

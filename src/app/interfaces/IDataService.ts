@@ -16,5 +16,5 @@ export interface IDataService {
 
     searchMovie(movie: string): Observable<IMovie[]>;
 
-    getCategories(): Observable<ICategories[]>;
+    getCategories(): Observable<any[]>;
 }
