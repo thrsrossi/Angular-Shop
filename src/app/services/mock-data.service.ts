@@ -91,6 +91,19 @@ export class MockDataService implements IDataService {
                     }],
     }];
 
+    categories: any[] = [{
+        id: 7,
+        name: 'Action'
+    },
+    {
+        id: 6,
+        name: 'Thriller'
+    },
+    {
+        id: 5,
+        name: 'Comedy'
+    }];
+
 
     getData(): Observable<IMovie[]> {
         return of(this.movies);
@@ -111,7 +124,7 @@ export class MockDataService implements IDataService {
         return of(this.movies);
     }
     getCategories(): Observable<any[]> {
-        return of(this.movies);
+        return of(this.categories);
     }
 
     setCategories() {

@@ -1,15 +1,21 @@
 <div class="home-wrapper">
-    <div class="search">
-        <input type="text" #searchInput (keyup.enter)="searchMovie(searchInput.value); searchInput.value=''" placeholder="Search movie by name..." >
-        <p *ngIf='error'>{{error}}</p>
-    </div>
-    <div class="categories">
-        <h4 (click)='getAll()'>All</h4>
-        <h4 (click)='getMovieByCategoryId(category.id)' *ngFor='let category of categories'>
-            {{category.name}}
-        </h4>
-
-    </div>
+    <!-- <div class="header"> -->
+        <div class="search">
+            <input type="text" #searchInput (keyup.enter)="searchMovie(searchInput.value); searchInput.value=''" placeholder="Search movie by name..." >
+            <p *ngIf='error'>{{error}}</p>
+        </div>
+        <div class="categories">
+            <!-- <ul *ngFor='let category of categories'>
+                <li (click)='showMovieByCategoryId(category.id); toggleClass($event)' [ngStyle]="{'border-bottom': setActiveColor(person.state)}">{{category.name}}</li>
+            </ul> -->
+            <!-- <div [class.active]='bool'> -->
+                <h4 (click)='getAll(); toggleClass($event)' >All</h4>
+                <h4 (click)='showMovieByCategoryId(category.id); toggleClass($event)' *ngFor='let category of categories'>
+                    {{category.name}}
+                </h4>
+    
+        </div>
+    <!-- </div> -->
     <div class="movie-row">
         <app-print-movies *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovie($event)"></app-print-movies>
     </div>

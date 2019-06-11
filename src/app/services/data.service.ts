@@ -14,107 +14,57 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class DataService implements IDataService {
 
     public categories: any[] = [];
-    public moviesAll: IMovie[] = [];
-    public moviesAfter: IMovie[] = [];
     public afterMap: ICategories[] = [];
-    public categoriesAll: ICategories[] = [];
+    public moviesAll: IMovie[] = [];
+    // public moviesAfter: IMovie[] = [];
+    // public categoriesAll: ICategories[] = [];
 
-    public actionMovies: IMovie[] = [];
-    public comedyMovies: IMovie[] = [];
-    public thrillerMovies: IMovie[] = [];
-    public scifiMovies: IMovie[] = [];
+    // public actionMovies: IMovie[] = [];
+    // public comedyMovies: IMovie[] = [];
+    // public thrillerMovies: IMovie[] = [];
+    // public scifiMovies: IMovie[] = [];
 
   constructor(private httpClient: HttpClient) {
       forkJoin(this.getCategories(), this.getData()).subscribe(
           data => {
               [this.categories, this.moviesAll] = data;
               console.log('constructor dataservice, after forkjoin', this.categories, this.moviesAll);
-              this.afterMap = this.mapCategories();
-              console.log('aftermap', this.afterMap);
+            //   this.afterMap = this.mapCategories();
+            //   console.log('aftermap', this.afterMap);
               this.setCategories();
           }
       );
-    //   forkJoin([this.getCategories(), this.getData()]).subscribe(
-    //       data => {
-    //           [this.categories, this.moviesAll] = data;
-    //           for (let i = 0; i < this.moviesAll.length; i++) {
-    //             this.moviesAll[i].productCategory.map(item => {
-    //                 this.moviesAfter.push({
-    //                     categoryId: item.categoryId,
-    // //                 category: (categories.find(e => e.id === element.id)).name
-    //                 })
-    //             })
-    //           }
-    //           this.moviesAll.map((movie: IMovie) => {
-
-    //           })
-    //       }
-    //   )
-
-
-    //   forkJoin get data plus get categpries, subscribe, lägga alla filmer i lista
-    // med varje kateogi i ny funktion med loop, lagra variabel med filmerna, skriv funktion som
-    // hämtar , 'all' blir då get data
   }
 
-  mapCategories(): ICategories[] {
-      return this.categories.map(item => {
-          return {
-              categoryId: item.id,
-              category: item.name
-          };
-      });
-  }
-//   mapInto(): IMovie[] {
-//     for (let i = 0; i < this.moviesAll.length; i++) {
-//         return this.moviesAll[i].productCategory.keys
-
-//     }
-
+//   mapCategories(): ICategories[] {
+//       return this.categories.map(item => {
+//           return {
+//               categoryId: item.id,
+//               category: item.name
+//           };
+//       });
 //   }
 
   setCategories() {
-      console.log('beforeloop');
-        let categoriesArray = [];
 
-      for (let i = 0; i < this.moviesAll.length; i++) {
-            this.moviesAll[i].productCategory.forEach(item => {
-                if (item.categoryId === 5) {
-                    item.category = 'Action';
-                }
-                if (item.categoryId === 6) {
-                    item.category = 'Thriller';
-                }
-                if (item.categoryId === 7) {
-                    item.category = 'Comedy';
-                }
-                if (item.categoryId === 8) {
-                    item.category = 'Sci-Fi';
-                }
-            });
-        }
-        console.log('after loop movieasll', this.moviesAll);
+    for (let i = 0; i < this.moviesAll.length; i++) {
+        this.moviesAll[i].productCategory.forEach(item => {
+            if (item.categoryId === 5) {
+                item.category = 'Action';
+            }
+            if (item.categoryId === 6) {
+                item.category = 'Thriller';
+            }
+            if (item.categoryId === 7) {
+                item.category = 'Comedy';
+            }
+            if (item.categoryId === 8) {
+                item.category = 'Sci-Fi';
+            }
+        });
+    }
+    console.log('after loop movieasll', this.moviesAll);
 
-
-
-    //   for (let i = 0; i < this.moviesAll.length; i++) {
-
-    //     let movieCat = this.moviesAll[i].productCategory;
-    //     console.log('moviecat', movieCat);
-    //     categoriesArray.push(movieCat);
-
-    //     for (let x = 0; x < this.afterMap.length; x++) {
-    //             if (categoriesArray[i].categoryId === this.afterMap[x].categoryId) {
-    //                 categoriesArray[i].category = this.afterMap[x].category;
-    //                 console.log('afterloop', this.moviesAll);
-    //             }
-    //         }
-
-
-
-    // }
-
-    console.log('categoriesarray', categoriesArray);
 }
 
   getData(): Observable<IMovie[]> {
