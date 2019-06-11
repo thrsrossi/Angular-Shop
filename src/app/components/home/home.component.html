@@ -4,6 +4,10 @@
         <p *ngIf='error'>{{error}}</p>
     </div>
     <div class="categories">
+        <h4 (click)='getAll()'>All</h4>
+        <h4 (click)='getMovieByCategoryId(category.id)' *ngFor='let category of categories'>
+            {{category.name}}
+        </h4>
 
     </div>
     <div class="movie-row">

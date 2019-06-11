@@ -114,5 +114,9 @@ export class MockDataService implements IDataService {
         return of(this.movies);
     }
 
+    setCategories() {
+        return of(this.movies);
+    }
+
   constructor() { }
 }

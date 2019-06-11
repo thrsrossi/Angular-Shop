@@ -30,6 +30,21 @@
     outline: none;
     border: 3px solid rgb(209, 178, 39);
 }
+.categories {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+.categories h4 {
+    cursor: pointer;
+    padding: 2rem 0;
+}
+.categories h4:hover {
+    text-decoration: underline;
+}
+.categories h4:active {
+    text-decoration: underline;
+}
 .movie-row {
     width: 95%;
     display: flex;

@@ -17,6 +17,7 @@ export class DataService implements IDataService {
     public moviesAll: IMovie[] = [];
     public moviesAfter: IMovie[] = [];
     public afterMap: ICategories[] = [];
+    public categoriesAll: ICategories[] = [];
 
     public actionMovies: IMovie[] = [];
     public comedyMovies: IMovie[] = [];
@@ -64,72 +65,56 @@ export class DataService implements IDataService {
           };
       });
   }
+//   mapInto(): IMovie[] {
+//     for (let i = 0; i < this.moviesAll.length; i++) {
+//         return this.moviesAll[i].productCategory.keys
+
+//     }
+
+//   }
 
   setCategories() {
       console.log('beforeloop');
-        // this.moviesAll.forEach((movie, index) => {
-        //     if (allCustomers.find(p => p.CustomerNo === movie.productCategory.forEach CustomerNo))
-
         let categoriesArray = [];
 
-        // categoriesArray.map()
-
-    //   movies.forEach((element, index) => {
-    //         categoriesArray.push({
-    //         categoryId: element.productCategory.find(e => e.id ),
-    //         category: (categories.find(e => e.id === element.id)).name
-    //         });
-    //       });
-
-
-
       for (let i = 0; i < this.moviesAll.length; i++) {
-        let movieCat = this.moviesAll[i].productCategory;
-        categoriesArray.push(movieCat);
-    }
-
-    console.log('categoriesarray', categoriesArray);
-
-      this.moviesAll.forEach((element) => {
-            element.productCategory.forEach(category => {
-                if (this.afterMap.find(item => item.categoryId === category.categoryId)) {
-                    this.afterMap.map(item => {
-                        return {
-                            category: item.category
-                        };
-                    });
+            this.moviesAll[i].productCategory.forEach(item => {
+                if (item.categoryId === 5) {
+                    item.category = 'Action';
+                }
+                if (item.categoryId === 6) {
+                    item.category = 'Thriller';
+                }
+                if (item.categoryId === 7) {
+                    item.category = 'Comedy';
+                }
+                if (item.categoryId === 8) {
+                    item.category = 'Sci-Fi';
                 }
             });
-        });
-        console.log('afterforesch', this.moviesAll);
-        
-        //   private buildCustomerGroupArray(allGroups: any, allCustomers: any): Array<ICustomerGroup> {
-            //     let result: Array<ICustomerGroup> = Array<ICustomerGroup>();
-            //     this.moviesAll.forEach((movie, index) => {
-                // let newList = new IMovie();
-                //         newGroup.Name = movie.categoryId;
-                //         newGroup.OldName = movie.OldName;
-                //         newGroup.CustomerList = Array<ICustomerGroupItem>();
-                
-    //         movie.productCategory.forEach((category, index2) => {
-        //             if (allCustomers.find(p => p.CustomerNo === category.CustomerNo)) {
-            //                 let currCust = allCustomers.find(p => p.CustomerNo === category.CustomerNo);
-            //                 let newGroupItem: ICustomerGroupItem = new CustomerGroupItem({
-                //                     ActionFlag: ActionType.Undefined,
-                //                     CustomerName: currCust.Name,
-                //                     CustomerNo: currCust.CustomerNo
-                //                 });
-                
-                //                 newGroup.CustomerList.push(newGroupItem);
-                //             }
-                //         });
-                
-                //         result.push(newGroup);
-                //     });
-                
-                //     return result;
-                // }
-                            
+        }
+        console.log('after loop movieasll', this.moviesAll);
+
+
+
+    //   for (let i = 0; i < this.moviesAll.length; i++) {
+
+    //     let movieCat = this.moviesAll[i].productCategory;
+    //     console.log('moviecat', movieCat);
+    //     categoriesArray.push(movieCat);
+
+    //     for (let x = 0; x < this.afterMap.length; x++) {
+    //             if (categoriesArray[i].categoryId === this.afterMap[x].categoryId) {
+    //                 categoriesArray[i].category = this.afterMap[x].category;
+    //                 console.log('afterloop', this.moviesAll);
+    //             }
+    //         }
+
+
+
+    // }
+
+    console.log('categoriesarray', categoriesArray);
 }
 
   getData(): Observable<IMovie[]> {

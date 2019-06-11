@@ -11,10 +11,12 @@ export class HomeComponent implements OnInit {
 
     test: IMovie; // only for testing
     movies: IMovie[];
+    categoryMovieList: IMovie[];
 
     movieFromPrintMovie: IMovie;
     modalToggle: boolean;
     error: string;
+    categories: any[];
     // inputValue: string;
 
     constructor(private dataService: DataService) {
@@ -32,6 +34,12 @@ export class HomeComponent implements OnInit {
         //     console.log('Observer got a complete notification.');
         // }
         );
+        this.dataService.getCategories().subscribe(
+            data => {
+                this.categories = data;
+            }
+        )
+      console.log('constructor home categories', this.categories);
     }
 
   setMovie(movie: IMovie) {
@@ -88,6 +96,22 @@ export class HomeComponent implements OnInit {
                 console.log('Movie not found');
             }
         );
+    }
+    // getAll() {
+    //     this.
+    // }
+
+    getMovieByCategoryId(id: number) {
+        console.log('getcatergori', id);
+        let savedMovies = [];
+        for (let i = 0; i < this.movies.length; i++) {
+            this.movies[i].productCategory.forEach(item => {
+                if (item.categoryId === id) {
+                    savedMovies.push(this.movies[i]);
+                }
+            });
+        }
+        console.log('after loop, saved movies', savedMovies);
     }
 
 
