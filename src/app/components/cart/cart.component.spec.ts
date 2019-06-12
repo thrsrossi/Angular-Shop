@@ -5,12 +5,16 @@ import { CartService } from 'src/app/services/cart.service';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { PrintCartItemsComponent } from '../print-cart-items/print-cart-items.component';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
+import { MockDataService } from 'src/app/services/mock-data.service';
 
 
 describe('CartComponent', () => {
   let component: CartComponent;
   let fixture: ComponentFixture<CartComponent>;
   let service: CartService;
+  let mockData: MockDataService;
+  let movie: IMovie[];
+  let cart: ICartItem[];
 //   let movie: IMovie = {
 //     id: 6,
 //     name: "hej",
@@ -35,17 +39,20 @@ describe('CartComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     service = TestBed.get(CartService);
+    mockData = TestBed.get(MockDataService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-//   it('should get access to cartitems via cartservice', () => {
-//     expect(component.cart).not.toBeUndefined();
-//     service.setCart(movie);
+//   it('should get cart', () => {
+//     expect(component.cart.length).toBe(0);
+//     let movie = mockData.movies[0];
+
+//     service.setCart(movie, 1);
 //     service.getCart();
-//     expect(component.cart).toContain(cart);
+//     expect(component.cart.length).toBe(1);
 //   });
 
 //   it('should get movie from modal via service and store in variable', () => {

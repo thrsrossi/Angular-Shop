@@ -7,8 +7,8 @@
         <div class="categories">
             <form [formGroup]="categoriesForm">
                 <label>Select category: </label>
-                <select formControlName="category" form="categoriesForm">
-                    <option *ngFor="let category of categoriesHC" [ngValue]="category.id" (click)='getValue()'>{{category.name}}</option>
+                <select formControlName="category" form="categoriesForm" (change)='getValue()'>
+                    <option *ngFor='let category of categoriesHC' [ngValue]='category.id'>{{category.name}}</option>
                 </select>
             </form>
     
@@ -33,7 +33,7 @@
 <!-- <div class="modal" [class.toggle-visibility]="modalToggle" (click)="closeModal($event)"> -->
     <!-- <div class="overlay"> -->
         <div class="modal-content">
-        <button class="close-modal" (click)="closeModal($event)"><i class="fas fa-times"></i></button>
+        <button class="close-modal" (click)='closeModal($event)'><i class="fas fa-times"></i></button>
 
         <app-modal [movieModal]='movieFromPrintMovie'></app-modal>
         </div>

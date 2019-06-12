@@ -22,7 +22,6 @@
     background: #CFCFCF;
 } */
 
-
 .cart-content {
     flex: 55%;
     display: flex;
@@ -163,6 +162,6 @@ button {
         margin-right: 1rem;
     } */
     .cart-item-row {
-        margin: .5rem;
+        margin: 2rem 0.5rem;
     }
 }

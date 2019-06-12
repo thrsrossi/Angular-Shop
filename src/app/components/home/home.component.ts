@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     this.dataService.getCategories().subscribe(
             data => {
                 this.categories = data;
-                this.categories.push({id: 1, name: 'All'});
+                // this.categories.push({id: 1, name: 'All'});
             }
         );
       console.log('constructor home categories', this.categories);
@@ -117,9 +117,7 @@ export class HomeComponent implements OnInit {
         this.movies = this.allMoviesAlways;
         console.log('getcatergori', id);
         let moviesFromCategoryLoop = [];
-        console.log('test before forloop', this.movies);
         for (let i = 0; i < this.movies.length; i++) {
-            console.log('test inside forloop', this.movies);
             this.movies[i].productCategory.forEach(item => {
                 if (item.categoryId === id) {
                     moviesFromCategoryLoop.push(this.movies[i]);
