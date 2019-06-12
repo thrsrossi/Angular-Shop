@@ -107,13 +107,13 @@ button {
 } */
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
     .cart-item-row {
         margin: 2.5rem 1rem;
     }
     
 }
-@media screen and (max-width: 1076px) {
+@media screen and (max-width: 1024px) {
     .cart-description {
         display: none;
     }
@@ -128,7 +128,7 @@ button {
         margin-right: 1rem;
     }
 }
-@media screen and (max-width: 572px) {
+@media screen and (max-width: 599px) {
     .cart-item-row {
         flex-flow: wrap;
     }

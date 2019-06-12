@@ -108,12 +108,12 @@ span {
     object-fit: cover;
 }
 
-@media screen and (max-width: 876px) {
+@media screen and (max-width: 839px) {
     .order-details {
         width: 75%;
     }
 }
-@media screen and (max-width: 735px) {
+@media screen and (max-width: 768px) {
     .order-details {
         width: 90%;
     }
@@ -133,7 +133,7 @@ span {
         text-align: right;
     } */
 }
-@media screen and (max-width: 567px) {
+@media screen and (max-width: 599px) {
     /* .order-details {
         width: 90%;
     } */

@@ -30,12 +30,12 @@ app-print-orders {
     width: 70%;
 }
 
-@media screen and (max-width: 976px) {
+@media screen and (max-width: 980px) {
     app-print-orders {
         width: 90%;
     }
 }
-@media screen and (max-width: 654px) {
+@media screen and (max-width: 599px) {
     .print-orders {
         width: 100%;
     }

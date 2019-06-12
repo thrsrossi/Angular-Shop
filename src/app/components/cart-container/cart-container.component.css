@@ -101,7 +101,7 @@ a {
     margin-top: 3rem;
 }
 
-@media screen and (max-width: 1076px) {
+@media screen and (max-width: 1024px) {
     .cart-column {
         width: 65%;
     }
@@ -110,7 +110,7 @@ a {
     }
 }
 
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 768px) {
     .cart-row {
         flex-direction: column;
     }
