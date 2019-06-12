@@ -11,21 +11,19 @@ import { CartService } from 'src/app/services/cart.service';
 export class ModalComponent implements OnInit {
 
     @Input() movieModal: IMovie;
+    quantityValue = 1;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {}
 
-  quantityValue = 1;
 
     addToCart(movieToAdd: IMovie) {
-        // let quantityToAdd = +quantity;
         console.log('addtocartmodal quantityvalue', this.quantityValue);
 
         this.cartService.setCart(movieToAdd, this.quantityValue);
         this.quantityValue = 1;
     }
-
 
     addValue() {
         this.quantityValue++;
@@ -36,7 +34,6 @@ export class ModalComponent implements OnInit {
         if (this.quantityValue <= 0) {
             this.quantityValue = 0;
         }
-        // do while?
     }
 
     // addToCart(movieToAdd: IMovie, event) {
