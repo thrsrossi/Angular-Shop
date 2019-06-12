@@ -54,5 +54,3 @@ export class OrderConfirmedComponent implements OnInit {
         });
     }
 }
-
-// forkjoin

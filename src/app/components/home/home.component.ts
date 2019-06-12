@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-    test: IMovie; // only for testing
+    allMoviesAlways: IMovie[];
     movies: IMovie[];
     categoryMovieList: IMovie[];
 
@@ -17,24 +17,20 @@ export class HomeComponent implements OnInit {
     modalToggle: boolean;
     error: string;
     categories: any[];
-    bool: boolean;
+    // bool: boolean;
     // inputValue: string;
 
     constructor(private dataService: DataService, private renderer: Renderer2) {
     this.dataService.getData().subscribe(
         (movieAPI) => {
             this.movies = movieAPI;
+            this.allMoviesAlways = movieAPI;
             this.movieFromPrintMovie = this.movies[0];
-            this.test = this.movies[1]; // only for testing
             console.log('Observer got a next value: ', movieAPI);
         },
         (error) => {
             console.log('Observer got an error: ', error);
-        }
-        // () => {
-        //     console.log('Observer got a complete notification.');
-        // }
-        );
+        });
     this.dataService.getCategories().subscribe(
             data => {
                 this.categories = data;
@@ -80,8 +76,8 @@ export class HomeComponent implements OnInit {
     //     }
     // }
     searchMovie(movie: string) {
-        console.log('search movie, ', movie);
-        console.log('moviefromppm', this.movieFromPrintMovie);
+        // console.log('search movie, ', movie);
+        // console.log('moviefromppm', this.movieFromPrintMovie);
         this.dataService.searchMovie(movie).subscribe(
             search => {
                 if (search.length > 0) {
@@ -97,23 +93,27 @@ export class HomeComponent implements OnInit {
         );
     }
     getAll() {
-       this.movies = this.dataService.moviesAll;
+        if (this.movies.length < this.allMoviesAlways.length) {
+            this.movies = this.allMoviesAlways;
+        }
     }
 
     showMovieByCategoryId(id: number) {
-        this.movies = this.dataService.moviesAll;
+        this.movies = this.allMoviesAlways;
         console.log('getcatergori', id);
-        let savedMovies = [];
+        let moviesFromCategoryLoop = [];
+        console.log('test before forloop', this.movies);
         for (let i = 0; i < this.movies.length; i++) {
+            console.log('test inside forloop', this.movies);
             this.movies[i].productCategory.forEach(item => {
                 if (item.categoryId === id) {
-                    savedMovies.push(this.movies[i]);
+                    moviesFromCategoryLoop.push(this.movies[i]);
                 }
             });
         }
-        this.movies = savedMovies;
+        this.movies = moviesFromCategoryLoop;
         // this.bool = true;
-        console.log('after loop, saved movies', savedMovies);
+        console.log('after loop, saved movies', moviesFromCategoryLoop);
     }
 
     toggleClass(event: any) {
