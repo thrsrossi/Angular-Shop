@@ -84,7 +84,27 @@ export class MockDataService implements IDataService {
         },
         quantity: 2
     }];
-
+    // postResponse: IOrdersById = {
+    //     id: 187,
+    //     companyId: 3,
+    //     created: '201908128',
+    //     createdBy: 'string',
+    //     paymentMethod: 'string',
+    //     totalPrice: 87,
+    //     status: 0,
+    //     orderRows: [{id: 879,
+    //                 productId: 76,
+    //                 product: 'string',
+    //                 amount: 9,
+    //                 orderId: 187,
+    //                 },
+    //                 {id: 879,
+    //                 productId: 76,
+    //                 product: 'string',
+    //                 amount: 5,
+    //                 orderId: 187,
+    //                 }],
+    // };
 
 
     orders: IOrdersById[] = [{
@@ -149,13 +169,35 @@ export class MockDataService implements IDataService {
         name: 'Comedy'
     }];
 
+    postResponse: IOrdersById = {
+        id: 187,
+        companyId: 3,
+        created: '201908128',
+        createdBy: 'string',
+        paymentMethod: 'string',
+        totalPrice: 87,
+        status: 0,
+        orderRows: [{id: 879,
+                    productId: 76,
+                    product: 'string',
+                    amount: 9,
+                    orderId: 187,
+                    },
+                    {id: 879,
+                    productId: 76,
+                    product: 'string',
+                    amount: 5,
+                    orderId: 187,
+                    }],
+    };
+
 
     getData(): Observable<IMovie[]> {
         return of(this.movies);
     }
 
-    postData(order: IOrder) {
-        return of(order);
+    postData(order: IOrder): Observable<IOrdersById> {
+        return of(this.postResponse);
     }
 
     getOrders(): Observable<IOrdersById[]> {
