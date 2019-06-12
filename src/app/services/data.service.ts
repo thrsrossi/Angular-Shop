@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { IOrder } from '../interfaces/IOrder';
 import { IOrdersById } from '../interfaces/IOrdersById';
 import { ICategories } from '../interfaces/ICategories';
-import { forEach } from '@angular/router/src/utils/collection';
+import { ICategoriesAPI } from '../interfaces/ICategoriesAPI';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,6 @@ export class DataService implements IDataService {
 //   }
 
   setCategories() {
-
     for (let i = 0; i < this.moviesAll.length; i++) {
         this.moviesAll[i].productCategory.forEach(item => {
             if (item.categoryId === 5) {
@@ -64,7 +63,6 @@ export class DataService implements IDataService {
         });
     }
     console.log('after loop movieasll', this.moviesAll);
-
 }
 
   getData(): Observable<IMovie[]> {
@@ -92,7 +90,7 @@ export class DataService implements IDataService {
         }
     }
 
-    getCategories(): Observable<any[]>  {
-        return this.httpClient.get<any[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/categories');
+    getCategories(): Observable<ICategoriesAPI[]>  {
+        return this.httpClient.get<ICategoriesAPI[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/categories');
     }
 }

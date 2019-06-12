@@ -1,6 +1,8 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { DataService } from 'src/app/services/data.service';
+import { ICategoriesAPI } from 'src/app/interfaces/ICategoriesAPI';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,38 +11,37 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-    test: IMovie; // only for testing
+    allMoviesAlways: IMovie[];
     movies: IMovie[];
-    categoryMovieList: IMovie[];
+    // categoryMovieList: IMovie[];
 
     movieFromPrintMovie: IMovie;
     modalToggle: boolean;
     error: string;
-    categories: any[];
-    bool: boolean;
-    // inputValue: string;
+// tslint:disable-next-line: max-line-length
+    categoriesHC: ICategoriesAPI[] = [{id: 1, name: 'All'}, {id: 5, name: 'Action'}, {id: 6, name: 'Thriller'}, {id: 7, name: 'Comedy'}, {id: 8, name: 'Sci-fi'}];
+    categories: ICategoriesAPI[];
+    // bool: boolean;
+    categoriesForm: FormGroup;
 
-    constructor(private dataService: DataService, private renderer: Renderer2) {
+    constructor(private dataService: DataService, private formBuilder: FormBuilder, private renderer: Renderer2) {
     this.dataService.getData().subscribe(
         (movieAPI) => {
             this.movies = movieAPI;
+            this.allMoviesAlways = movieAPI;
             this.movieFromPrintMovie = this.movies[0];
-            this.test = this.movies[1]; // only for testing
             console.log('Observer got a next value: ', movieAPI);
         },
         (error) => {
             console.log('Observer got an error: ', error);
-        }
-        // () => {
-        //     console.log('Observer got a complete notification.');
-        // }
-        );
+        });
     this.dataService.getCategories().subscribe(
             data => {
                 this.categories = data;
+                this.categories.push({id: 1, name: 'All'});
             }
         );
-    //   console.log('constructor home categories', this.categories);
+      console.log('constructor home categories', this.categories);
     }
 
   setMovie(movie: IMovie) {
@@ -70,25 +71,25 @@ export class HomeComponent implements OnInit {
   }
 
 
-    // handleInput(input: string) {
-    //     console.log('inopt on eneter', input);
-    //     if (input === '') {
-    //         this.dataService.getData();
-    //         return;
-    //     } else {
-    //         this.searchMovie(input);
-    //     }
-    // }
+    handleInput(input: string) {
+        const regEx = /^\s*[a-zA-Z0-9,\s]+\s*$/;
+        if (!regEx.test(input)) {
+            this.error = '* Invalid input, please try again';
+            return;
+        } else {
+            this.searchMovie(input);
+        }
+    }
     searchMovie(movie: string) {
-        console.log('search movie, ', movie);
-        console.log('moviefromppm', this.movieFromPrintMovie);
+        // console.log('search movie, ', movie);
+        // console.log('moviefromppm', this.movieFromPrintMovie);
         this.dataService.searchMovie(movie).subscribe(
             search => {
                 if (search.length > 0) {
                     this.movies = search;
                     this.error = '';
                 } else if (search.length <= 0) {
-                    this.error = 'Movie not found';
+                    this.error = '* Movie not found';
                 }
             },
             error => {
@@ -96,24 +97,38 @@ export class HomeComponent implements OnInit {
             }
         );
     }
+
+    getValue() {
+        if (this.category.value === 1) {
+            console.log('getvalue i');
+            this.getAll();
+        } else {
+            console.log('getvalue annat');
+            this.showMovieByCategoryId(this.category.value);
+        }
+    }
     getAll() {
-       this.movies = this.dataService.moviesAll;
+        if (this.movies.length < this.allMoviesAlways.length) {
+            this.movies = this.allMoviesAlways;
+        }
     }
 
     showMovieByCategoryId(id: number) {
-        this.movies = this.dataService.moviesAll;
+        this.movies = this.allMoviesAlways;
         console.log('getcatergori', id);
-        let savedMovies = [];
+        let moviesFromCategoryLoop = [];
+        console.log('test before forloop', this.movies);
         for (let i = 0; i < this.movies.length; i++) {
+            console.log('test inside forloop', this.movies);
             this.movies[i].productCategory.forEach(item => {
                 if (item.categoryId === id) {
-                    savedMovies.push(this.movies[i]);
+                    moviesFromCategoryLoop.push(this.movies[i]);
                 }
             });
         }
-        this.movies = savedMovies;
+        this.movies = moviesFromCategoryLoop;
         // this.bool = true;
-        console.log('after loop, saved movies', savedMovies);
+        console.log('after loop, saved movies', moviesFromCategoryLoop);
     }
 
     toggleClass(event: any) {
@@ -127,9 +142,15 @@ export class HomeComponent implements OnInit {
         this.renderer.removeClass(event.target, 'active');
     }
 
-
+    get category(): FormControl {
+        return this.categoriesForm.get('category') as FormControl;
+    }
 
   ngOnInit() {
+    this.categoriesForm = this.formBuilder.group({
+        category: [this.categoriesHC[0].id, Validators.required]
+        // category: this.categories[0]
+      });
   }
 
 }

@@ -4,7 +4,8 @@ import { IDataService } from '../interfaces/IDataService';
 import { Observable, of } from 'rxjs';
 import { IOrder } from '../interfaces/IOrder';
 import { IOrdersById } from '../interfaces/IOrdersById';
-import { ICategories } from '../interfaces/ICategories';
+import { ICartItem } from '../interfaces/ICartItem';
+import { ICategoriesAPI } from '../interfaces/ICategoriesAPI';
 
 @Injectable({
   providedIn: 'root'
@@ -13,34 +14,78 @@ export class MockDataService implements IDataService {
 
     movies: IMovie[] = [{
         id: 6,
-        name: "hej",
-        description: "string",
+        name: 'hej',
+        description: 'string',
         price: 80,
-        imageUrl: "https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+        imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
         year: 1954,
-        added: "string",
-        productCategory: []
+        added: 'string',
+        productCategory: [{
+            categoryId: 7,
+            category: 'Action'
+        }]
     },
     {
         id: 7,
-        name: "hopp",
-        description: "annat",
+        name: 'hopp',
+        description: 'annat',
         price: 5,
-        imageUrl: "https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+        imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
         year: 1987,
-        added: "string",
-        productCategory: []
+        added: 'string',
+        productCategory: [{
+            categoryId: 6,
+            category: 'Thriller'
+        }]
     },
     {
         id: 8,
-        name: "gubbe",
-        description: "kopp",
+        name: 'gubbe',
+        description: 'kopp',
         price: 100,
-        imageUrl: "https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+        imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
         year: 1934,
-        added: "hju",
-        productCategory: []
+        added: 'hju',
+        productCategory: [{
+            categoryId: 5,
+            category: 'Comedy'
+        }]
     }];
+
+    cart: ICartItem[] = [{
+        movie: {
+            id: 8,
+            name: 'gubbe',
+            description: 'kopp',
+            price: 100,
+            imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
+            year: 1934,
+            added: 'hju',
+            productCategory: [{
+                categoryId: 5,
+                category: 'Comedy'
+            }]
+        },
+        quantity: 6
+    },
+    {
+        movie: {
+            id: 7,
+            name: 'hopp',
+            description: 'annat',
+            price: 5,
+            imageUrl: 'https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
+            year: 1987,
+            added: 'string',
+            productCategory: [{
+                categoryId: 6,
+                category: 'Thriller'
+            }]
+        },
+        quantity: 2
+    }];
+
+
 
     orders: IOrdersById[] = [{
         id: 187,
@@ -91,7 +136,7 @@ export class MockDataService implements IDataService {
                     }],
     }];
 
-    categories: any[] = [{
+    categories: ICategoriesAPI[] = [{
         id: 7,
         name: 'Action'
     },
@@ -118,12 +163,12 @@ export class MockDataService implements IDataService {
     }
 
     deleteOrder(orderId: number) {
-        return of(orderId);
+        return of(this.orders);
     }
     searchMovie(movie: string): Observable<IMovie[]>  {
         return of(this.movies);
     }
-    getCategories(): Observable<any[]> {
+    getCategories(): Observable<ICategoriesAPI[]> {
         return of(this.categories);
     }
 
