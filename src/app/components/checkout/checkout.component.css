@@ -1,11 +1,11 @@
-.wrapper {
+/* .wrapper {
     width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     margin-top: 9rem;
     background: #343837;
-}
+} */
 .checkout-row {
     width: 95%;
     display: flex;
@@ -105,16 +105,32 @@ a {
 
 
 @media screen and (max-width: 1280px) {
+    /* .checkout-aside {
+        width: 35%;
+    }
+    .checkout-column {
+        width: 65%;
+    } */
+    .order-form {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 1168px) {
     .checkout-aside {
         width: 35%;
     }
     .checkout-column {
         width: 65%;
     }
-    .order-form {
-        width: 75%;
-    }
 }
+/* @media screen and (max-width: 1068px) {
+    .checkout-aside {
+        width: 30%;
+    }
+    .checkout-column {
+        width: 70%;
+    }
+} */
 @media screen and (max-width: 980px) {
     .order-form {
         width: 95%;

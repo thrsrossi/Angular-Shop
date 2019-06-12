@@ -157,6 +157,14 @@ button.small:active {
     transition-duration: .5s;
     transition-timing-function: ease-out;
 }
+.wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+    background: #343837;
+}
 
 
 

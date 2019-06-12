@@ -1,12 +1,11 @@
-.admin-wrapper {
-    /* margin-top: 1rem; */
+/* .wrapper {
     width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     margin-top: 9rem;
     background: #343837;
-}
+} */
 .admin-row {
     width: 95%;
     display: flex;

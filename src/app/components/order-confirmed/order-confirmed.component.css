@@ -1,15 +1,13 @@
-.confirmed-wrapper {
-    /* margin-top: 1rem; */
+/* .wrapper {
     width: 100vw;
     min-height: 100vh;
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     margin-top: 9rem;
     background: #343837;
-    color: #fff;
-}
+} */
 .confirmed-row {
+    color: #fff;
     display: flex;
     align-items: center;
     flex-direction: column;

@@ -1,12 +1,6 @@
-.home-wrapper {
-    /* margin-top: 1rem; */
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+.wrapper {
     flex-direction: column;
-    margin-top: 9rem;
-    background: #343837;
+    align-items: center;
 }
 .header {
     width: 90%;
