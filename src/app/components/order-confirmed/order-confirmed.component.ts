@@ -18,10 +18,6 @@ export class OrderConfirmedComponent implements OnInit {
 
     movieInfo: IMovieFromOrder[] = [];
 
-    // movieUrls: string[];
-    // movieTitle: string[];
-    // movieQuantity: number[];
-
   constructor(private orderService: OrderService) {
       this.orderService.postResponseSubject$.subscribe(
           response => {
@@ -31,14 +27,10 @@ export class OrderConfirmedComponent implements OnInit {
       );
    }
 
-
-
   ngOnInit() {
     //   this.orderResponse = this.orderService.getPostResponse();
     this.orderCart = this.orderService.getCartContent();
     this.formValues = this.orderService.getFormValues();
-    // console.log('confirmed order cart, ', this.orderCart);
-    // console.log('confirmed order formvalue, ', this.formValues);
 
     this.movieInfo = this.mapCart();
     console.log('oninit confirmd movieinfo', this.movieInfo);

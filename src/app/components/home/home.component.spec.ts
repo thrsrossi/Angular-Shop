@@ -8,6 +8,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 describe('HomeComponent', () => {
@@ -20,7 +21,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent, PrintMoviesComponent, ModalComponent ],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, ReactiveFormsModule]
     })
     .overrideComponent(HomeComponent, {set: { providers: [{provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
@@ -56,7 +57,7 @@ describe('HomeComponent', () => {
   });
 
   it('categories should be an array with three objects', () => {
-    expect(component.categories.length).toBe(3);
+    expect(component.categories.length).toBe(3); // lös innan inlämning
   });
   it('it should change number of movies in movie array after category loop', () => {
     expect(component.movies.length).toBe(3);

@@ -8,12 +8,13 @@
 
 
 
-@import url('https://fonts.googleapis.com/css?family=Cormorant|Kodchasan|Nunito:300,400|Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cormorant|Kodchasan|Nunito:300,400|Playfair+Display|Quicksand&display=swap');
 /* 
 font-family: 'Nunito', sans-serif;
 font-family: 'Playfair Display', serif;
 font-family: 'Cormorant', serif;
 font-family: 'Kodchasan', sans-serif; 
+font-family: 'Quicksand', sans-serif;
 */
 
 
@@ -118,20 +119,23 @@ h4 {
     /* font-size: 1.2rem; */
 }
 p {
-    line-height: 140%;
+    line-height: 135%;
 }
-p.nunito {
+.nunito {
     font-family: 'Nunito', sans-serif;
     font-weight: 300;
 }
-p.cormorant {
+.cormorant {
     font-family: 'Cormorant', serif;
 }
-p.kodchasan {
+.kodchasan {
     font-family: 'Kodchasan', sans-serif; 
 }
-p.raleway {
+.raleway {
     font-family: 'Raleway', sans-serif;
+}
+.quicksand {
+    font-family: 'Quicksand', sans-serif;
 }
 button.small {
     border-radius: 50px;
@@ -152,6 +156,19 @@ button.small:active {
     transition-property: color;
     transition-duration: .5s;
     transition-timing-function: ease-out;
+}
+.wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+    background: #343837;
+}
+.error {
+    color: #B0CDAE;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
 }
 
 

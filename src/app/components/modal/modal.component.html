@@ -2,28 +2,52 @@
     <h2>{{movieModal.name}}</h2>
 
     <div class="modal-row">
-        <div class="modal-column">
+        <div class="modal-left">
             <div class="image-box">
                 <img [src]="movieModal.imageUrl" alt="Movie poster of {{movieModal.name}}">
             </div>
         </div>
 
-        <div class="modal-column">
-            <p class="description">{{movieModal.description}}</p>
-            <div class="price-info">
-                <h3 class="price">{{movieModal.price}}</h3>
-                <p class="sek">SEK</p>
+        <div class="modal-right">
+            <div class="top">
+                <p class="description raleway">{{movieModal.description}}</p>
+                <p class="kodchasan">{{movieModal.year}}</p>
             </div>
-
-            <div class="adding-quantity">
-                <div class="adding-buttons">
-                    <button class="round-button small" (click)="removeValue()"><i class="fas fa-minus"></i></button>
-                    <p>{{quantityValue}}</p>
-                    <button class="round-button small" (click)="addValue()"><i class="fas fa-plus"></i></button>
+                <div class="price-info-mobile">
+                    <h3 class="price">{{movieModal.price}}</h3>
+                    <p class="kodchasan">SEK</p>
                 </div>
-                <button class="add-button small" (click)="addToCart(movieModal)">add to <i class="fa fa-shopping-cart"></i></button>
+            <div class="bottom">
+                <div class="price-info">
+                    <h3 class="price">{{movieModal.price}}</h3>
+                    <p class="kodchasan">SEK</p>
+                </div>
+                <div class="adding-quantity">
+                    <div class="adding-buttons">
+                        <button class="round-button small" (click)="removeValue()"><i class="fas fa-minus"></i></button>
+                        <p class="kodchasan value">{{quantityValue}}</p>
+                        <button class="round-button small" (click)="addValue()"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <button class="add-button small" (click)="addToCart(movieModal)">add</button>
+                </div>
             </div>
 
+            
+            
+        </div>
+    </div>
+    <div class="bottom-mobile">
+        <div class="price-info-xs">
+            <h3 class="price">{{movieModal.price}}</h3>
+            <p class="kodchasan">SEK</p>
+        </div>
+        <div class="adding-quantity">
+            <div class="adding-buttons">
+                <button class="round-button small" (click)="removeValue()"><i class="fas fa-minus"></i></button>
+                <p class="kodchasan value">{{quantityValue}}</p>
+                <button class="round-button small" (click)="addValue()"><i class="fas fa-plus"></i></button>
+            </div>
+            <button class="add-button small" (click)="addToCart(movieModal)">add</button>
         </div>
     </div>
 </div>

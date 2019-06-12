@@ -1,12 +1,11 @@
-.cart-wrapper {
-    /* margin-top: 1rem; */
+/* .wrapper {
     width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     margin-top: 9rem;
     background: #343837;
-}
+} */
 .cart-row {
     width: 95%;
     display: flex;
@@ -101,16 +100,16 @@ a {
     margin-top: 3rem;
 }
 
-@media screen and (max-width: 1076px) {
-    .cart-column {
-        width: 65%;
-    }
+@media screen and (max-width: 1168px) {
     .cart-aside {
         width: 35%;
     }
+    .cart-column {
+        width: 65%;
+    }
 }
 
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 839px) {
     .cart-row {
         flex-direction: column;
     }

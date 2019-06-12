@@ -9,33 +9,50 @@
     justify-content: center;
     align-items: center;
     border-top: 1px solid #808080;
-    margin-top: 1rem;
-}
-.modal-column {
     margin: 1rem;
-    min-height: 25rem;
+    padding-top: 1rem;
+}
+.modal-left {
+    margin: 1rem 1.5rem 0 0;
+    height: 25rem;
+}
+.modal-right {
+    height: 25rem;
+    margin: 1rem 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .inner-content-modal h2 {
-    font-family: 'Playfair Display', serif;
     font-size: 2rem;
     margin-top: 1rem;
+    text-align: center;
     /* border-bottom: 1px solid #808080; */
 }
-.inner-content-modal p {
-    font-family: 'Raleway', sans-serif;
-    line-height: 130%;
+.top .kodchasan {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+.bottom-mobile,
+.price-info-mobile,
+.price-info-xs {
+    display: none;
+}
+.description {
+    font-size: 1.2rem;
+    line-height: 140%;
+    letter-spacing: 1px;
 }
 .price-info {
     display: flex;
-    margin-top: 5rem;
     justify-content: flex-end;
 }
-.price-info h3 {
+.price-info h3,
+.price-info-mobile h3,
+.price-info-xs h3 {
     font-size: 2.5rem;
     font-family: 'Cormorant', serif;
 }
-
-
 .image-box {
     height: 25rem;
     max-width: 16rem;
@@ -50,10 +67,10 @@
     width: 40px;
 }
 .add-button {
-    width: 8rem;
+    width: 40%;
 }
 .adding-quantity {
-    margin: 2rem 0;
+    margin-top: 2rem;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -68,56 +85,97 @@
     justify-content: space-between;
 }
 
-@media screen and (max-width: 987px) {
-    .image-box {
-        height: 20rem;
-    }
-    .image-box img {
-        height: 20rem;
-    }
-}
-@media screen and (max-width: 567px) {
-    .image-box {
-        height: 15rem;
-    }
-    .image-box img {
-        height: 15rem;
-        margin-right: 1rem;
-    }
-    .adding-quantity {
-        flex-direction: column;
-    }
-    .modal-column {
-        min-height: auto;
-        margin: 1rem 0 0 0;
-    }
-    .modal-row {
-        align-items: flex-start;
-    }
-    .price-info {
-        margin-top: 2rem;
-    }
+
+
+@media screen and (max-width: 1024px) {
     .adding-buttons {
-        width: 100%
-    }
-    .add-button {
-        width: 100%;
-        margin-top: 2rem;
+        width: 50%;
     }
 }
-@media screen and (max-width: 356px) {
-    .image-box {
-        height: 11rem;
-    }
-    .image-box img {
-        height: 11rem;
-    }
+@media screen and (max-width: 980px) {
     .description {
+        font-size: 1.1rem;
+    }
+    .top .kodchasan {
+        padding-top: .5rem;
+    }
+}
+@media screen and (max-width: 682px) {
+    .bottom {
         display: none;
     }
-    .price-info {
-        margin-top: 0;
+    .bottom-mobile {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center
     }
-
-
+    .bottom-mobile .adding-quantity {
+        margin: 2rem 0;
+        width: 70%;
+    }
+    .price-info-mobile {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .top .kodchasan {
+        font-size: 1.3rem;
+        padding-top: .2rem;
+    }
+    .image-box {
+        margin-right: 1rem;
+    }
+    .modal-left,
+    .modal-right,
+    .image-box img,
+    .image-box,
+    .top {
+        height: 22rem;
+    }
+    .modal-left {
+        margin: 1rem .5rem 0 0;
+    }
+    .modal-right {
+        margin: 1rem 0 0 0;
+    }
+}
+@media screen and (max-width: 599px) {
+    .description {
+        line-height: 120%;
+    }
+}
+@media screen and (max-width: 540px) {
+    .modal-row {
+        flex-direction: column-reverse;
+        margin-bottom: 2rem;
+    }
+    .top,
+    .modal-right {
+        height: auto;
+    }
+    .description {
+        font-size: 1rem;
+        line-height: 130%;
+    }
+    .top .kodchasan {
+        font-size: 1.5rem;
+        padding: .5rem 0 2rem 0;
+    }
+    .price-info-mobile {
+        display: none;
+    }
+    .price-info-xs {
+        display: flex;
+    }
+    .image-box img,
+    .image-box,
+    .modal-left {
+        height: 25rem;
+    }
+    .bottom-mobile {
+        justify-content: space-around;
+    }
 }

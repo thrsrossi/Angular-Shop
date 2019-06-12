@@ -1,21 +1,28 @@
-<div class="home-wrapper">
-    <!-- <div class="header"> -->
+<div class="wrapper">
+    <div class="header">
         <div class="search">
-            <input type="text" #searchInput (keyup.enter)="searchMovie(searchInput.value); searchInput.value=''" placeholder="Search movie by name..." >
-            <p *ngIf='error'>{{error}}</p>
+            <input type="text" #searchInput (keyup.enter)="handleInput(searchInput.value); searchInput.value=''" placeholder="Search movie by name..." >
+            <p class="error" *ngIf='error'>{{error}}</p>
         </div>
         <div class="categories">
-            <!-- <ul *ngFor='let category of categories'>
-                <li (click)='showMovieByCategoryId(category.id); toggleClass($event)' [ngStyle]="{'border-bottom': setActiveColor(person.state)}">{{category.name}}</li>
-            </ul> -->
-            <!-- <div [class.active]='bool'> -->
-                <h4 (click)='getAll(); toggleClass($event)' >All</h4>
-                <h4 (click)='showMovieByCategoryId(category.id); toggleClass($event)' *ngFor='let category of categories'>
-                    {{category.name}}
-                </h4>
+            <form [formGroup]="categoriesForm">
+                <label>Select category: </label>
+                <select formControlName="category" form="categoriesForm" (change)='getValue()'>
+                    <option *ngFor='let category of categoriesHC' [ngValue]='category.id'>{{category.name}}</option>
+                </select>
+            </form>
     
         </div>
-    <!-- </div> -->
+    </div>
+    <p> category: {{ categoriesForm.get('category').value }} </p>
+        <div class="categories-row">
+            <!-- <div [class.active]='bool'> -->
+            <h4 (click)='getAll(); toggleClass($event)' >All</h4>
+            <h4 (click)='showMovieByCategoryId(category.id); toggleClass($event)' *ngFor='let category of categories'>
+                {{category.name}}
+            </h4>
+    
+        </div>
     <div class="movie-row">
         <app-print-movies *ngFor='let movie of movies' [movie]='movie' (showMovie)="setMovie($event)"></app-print-movies>
     </div>
@@ -26,7 +33,7 @@
 <!-- <div class="modal" [class.toggle-visibility]="modalToggle" (click)="closeModal($event)"> -->
     <!-- <div class="overlay"> -->
         <div class="modal-content">
-        <button class="close-modal" (click)="closeModal($event)"><i class="fas fa-times"></i></button>
+        <button class="close-modal" (click)='closeModal($event)'><i class="fas fa-times"></i></button>
 
         <app-modal [movieModal]='movieFromPrintMovie'></app-modal>
         </div>

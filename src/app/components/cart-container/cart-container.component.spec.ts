@@ -5,11 +5,14 @@ import { PrintCartContainerComponent } from '../print-cart-container/print-cart-
 import { CartService } from 'src/app/services/cart.service';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
 import { CartAsideComponent } from '../cart-aside/cart-aside.component';
+import { MockDataService } from 'src/app/services/mock-data.service';
 
 describe('CartContainerComponent', () => {
   let component: CartContainerComponent;
   let fixture: ComponentFixture<CartContainerComponent>;
-//   let cartService: CartService;
+  let service: CartService;
+  let mockData: MockDataService;
+  let cart: ICartItem[];
 //   let cartItem: ICartItem[] = [{
 //         movie: {
 //           id: 6,
@@ -27,8 +30,9 @@ describe('CartContainerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CartContainerComponent, PrintCartContainerComponent, CartAsideComponent ],
-      providers: [ CartService ]
+      providers: [ CartService, MockDataService ]
     })
+    // .overrideComponent(CartContainerComponent, {set: { providers: [{provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
     // service = TestBed.get(mockService);
   }));
@@ -37,15 +41,25 @@ describe('CartContainerComponent', () => {
     fixture = TestBed.createComponent(CartContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    mockData = TestBed.get(MockDataService);
+    service = TestBed.get(CartService);
+    // component.ngOnInit();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-//   it('object for cart should be same as cart in mockservice', () => {
-//     mockService = TestBed.get(MockCartService);
-//     expect(mockService.cart).toEqual(cartItem);
-//   });
+  it('should get cart', () => {
+    // sessionStorage.clear();
+    // cart = service.getCart();
+    // expect(cart.length).toBe(0);
+    // const movie = mockData.movies[0];
+
+    // service.setCart(movie, 1);
+    // expect(cart.length).toBe(1);
+    // component.ngOnInit();
+    // expect(component.cart.length).toBe(1);
+  });
 
 });

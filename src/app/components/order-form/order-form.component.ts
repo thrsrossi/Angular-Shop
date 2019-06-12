@@ -8,9 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { IFormData } from 'src/app/interfaces/IFormData';
-import { IOrdersById } from 'src/app/interfaces/IOrdersById';
 import { OrderService } from 'src/app/services/order.service';
-import { IOrderRows } from 'src/app/interfaces/IOrderRows';
 
 @Component({
   selector: 'app-order-form',
@@ -42,8 +40,8 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
     // console.log('constructor form comp totalprice: ', this.totalPrice);
 }
 
-    onSubmit(e): void {
-    e.preventDefault();
+    onSubmit(event): void {
+    event.preventDefault();
     console.log('orderformvalueorderformcomp', this.orderForm.value);
     // console.log('orderform', this.orderForm);
     // console.log('payment value', this.payment.value);
@@ -157,13 +155,13 @@ constructor(private formBuilder: FormBuilder, private cartService: CartService, 
         // });
 
         this.orderForm = this.formBuilder.group({
-        firstName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-        lastName: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
         email: ['', [Validators.required, Validators.email]],
         payment: [this.payments[0], Validators.required],
         address: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-        county: ['', [Validators.required, Validators.minLength(4), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
-        zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]]
+        county: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\s*[a-zA-Z0-9,\s]+\s*$/)]],
+        zip: ['', [Validators.required, Validators.maxLength(6), Validators.pattern(/^(\(?\+?[0-9])?[0-9_ ]*$/)]]
         });
 
         this.orderRow = this.mapCart();

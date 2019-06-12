@@ -1,12 +1,11 @@
-.admin-wrapper {
-    /* margin-top: 1rem; */
+/* .wrapper {
     width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     margin-top: 9rem;
     background: #343837;
-}
+} */
 .admin-row {
     width: 95%;
     display: flex;
@@ -30,12 +29,12 @@ app-print-orders {
     width: 70%;
 }
 
-@media screen and (max-width: 976px) {
+@media screen and (max-width: 980px) {
     app-print-orders {
         width: 90%;
     }
 }
-@media screen and (max-width: 654px) {
+@media screen and (max-width: 599px) {
     .print-orders {
         width: 100%;
     }
