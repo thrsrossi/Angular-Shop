@@ -3,39 +3,39 @@
 <!-- novalidate -->
 <form class="checkout-form" id="orderForm" [formGroup]='orderForm' (ngSubmit)="onSubmit($event)">
     <input type="text" formControlName="firstName" placeholder="First name.." required>
-    <div *ngIf="orderForm.controls['firstName'].errors?.required && (firstName.dirty || firstName.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['firstName'].errors?.required && (firstName.dirty || firstName.touched)" class="error">
         * First name is required
     </div>
-    <div *ngIf="orderForm.controls['firstName'].errors?.pattern && (firstName.dirty || firstName.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['firstName'].errors?.pattern && (firstName.dirty || firstName.touched)" class="error">
             * First name cannot contain special characters
         </div>
 
     <input type="text" formControlName="lastName" placeholder="Last name.." required>
-    <div *ngIf="orderForm.controls['lastName'].errors?.required && (lastName.dirty || lastName.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['lastName'].errors?.required && (lastName.dirty || lastName.touched)" class="error">
             * Last name is required
         </div>
-        <div *ngIf="orderForm.controls['lastName'].errors?.pattern && (lastName.dirty || lastName.touched)" class="alert-danger">
+        <div *ngIf="orderForm.controls['lastName'].errors?.pattern && (lastName.dirty || lastName.touched)" class="error">
                 * Last name cannot contain special characters
             </div>
 
     <input type="email" formControlName="email" placeholder="Email.." required>
-    <div *ngIf="orderForm.controls['email'].errors?.required && (email.dirty || email.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['email'].errors?.required && (email.dirty || email.touched)" class="error">
             * Email is required
         </div>
-        <div *ngIf="orderForm.controls['email'].errors?.email && (email.dirty || email.touched)" class="alert-danger">
+        <div *ngIf="orderForm.controls['email'].errors?.email && (email.dirty || email.touched)" class="error">
                 * Email format is invalid
             </div>
 
     <input type="text" formControlName="address" placeholder="Address.." required>
-    <div *ngIf="orderForm.controls['address'].errors?.required && (address.dirty || address.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['address'].errors?.required && (address.dirty || address.touched)" class="error">
             * Address is required
         </div>
     <input type="text" formControlName="zip" placeholder="Zip code.." required>
-    <div *ngIf="orderForm.controls['zip'].errors?.required && (zip.dirty || zip.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['zip'].errors?.required && (zip.dirty || zip.touched)" class="error">
             * Zip code is required
         </div>
     <input type="text" formControlName="county" placeholder="County.." required>
-    <div *ngIf="orderForm.controls['county'].errors?.required && (county.dirty || county.touched)" class="alert-danger">
+    <div *ngIf="orderForm.controls['county'].errors?.required && (county.dirty || county.touched)" class="error">
             * County is required
         </div>
     <div class="payment-row">

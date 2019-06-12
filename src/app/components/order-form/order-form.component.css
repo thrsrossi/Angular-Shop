@@ -54,11 +54,11 @@ select {
     display: flex;
     justify-content: space-between;
 }
-.alert-danger {
+/* .alert-danger {
     color: #F0795E;
     font-family: 'Raleway', sans-serif;
     font-size: 1.2rem;
-}
+} */
 
 
 @media screen and (max-width: 480px) {

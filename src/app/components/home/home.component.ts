@@ -1,6 +1,8 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { DataService } from 'src/app/services/data.service';
+import { ICategoriesAPI } from 'src/app/interfaces/ICategoriesAPI';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -11,16 +13,18 @@ export class HomeComponent implements OnInit {
 
     allMoviesAlways: IMovie[];
     movies: IMovie[];
-    categoryMovieList: IMovie[];
+    // categoryMovieList: IMovie[];
 
     movieFromPrintMovie: IMovie;
     modalToggle: boolean;
     error: string;
-    categories: any[];
+// tslint:disable-next-line: max-line-length
+    categoriesHC: ICategoriesAPI[] = [{id: 1, name: 'All'}, {id: 5, name: 'Action'}, {id: 6, name: 'Thriller'}, {id: 7, name: 'Comedy'}, {id: 8, name: 'Sci-fi'}];
+    categories: ICategoriesAPI[];
     // bool: boolean;
-    // inputValue: string;
+    categoriesForm: FormGroup;
 
-    constructor(private dataService: DataService, private renderer: Renderer2) {
+    constructor(private dataService: DataService, private formBuilder: FormBuilder, private renderer: Renderer2) {
     this.dataService.getData().subscribe(
         (movieAPI) => {
             this.movies = movieAPI;
@@ -34,9 +38,10 @@ export class HomeComponent implements OnInit {
     this.dataService.getCategories().subscribe(
             data => {
                 this.categories = data;
+                this.categories.push({id: 1, name: 'All'});
             }
         );
-    //   console.log('constructor home categories', this.categories);
+      console.log('constructor home categories', this.categories);
     }
 
   setMovie(movie: IMovie) {
@@ -66,15 +71,15 @@ export class HomeComponent implements OnInit {
   }
 
 
-    // handleInput(input: string) {
-    //     console.log('inopt on eneter', input);
-    //     if (input === '') {
-    //         this.dataService.getData();
-    //         return;
-    //     } else {
-    //         this.searchMovie(input);
-    //     }
-    // }
+    handleInput(input: string) {
+        const regEx = /^\s*[a-zA-Z0-9,\s]+\s*$/;
+        if (!regEx.test(input)) {
+            this.error = '* Invalid input, please try again';
+            return;
+        } else {
+            this.searchMovie(input);
+        }
+    }
     searchMovie(movie: string) {
         // console.log('search movie, ', movie);
         // console.log('moviefromppm', this.movieFromPrintMovie);
@@ -84,13 +89,23 @@ export class HomeComponent implements OnInit {
                     this.movies = search;
                     this.error = '';
                 } else if (search.length <= 0) {
-                    this.error = 'Movie not found';
+                    this.error = '* Movie not found';
                 }
             },
             error => {
                 console.log('Movie not found');
             }
         );
+    }
+
+    getValue() {
+        if (this.category.value === 1) {
+            console.log('getvalue i');
+            this.getAll();
+        } else {
+            console.log('getvalue annat');
+            this.showMovieByCategoryId(this.category.value);
+        }
     }
     getAll() {
         if (this.movies.length < this.allMoviesAlways.length) {
@@ -127,9 +142,15 @@ export class HomeComponent implements OnInit {
         this.renderer.removeClass(event.target, 'active');
     }
 
-
+    get category(): FormControl {
+        return this.categoriesForm.get('category') as FormControl;
+    }
 
   ngOnInit() {
+    this.categoriesForm = this.formBuilder.group({
+        category: [this.categoriesHC[0].id, Validators.required]
+        // category: this.categories[0]
+      });
   }
 
 }

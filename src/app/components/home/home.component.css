@@ -5,10 +5,12 @@
 .header {
     width: 90%;
     display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    justify-content: space-between;
 }
 .search {
-    width: 70%;
-    height: 4rem;
+    width: 45%;
 }
 .search input {
     height: 3rem;
@@ -29,13 +31,34 @@
     border: 3px solid rgb(209, 178, 39);
 }
 .categories {
+    width: 45%;
+    /* display: flex;
+    justify-content: flex-end; */
+}
+label {
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+select {
+    cursor: pointer;
+    height: 3rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    min-width: 40%;
+}
+.error {
+    margin: 1rem;
+}
+.categories-row {
     width: 90%;
     display: flex;
     justify-content: space-around;
     height: 3rem;
-    margin: 1rem 0;
+    margin: 3rem 0 2rem 0;
 }
-.categories h4 {
+.categories-row h4 {
     cursor: pointer;
     padding: 1rem;
     text-align: center;
@@ -44,7 +67,7 @@
     color: rgb(209, 178, 39);
     width: 6rem;
 }
-.categories h4:hover {
+.categories-row h4:hover {
     border-bottom: 5px solid rgb(209, 178, 39);
 }
 /* .categories h4:focus-visible {
