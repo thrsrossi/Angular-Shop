@@ -24,13 +24,13 @@
     justify-content: space-between;
 }
 .inner-content-modal h2 {
-    font-size: 2rem;
+    /* font-size: 2rem; */
     margin-top: 1rem;
     text-align: center;
     /* border-bottom: 1px solid #808080; */
 }
 .top .kodchasan {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     padding-top: 1rem;
 }
 .bottom-mobile,
@@ -47,12 +47,17 @@
     display: flex;
     justify-content: flex-end;
 }
-.price-info h3,
-.price-info-mobile h3,
-.price-info-xs h3 {
+.price-info span,
+.price-info-mobile span,
+.price-info-xs span {
     font-size: 2.5rem;
     font-family: 'Cormorant', serif;
 }
+/* .span {
+    font-size: 2.5rem;
+    font-family: 'Cormorant', serif;
+
+} */
 .image-box {
     height: 25rem;
     max-width: 16rem;
@@ -76,9 +81,9 @@
     justify-content: space-between;
     align-items: center;
 }
-.adding-quantity p {
+/* .adding-quantity p {
     font-size: 2rem;
-}
+} */
 .adding-buttons {
     display: flex;
     width: 40%;

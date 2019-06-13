@@ -17,10 +17,10 @@
     <p> category: {{ categoriesForm.get('category').value }} </p>
         <div class="categories-row">
             <!-- <div [class.active]='bool'> -->
-            <h4 (click)='getAll(); toggleClass($event)' >All</h4>
-            <h4 (click)='showMovieByCategoryId(category.id); toggleClass($event)' *ngFor='let category of categories'>
+            <h3 (click)='getAll(); toggleClass($event)' >All</h3>
+            <h3 (click)='showMovieByCategoryId(category.id); toggleClass($event)' *ngFor='let category of categories'>
                 {{category.name}}
-            </h4>
+            </h3>
     
         </div>
     <div class="movie-row">

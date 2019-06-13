@@ -103,20 +103,21 @@ body {
 
 h1 {
     font-family: 'Playfair Display', serif;
+    font-size: 3rem;
 }
 
 h2 {
     font-family: 'Playfair Display', serif;
-    /* font-size: 2rem; */
+    font-size: 2rem;
 }
 h3 {
     font-family: 'Playfair Display', serif;
-    /* font-size: 1.5rem; */
+    font-size: 1.5rem;
 }
 
 h4 {
     font-family: 'Playfair Display', serif;
-    /* font-size: 1.2rem; */
+    font-size: 1.2rem;
 }
 p {
     line-height: 135%;
@@ -131,7 +132,8 @@ p {
 .kodchasan {
     font-family: 'Kodchasan', sans-serif; 
 }
-.raleway {
+.raleway,
+label {
     font-family: 'Raleway', sans-serif;
 }
 .quicksand {

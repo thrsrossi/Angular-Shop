@@ -36,11 +36,11 @@
     display: flex;
     justify-content: center;
 }
-.aside-header h3 {
+.aside-header h2 {
     /* border-bottom: 1px solid #ADAFAF; */
     padding: 2rem 4rem;
-    font-size: 2rem;
-    font-family: 'Playfair Display', serif;
+    /* font-size: 2rem;
+    font-family: 'Playfair Display', serif; */
 }
 .total-price {
     display: flex;
@@ -48,16 +48,16 @@
     align-items: center;
     margin: 5rem 1rem 3rem 1rem;
 }
-.total-price h4 {
+/* .total-price h3 {
     font-size: 1.5rem;
     font-family: 'Playfair Display', serif;
 }
-.total-price h3 {
+.total-price h2 {
     font-family: 'Cormorant', serif;
-    font-size: 2rem;
-}
+    font-size: 2rem; */
+/* } */
 .total-price p {
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
     font-size: .8rem;
     padding-left: .5rem;
 }
@@ -95,13 +95,13 @@ a {
     height: 20rem;
     color: #fff;
 }
-.empty h2 {
+/* .empty h2 {
     font-size: 3rem;
     margin: 1rem 0;
 }
 .empty h3 {
     font-size: 2rem;
-}
+} */
 
 
 @media screen and (max-width: 1280px) {
@@ -146,5 +146,5 @@ a {
         margin-top: 2rem;
     }
 }
-@media screen and (max-width: 599px) {
-}
+/* @media screen and (max-width: 599px) {
+} */

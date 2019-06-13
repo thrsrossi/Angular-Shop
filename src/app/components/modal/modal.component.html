@@ -11,21 +11,21 @@
         <div class="modal-right">
             <div class="top">
                 <p class="description raleway">{{movieModal.description}}</p>
-                <p class="kodchasan">{{movieModal.year}}</p>
+                <h3 class="kodchasan">{{movieModal.year}}</h3>
             </div>
                 <div class="price-info-mobile">
-                    <h3 class="price">{{movieModal.price}}</h3>
+                    <span class="price">{{movieModal.price}}</span>
                     <p class="kodchasan">SEK</p>
                 </div>
             <div class="bottom">
                 <div class="price-info">
-                    <h3 class="price">{{movieModal.price}}</h3>
+                    <span class="price">{{movieModal.price}}</span>
                     <p class="kodchasan">SEK</p>
                 </div>
                 <div class="adding-quantity">
                     <div class="adding-buttons">
                         <button class="round-button small" (click)="removeValue()"><i class="fas fa-minus"></i></button>
-                        <p class="kodchasan value">{{quantityValue}}</p>
+                        <h2 class="kodchasan value">{{quantityValue}}</h2>
                         <button class="round-button small" (click)="addValue()"><i class="fas fa-plus"></i></button>
                     </div>
                     <button class="add-button small" (click)="addToCart(movieModal)">add</button>
@@ -38,7 +38,7 @@
     </div>
     <div class="bottom-mobile">
         <div class="price-info-xs">
-            <h3 class="price">{{movieModal.price}}</h3>
+            <span class="price">{{movieModal.price}}</span>
             <p class="kodchasan">SEK</p>
         </div>
         <div class="adding-quantity">

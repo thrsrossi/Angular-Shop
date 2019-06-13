@@ -10,17 +10,17 @@
         <div *ngIf="cart.length > 0" class="checkout-aside">
                 
             <div class="aside-header">
-                <h3>Cart</h3>
+                <h2>Cart</h2>
             </div>
 
             <div *ngIf="cart">
                 <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
             
                 <div *ngIf="totalPrice > 0" class="total-price">
-                    <h4>Total price: </h4> 
+                    <h2>Total price: </h2> 
                     <div class="right">
                         <h3>{{totalPrice}}</h3>
-                        <p>SEK</p>
+                        <p class="raleway">SEK</p>
                     </div>
                 </div>
 
