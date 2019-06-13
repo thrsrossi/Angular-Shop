@@ -28,7 +28,7 @@ export class DataService implements IDataService {
       forkJoin(this.getCategories(), this.getData()).subscribe(
           data => {
               [this.categories, this.moviesAll] = data;
-              console.log('constructor dataservice, after forkjoin', this.categories, this.moviesAll);
+            //   console.log('constructor dataservice, after forkjoin', this.categories, this.moviesAll);
             //   this.afterMap = this.mapCategories();
             //   console.log('aftermap', this.afterMap);
               this.setCategories();
@@ -62,7 +62,7 @@ export class DataService implements IDataService {
             }
         });
     }
-    console.log('after loop movieasll', this.moviesAll);
+    // console.log('after loop movieasll', this.moviesAll);
 }
 
   getData(): Observable<IMovie[]> {

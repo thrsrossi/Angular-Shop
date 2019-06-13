@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { DataService } from 'src/app/services/data.service';
 import { ICategoriesAPI } from 'src/app/interfaces/ICategoriesAPI';
@@ -19,12 +19,12 @@ export class HomeComponent implements OnInit {
     modalToggle: boolean;
     error: string;
 // tslint:disable-next-line: max-line-length
-    categoriesHC: ICategoriesAPI[] = [{id: 1, name: 'All'}, {id: 5, name: 'Action'}, {id: 6, name: 'Thriller'}, {id: 7, name: 'Comedy'}, {id: 8, name: 'Sci-fi'}];
+    // categoriesHC: ICategoriesAPI[] = [{id: 1, name: 'All'}, {id: 5, name: 'Action'}, {id: 6, name: 'Thriller'}, {id: 7, name: 'Comedy'}, {id: 8, name: 'Sci-fi'}];
     categories: ICategoriesAPI[];
     // bool: boolean;
-    categoriesForm: FormGroup;
+    // categoriesForm: FormGroup;
 
-    constructor(private dataService: DataService, private formBuilder: FormBuilder, private renderer: Renderer2) {
+    constructor(private dataService: DataService, private formBuilder: FormBuilder) {
     this.dataService.getData().subscribe(
         (movieAPI) => {
             this.movies = movieAPI;
@@ -38,10 +38,10 @@ export class HomeComponent implements OnInit {
     this.dataService.getCategories().subscribe(
             data => {
                 this.categories = data;
-                // this.categories.push({id: 1, name: 'All'});
+                // this.categories.unshift({id: 1, name: 'All'});
+                console.log('constructor home categories', this.categories);
             }
         );
-      console.log('constructor home categories', this.categories);
     }
 
   setMovie(movie: IMovie) {
@@ -98,15 +98,24 @@ export class HomeComponent implements OnInit {
         );
     }
 
-    getValue() {
-        if (this.category.value === 1) {
-            console.log('getvalue i');
-            this.getAll();
-        } else {
-            console.log('getvalue annat');
-            this.showMovieByCategoryId(this.category.value);
-        }
-    }
+    // getValue() {
+    //     if (this.category.value === 1) {
+    //         console.log('getvalue 1');
+    //         this.getAll();
+    //     } else {
+    //         console.log('getvalue 5-8');
+    //         this.showMovieByCategoryId(this.category.value);
+    //     }
+    // }
+    // getValue(id: number) {
+    //     if (id === 1) {
+    //         console.log('getvalue 1');
+    //         this.getAll();
+    //     } else {
+    //         console.log('getvalue 5-8');
+    //         this.showMovieByCategoryId(id);
+    //     }
+    // }
     getAll() {
         if (this.movies.length < this.allMoviesAlways.length) {
             this.movies = this.allMoviesAlways;
@@ -126,29 +135,31 @@ export class HomeComponent implements OnInit {
         }
         this.movies = moviesFromCategoryLoop;
         // this.bool = true;
-        console.log('after loop, saved movies', moviesFromCategoryLoop);
+        // console.log('after loop, saved movies', moviesFromCategoryLoop);
     }
 
     toggleClass(event: any) {
-        this.removeClass(event);
+        this.removeClass();
         event.srcElement.classList.add('active');
     }
-    removeClass(event) {
-        // let hasClass = document.getElementsByClassName('active');
-        // console.log(hasClass);
-        // console.log(event);
-        this.renderer.removeClass(event.target, 'active');
+    removeClass() {
+        let elementWithClass = document.getElementsByClassName('active');
+        console.log(elementWithClass);
+        for (let i = 0; i < elementWithClass.length; i++) {
+            elementWithClass[i].removeAttribute('class');
+        }
+        console.log('element after loop', elementWithClass);
     }
 
-    get category(): FormControl {
-        return this.categoriesForm.get('category') as FormControl;
-    }
+    // get category(): FormControl {
+    //     return this.categoriesForm.get('category') as FormControl;
+    // }
 
   ngOnInit() {
-    this.categoriesForm = this.formBuilder.group({
-        category: [this.categoriesHC[0].id, Validators.required]
-        // category: this.categories[0]
-      });
+    // this.categoriesForm = this.formBuilder.group({
+    //     category: [this.categoriesHC[0].id, Validators.required]
+    //     // category: this.categories[0]
+    //   });
   }
 
 }
