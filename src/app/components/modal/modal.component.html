@@ -1,5 +1,5 @@
 <div *ngIf="movieModal" class="inner-content-modal">
-    <h2>{{movieModal.name}}</h2>
+    <h2 class="heading">{{movieModal.name}}</h2>
 
     <div class="modal-row">
         <div class="modal-left">
@@ -44,7 +44,7 @@
         <div class="adding-quantity">
             <div class="adding-buttons">
                 <button class="round-button small" (click)="removeValue()"><i class="fas fa-minus"></i></button>
-                <p class="kodchasan value">{{quantityValue}}</p>
+                <h2 class="kodchasan value">{{quantityValue}}</h2>
                 <button class="round-button small" (click)="addValue()"><i class="fas fa-plus"></i></button>
             </div>
             <button class="add-button small" (click)="addToCart(movieModal)">add</button>

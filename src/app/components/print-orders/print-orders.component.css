@@ -8,29 +8,19 @@
 .order-column {
     width: 80%;
     padding: 2rem 0 2rem 2rem;
+    color: #fff;
 }
 .button-column {
     width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 .order-rows {
     display: flex;
     justify-content: space-between;
-    color: #fff;
     padding: .5rem 0;
     border-bottom: 1px solid rgba(173, 175, 175, 0.2);
-}
-.order-last {
-    color: #FFF;
-    display: flex;
-    justify-content: space-between;
-}
-.order-last li,
-.movies {
-    padding: .5rem 0;
 }
 h3 {
     font-family: 'Playfair Display', serif;

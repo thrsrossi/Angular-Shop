@@ -3,7 +3,7 @@
         <div *ngIf="cart" class="cart-column">
             <div *ngIf="cart.length === 0" class="empty">
                 <h1>Oops!</h1>
-                <h3>Your cart seems to be empty.</h3>
+                <h2>Your cart seems to be empty.</h2>
                 <a routerLink="../" activatedRouterLink="active">get shopping</a>
             </div>
             <app-print-cart-container *ngFor='let cartItem of cart' [cartItem]='cartItem' ></app-print-cart-container>
