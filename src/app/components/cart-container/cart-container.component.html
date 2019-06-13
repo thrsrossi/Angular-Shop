@@ -2,8 +2,8 @@
     <div class="cart-row">
         <div *ngIf="cart" class="cart-column">
             <div *ngIf="cart.length === 0" class="empty">
-                <h2>Oops!</h2>
-                <h3>Your cart seems to be empty.</h3>
+                <h1>Oops!</h1>
+                <h2>Your cart seems to be empty.</h2>
                 <a routerLink="../" activatedRouterLink="active">get shopping</a>
             </div>
             <app-print-cart-container *ngFor='let cartItem of cart' [cartItem]='cartItem' ></app-print-cart-container>
@@ -11,17 +11,17 @@
 
         <aside *ngIf="cart.length > 0" class="cart-aside">
             <div class="aside-header">
-                <h3>Cart</h3>
+                <h2>Cart</h2>
             </div>
 
             <div *ngIf="cart">
                 <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
             
                 <div *ngIf="totalPrice > 0" class="total-price">
-                    <h4>Total price: </h4> 
+                    <h3>Total price: </h3> 
                     <div class="right">
-                        <h3>{{totalPrice}}</h3>
-                        <p>SEK</p>
+                        <h2>{{totalPrice}}</h2>
+                        <p class="raleway">SEK</p>
                     </div>
                 </div>
 

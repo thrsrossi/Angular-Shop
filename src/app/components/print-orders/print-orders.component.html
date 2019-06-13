@@ -16,12 +16,10 @@
         <div class="order-rows">
             <h3 class="amount">Number of movierow(s): </h3><p>{{order.orderRows.length}}</p>
         </div>
-        <div class="order-last">
+        <div class="order-rows">
             <h3 class="movies">Id of movie(s) ordered: </h3>
-            <ul class="list">
-                <li class="raleway" *ngFor='let row of order.orderRows'>{{row.productId}}</li>
-            </ul>
         </div>
+        <p class="raleway" *ngFor='let row of order.orderRows'>{{row.productId}}</p>
     </div>
     
     <div class="button-column">

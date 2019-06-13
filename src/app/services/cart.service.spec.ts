@@ -162,4 +162,28 @@ describe('CartService', () => {
         sessionStorage.clear();
       });
 
+    it('clearCart should empty cart, quantity, session storage and totalprice', () => {
+
+        let cart = service.getCart();
+        expect(cart.length).toBe(0);
+        const movie = mockData.movies[0];
+
+        service.setCart(movie, 2);
+        expect(cart.length).toBe(1);
+        expect(cart[0].quantity).toBe(2);
+        expect(cart[0].movie.price).toBe(80);
+        service.culculateTotalPrice();
+        expect(service.getTotalPrice()).toBe(160);
+        expect(service.getCart().length).toBe(1);
+        expect(service.getTotalQuantity()).toBe(2);
+
+        service.clearCart();
+        expect(service.getCart().length).toBe(0);
+        expect(service.getTotalQuantity()).toBe(0);
+        expect(service.getTotalPrice()).toBe(0);
+        expect(sessionStorage.length).toBe(0);
+
+        sessionStorage.clear();
+      });
+
 });

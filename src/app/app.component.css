@@ -48,10 +48,9 @@ input:focus {
     outline: none;
     border: 3px solid rgb(209, 178, 39);
 }
-h1 {
-    font-family: 'Playfair Display', serif;
+h2 {
     color: #B0CDAE;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     /* flex: 3; */
     text-align: center;
     /* text-transform: uppercase; */
@@ -92,6 +91,6 @@ i {
 }
 @media screen and (max-width: 356px) {
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }

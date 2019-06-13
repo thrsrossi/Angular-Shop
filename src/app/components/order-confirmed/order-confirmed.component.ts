@@ -18,7 +18,7 @@ export class OrderConfirmedComponent implements OnInit {
 
     movieInfo: IMovieFromOrder[] = [];
 
-  constructor(private orderService: OrderService) {
+  constructor(public orderService: OrderService) {
       this.orderService.postResponseSubject$.subscribe(
           response => {
               this.orderResponse = response;
@@ -36,7 +36,7 @@ export class OrderConfirmedComponent implements OnInit {
     console.log('oninit confirmd movieinfo', this.movieInfo);
     }
 
-    mapCart(): IMovieFromOrder[] {
+  mapCart(): IMovieFromOrder[] {
         return this.orderCart.map((item: ICartItem) => {
               return {
                   movieUrl: item.movie.imageUrl,
