@@ -36,6 +36,7 @@ export class OrderFormComponent implements OnInit {
     this.placeOrder();
     this.postOrder();
     this.formValues = this.orderForm.value;
+    // send cart and form input values to OrderConfirmedComponent via order service
     this.orderService.setFormValues(this.formValues);
     this.orderService.setCartContent(this.cartContent);
     this.cartService.clearCart();
@@ -57,11 +58,11 @@ export class OrderFormComponent implements OnInit {
     get address(): FormControl {
         return this.orderForm.get('address') as FormControl;
     }
-    get zip(): FormControl {
-        return this.orderForm.get('zip') as FormControl;
-    }
     get county(): FormControl {
         return this.orderForm.get('county') as FormControl;
+    }
+    get zip(): FormControl {
+        return this.orderForm.get('zip') as FormControl;
     }
 
     placeOrder() {
@@ -81,6 +82,7 @@ export class OrderFormComponent implements OnInit {
         this.dataService.postData(this.order).subscribe(
             POSTorder => {
                 this.orderResponse = POSTorder;
+                // send post response to orderConfirmedComponent via order service
                 this.orderService.setPostResponse(this.orderResponse);
             },
             error => {
@@ -104,6 +106,7 @@ export class OrderFormComponent implements OnInit {
     }
 
     mapCart(): any[] {
+        // map cartContent array to fit orderRows interface for posting order
         return this.cartContent.map((item: ICartItem) => {
                 return {
                     productId: item.movie.id,

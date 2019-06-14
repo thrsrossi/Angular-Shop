@@ -10,24 +10,22 @@ import { IMovie } from 'src/app/interfaces/IMovie';
 })
 export class PrintCartContainerComponent implements OnInit {
 
-
     @Input() cartItem: ICartItem;
 
-  constructor(private cartService: CartService) { }
+    constructor(private cartService: CartService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  removeMovieRow(movieToRemove: IMovie) {
+    removeMovieRow(movieToRemove: IMovie) {
     this.cartService.removeCartItem(movieToRemove);
-  }
+    }
 
-  addToMovieRow(movieToAddTo: IMovie) {
+    addToMovieRow(movieToAddTo: IMovie) {
     this.cartService.addOneMovie(movieToAddTo);
-  }
+    }
 
-  subtractMovieQuantity(movieRowToSubtractFrom: IMovie) {
+    subtractMovieQuantity(movieRowToSubtractFrom: IMovie) {
     this.cartService.removeOneMovie(movieRowToSubtractFrom);
-  }
-
+    }
 }

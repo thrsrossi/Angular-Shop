@@ -84,28 +84,6 @@ export class MockDataService implements IDataService {
         },
         quantity: 2
     }];
-    // postResponse: IOrdersById = {
-    //     id: 187,
-    //     companyId: 3,
-    //     created: '201908128',
-    //     createdBy: 'string',
-    //     paymentMethod: 'string',
-    //     totalPrice: 87,
-    //     status: 0,
-    //     orderRows: [{id: 879,
-    //                 productId: 76,
-    //                 product: 'string',
-    //                 amount: 9,
-    //                 orderId: 187,
-    //                 },
-    //                 {id: 879,
-    //                 productId: 76,
-    //                 product: 'string',
-    //                 amount: 5,
-    //                 orderId: 187,
-    //                 }],
-    // };
-
 
     orders: IOrdersById[] = [{
         id: 187,
@@ -127,8 +105,8 @@ export class MockDataService implements IDataService {
                     amount: 5,
                     orderId: 187,
                     }],
-    },
-    {
+        },
+        {
         id: 876,
         companyId: 3,
         created: '87576590',
@@ -207,16 +185,14 @@ export class MockDataService implements IDataService {
     deleteOrder(orderId: number) {
         return of(this.orders);
     }
+
     searchMovie(movie: string): Observable<IMovie[]>  {
         return of(this.movies);
     }
+
     getCategories(): Observable<ICategoriesAPI[]> {
         return of(this.categories);
     }
 
-    setCategories() {
-        return of(this.movies);
-    }
-
-  constructor() { }
+    constructor() { }
 }
