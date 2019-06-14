@@ -13,14 +13,12 @@ export class ModalComponent implements OnInit {
     @Input() movieModal: IMovie;
     quantityValue = 1;
 
-  constructor(private cartService: CartService) {}
+    constructor(private cartService: CartService) {}
 
-  ngOnInit() {}
+    ngOnInit() {}
 
 
     addToCart(movieToAdd: IMovie) {
-        console.log('addtocartmodal quantityvalue', this.quantityValue);
-
         this.cartService.setCart(movieToAdd, this.quantityValue);
         this.quantityValue = 1;
     }
@@ -35,12 +33,4 @@ export class ModalComponent implements OnInit {
             this.quantityValue = 0;
         }
     }
-
-    // addToCart(movieToAdd: IMovie, event) {
-    //     event.stopPropagation();
-    //     this.cartService.setCart(movieToAdd);
-    //     // console.log('movie sent to service: ', movieToAdd);
-    // }
-
-
 }

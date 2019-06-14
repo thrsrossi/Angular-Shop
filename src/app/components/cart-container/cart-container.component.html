@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="cart-row">
-        <div *ngIf="cart" class="cart-column">
+        <div class="cart-column">
             <div *ngIf="cart.length === 0" class="empty">
                 <h1>Oops!</h1>
                 <h2>Your cart seems to be empty.</h2>
@@ -13,8 +13,6 @@
             <div class="aside-header">
                 <h2>Cart</h2>
             </div>
-
-            <div *ngIf="cart">
                 <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
             
                 <div *ngIf="totalPrice > 0" class="total-price">
@@ -29,7 +27,6 @@
                     <a routerLink="../" activatedRouterLink="active">keep shopping</a>
                     <a routerLink="../checkout" activatedRouterLink="active">checkout</a>
                 </div>
-            </div>
         </aside>
     </div>
 </div>

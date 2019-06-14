@@ -12,26 +12,23 @@
             </div>
 
         <div *ngIf="cart.length > 0" class="checkout-aside">
-                
             <div class="aside-header">
                 <h2>Cart</h2>
             </div>
 
-            <div *ngIf="cart">
                 <app-cart-aside *ngFor='let cartItem of cart' [cartItem]='cartItem'></app-cart-aside>
-            
-                <div *ngIf="totalPrice > 0" class="total-price">
-                    <h2>Total price: </h2> 
-                    <div class="right">
-                        <h3>{{totalPrice}}</h3>
-                        <p class="raleway">SEK</p>
-                    </div>
-                </div>
 
-                <div class="buttons">
-                    <a routerLink="../" activatedRouterLink="active">keep shopping</a>
-                    <a routerLink="../cart" activatedRouterLink="active">view cart</a>
+            <div *ngIf="totalPrice > 0" class="total-price">
+                <h2>Total price: </h2> 
+                <div class="right">
+                    <h3>{{totalPrice}}</h3>
+                    <p class="raleway">SEK</p>
                 </div>
+            </div>
+
+            <div class="buttons">
+                <a routerLink="../" activatedRouterLink="active">keep shopping</a>
+                <a routerLink="../cart" activatedRouterLink="active">edit cart</a>
             </div>
         </div>
     </div>

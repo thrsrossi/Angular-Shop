@@ -15,34 +15,32 @@ export class OrderConfirmedComponent implements OnInit {
     orderResponse: IOrdersById;
     orderCart: ICartItem[];
     formValues: IFormData;
-
     movieInfo: IMovieFromOrder[] = [];
 
-  constructor(public orderService: OrderService) {
-      this.orderService.postResponseSubject$.subscribe(
-          response => {
-              this.orderResponse = response;
-            //   console.log('confirmed order response after sub, ', this.orderResponse);
-          }
-      );
-   }
-
-  ngOnInit() {
-    //   this.orderResponse = this.orderService.getPostResponse();
-    this.orderCart = this.orderService.getCartContent();
-    this.formValues = this.orderService.getFormValues();
-
-    this.movieInfo = this.mapCart();
-    console.log('oninit confirmd movieinfo', this.movieInfo);
+    constructor(public orderService: OrderService) {
+        // get post response via order service from subscribe in OrderFormComponent
+        this.orderService.postResponseSubject$.subscribe(
+            response => {
+                this.orderResponse = response;
+            }
+        );
     }
 
-  mapCart(): IMovieFromOrder[] {
+    ngOnInit() {
+        // get cart from ordered just posted and form values to print address on comfirmed page
+        this.orderCart = this.orderService.getCartContent();
+        this.formValues = this.orderService.getFormValues();
+        // map cart and store the data that should be printed on page
+        this.movieInfo = this.mapCart();
+    }
+
+    mapCart(): IMovieFromOrder[] {
         return this.orderCart.map((item: ICartItem) => {
-              return {
-                  movieUrl: item.movie.imageUrl,
-                  movieTitle: item.movie.name,
-                  movieQuantity: item.quantity
-              };
+                return {
+                    movieUrl: item.movie.imageUrl,
+                    movieTitle: item.movie.name,
+                    movieQuantity: item.quantity
+                };
         });
     }
 }
