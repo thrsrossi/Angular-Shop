@@ -4,8 +4,8 @@ import { IOrder } from './IOrder';
 import { IOrdersById } from './IOrdersById';
 import { ICategoriesAPI } from './ICategoriesAPI';
 
-
 export interface IDataService {
+
     getData(): Observable<IMovie[]>;
 
     postData(order: IOrder): Observable<IOrdersById>;
@@ -18,5 +18,4 @@ export interface IDataService {
 
     getCategories(): Observable<ICategoriesAPI[]>;
 
-    setCategories();
 }

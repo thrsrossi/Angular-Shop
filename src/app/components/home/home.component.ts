@@ -49,7 +49,10 @@ export class HomeComponent implements OnInit {
 
     handleInput(input: string) {
         const regEx = /^\s*[a-zA-Z0-9,\s]+\s*$/;
-        if (!regEx.test(input)) {
+        // empty input should get all movies
+        if (input === '') {
+            this.searchMovie(input);
+        } else if (!regEx.test(input)) {
             this.error = '* Invalid input, please try again';
             return;
         } else {

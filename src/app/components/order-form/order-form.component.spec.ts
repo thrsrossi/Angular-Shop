@@ -29,11 +29,11 @@ describe('OrderFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('form should be invalid when empty', () => {
+  it('should make form invalid when empty', () => {
     expect(component.orderForm.valid).toBeFalsy();
   });
 
-  it('check email validator', () => {
+  it('should validate email form input', () => {
     let errors = {};
     let email = component.orderForm.controls['email'];
     expect(email.valid).toBeFalsy();

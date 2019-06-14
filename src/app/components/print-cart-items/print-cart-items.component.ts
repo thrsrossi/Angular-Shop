@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICartItem } from 'src/app/interfaces/ICartItem';
-// import { IMovie } from 'src/app/interfaces/IMovie';
 
 
 @Component({
@@ -12,9 +11,9 @@ export class PrintCartItemsComponent implements OnInit {
 
     @Input() cartItem: ICartItem;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

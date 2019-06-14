@@ -40,11 +40,11 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('movies should be an array with three objects', () => {
+  it('(movies) should be an array with three objects', () => {
     expect(component.movies.length).toBe(3);
   });
 
-  it('allMoviesAlways should be an array with three objects', () => {
+  it('(allMoviesAlways) should be an array with three objects', () => {
     expect(component.allMoviesAlways.length).toBe(3);
   });
 
@@ -57,7 +57,7 @@ describe('HomeComponent', () => {
     expect(component.movieFromPrintMovie).toBe(component.movies[0]);
   });
 
-  it('categories should be an array with three objects', () => {
+  it('(categories) should be an array with three objects', () => {
     expect(component.categories.length).toBe(3);
   });
 
@@ -67,7 +67,7 @@ describe('HomeComponent', () => {
     expect(component.movies.length).toBe(1);
   });
 
-  it('getAll should set movies to full/default array', () => {
+  it('(getAll()) should set movies to full/default array', () => {
     expect(component.movies.length).toBe(3);
     component.showMovieByCategoryId(5);
     expect(component.movies.length).toBe(1);

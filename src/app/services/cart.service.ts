@@ -8,15 +8,13 @@ import { ICartItem } from '../interfaces/ICartItem';
 })
 export class CartService {
 
-  constructor() {
-    const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
-    if (sessionStorageContent === null) {
-        this.cart = [];
-        this.totalQuantity = 0;
-        // console.log('constructor, cart null: ', this.cart);
-    } else {
-        this.cart = sessionStorageContent;
-        console.log('constructor, cart yes: ', this.cart);
+    constructor() {
+        const sessionStorageContent: ICartItem[] = JSON.parse(sessionStorage.getItem('sessionCart'));
+        if (sessionStorageContent === null) {
+            this.cart = [];
+            this.totalQuantity = 0;
+        } else {
+            this.cart = sessionStorageContent;
 
         // get total price and totalquantity
         let calculatedPrice: number = 0;
@@ -24,68 +22,60 @@ export class CartService {
         let quantityOfMovies: number = 0;
         let totalQuantityLoop: number = 0;
 
+            for (const cartItem of this.cart) {
+                priceOfMovie = cartItem.movie.price;
+                quantityOfMovies = cartItem.quantity;
+                calculatedPrice += priceOfMovie * quantityOfMovies;
+                totalQuantityLoop += quantityOfMovies;
+            }
+            this.totalPrice = calculatedPrice;
+            this.totalQuantity = totalQuantityLoop;
+        }
+    }
+
+    private cartSubject = new Subject<ICartItem[]>();
+    private cartTotalSubject = new Subject<number>();
+    private quantitySubject = new Subject<number>();
+
+    currentCart$ = this.cartSubject.asObservable();
+    totalPriceCart$ = this.cartTotalSubject.asObservable();
+    totalQuantity$ = this.quantitySubject.asObservable();
+
+    private cart: ICartItem[] = [];
+    private totalPrice: number;
+    totalQuantity: number;
+
+    setCart(movieToCart: IMovie, quantityToAdd: number) {
+        let movieExists = false;
+
+        // if movie exists, add to quantity on same cart row
         for (const cartItem of this.cart) {
-            priceOfMovie = cartItem.movie.price;
-            quantityOfMovies = cartItem.quantity;
-            calculatedPrice += priceOfMovie * quantityOfMovies;
-            totalQuantityLoop += quantityOfMovies;
+            if (movieToCart.id === cartItem.movie.id) {
+                cartItem.quantity += quantityToAdd;
+                movieExists = true;
+            }
         }
-        this.totalPrice = calculatedPrice;
-        // this.cartCount = this.cart.length;
-        this.totalQuantity = totalQuantityLoop;
-    }
-  }
-
-
-
-  private cartSubject = new Subject<ICartItem[]>();
-  private cartTotalSubject = new Subject<number>();
-  private quantitySubject = new Subject<number>();
-
-
-  currentCart$ = this.cartSubject.asObservable();
-  totalPriceCart$ = this.cartTotalSubject.asObservable();
-  totalQuantity$ = this.quantitySubject.asObservable();
-
-
-  private cart: ICartItem[] = [];
-  private totalPrice: number;
-//   cartCount: number;
-  totalQuantity: number;
-
-
-
-  setCart(movieToCart: IMovie, quantityToAdd: number) {
-
-    let movieExists = false;
-
-    for (const cartItem of this.cart) {
-        if (movieToCart.id === cartItem.movie.id) {
-            cartItem.quantity += quantityToAdd;
-            movieExists = true;
+        // if movie does not exist, create new object in cart
+        if (movieExists === false) {
+            this.cart.push({movie: movieToCart, quantity: quantityToAdd});
         }
-    }
-    if (movieExists === false) {
-        this.cart.push({movie: movieToCart, quantity: quantityToAdd});
-    }
 
-    this.culculateTotalPrice();
-    this.setSessionStorage(this.cart);
-    this.cartSubject.next(this.cart);
-    this.cartTotalSubject.next(this.totalPrice);
-  }
-
-  getCart(): ICartItem[] {
-      return this.cart;
+        this.culculateTotalPrice();
+        this.setSessionStorage(this.cart);
+        this.cartSubject.next(this.cart);
+        this.cartTotalSubject.next(this.totalPrice);
     }
 
+    getCart(): ICartItem[] {
+        return this.cart;
+    }
 
     setSessionStorage(sessionCart: ICartItem[] = []) {
         sessionStorage.setItem('sessionCart', JSON.stringify(sessionCart));
-        // console.log('setsessionrunning, session', sessionCart, 'cart: ', this.cart);
     }
 
     removeCartItem(movie: IMovie) {
+        // remove whole movie row/index from cart
         for (let i = 0; i < this.cart.length; i++) {
             if (this.cart[i].movie === movie) {
                 this.cart.splice(i, 1);
@@ -97,6 +87,7 @@ export class CartService {
     }
 
     addOneMovie(movie: IMovie) {
+        // add one to quantity in movie row
         for (const cartItem of this.cart) {
             if (cartItem.movie === movie) {
                 cartItem.quantity++;
@@ -108,10 +99,12 @@ export class CartService {
     }
 
     removeOneMovie(movie: IMovie) {
+        // remove one from quantity in movie row
         for (let i = 0; i < this.cart.length; i++) {
             if (this.cart[i].movie === movie) {
                 this.cart[i].quantity--;
             }
+            // if quantity in movie row is zero, remove whole row/index from array
             if (this.cart[i].quantity === 0) {
                 this.cart.splice(i, 1);
             }
@@ -130,29 +123,20 @@ export class CartService {
         for (const cartItem of this.cart) {
             priceOfMovie = cartItem.movie.price;
             quantityOfMovies = cartItem.quantity;
-            // console.log('priceofmovieinloop: ', priceOfMovie);
-            // console.log('quantityinloop: ', quantityOfMovies);
             calculatedPrice += priceOfMovie * quantityOfMovies;
             totalQuantityLoop += quantityOfMovies;
         }
 
-        // console.log('calculatetotalprice - after loop: ', calculatedPrice);
         this.totalPrice = calculatedPrice;
         this.totalQuantity = totalQuantityLoop;
-        console.log('calctoatalprice, quantity after loop', this.totalQuantity);
         this.cartTotalSubject.next(this.totalPrice);
         this.quantitySubject.next(this.totalQuantity);
-
-        // return this.totalPriceCart$;
-        // return this.totalPrice;
     }
 
     getTotalPrice(): number {
-        // return this.cartTotalSubject.next(this.totalPrice);
         return this.totalPrice;
     }
     getTotalQuantity(): number {
-        // this.quantitySubject.next(this.totalQuantity);
         return this.totalQuantity;
     }
 
