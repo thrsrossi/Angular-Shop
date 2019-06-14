@@ -11,48 +11,24 @@ import { CartService } from 'src/app/services/cart.service';
 describe('OrderConfirmedComponent', () => {
   let component: OrderConfirmedComponent;
   let fixture: ComponentFixture<OrderConfirmedComponent>;
-//   let mockData: MockDataService;
-//   let orderService: OrderService;
-//   let cartService: CartService;
-//   let cart: ICartItem[];
-//   let order: IOrder;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ OrderConfirmedComponent ]
-    //   providers: [MockDataService]
     })
     .overrideComponent(OrderConfirmedComponent, {set: { providers: [{provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
   }));
 
   beforeEach(() => {
-    
-
     fixture = TestBed.createComponent(OrderConfirmedComponent);
     component = fixture.componentInstance;
-
+    // create mock cart content for component to be truthy
     spyOn(component.orderService, 'getCartContent').and.returnValue(new MockDataService().cart);
-    
     fixture.detectChanges();
-    // mockData = TestBed.get(MockDataService);
-    // orderService = TestBed.get(OrderService);
-    // component.ngOnInit();
   });
 
   it('should create', () => {
-
-    
-    // sessionStorage.clear();
-    // cart = cartService.getCart();
-    // expect(cart.length).toBe(0);
-    // const movie = mockData.movies[0];
-
-    // cartService.setCart(movie, 1);
-    // expect(cart.length).toBe(1);
-    // component.ngOnInit();
-    // expect(component.orderCart.length).toBe(1);
-      
       expect(component).toBeTruthy();
   });
 

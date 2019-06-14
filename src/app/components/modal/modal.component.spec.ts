@@ -2,23 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalComponent } from './modal.component';
 import { CartService } from 'src/app/services/cart.service';
-import { IMovie } from 'src/app/interfaces/IMovie';
 
 describe('ModalComponent', () => {
 
     let component: ModalComponent;
     let fixture: ComponentFixture<ModalComponent>;
-    // let cartService: CartService;
-    // let movie: IMovie = {
-    //     id: 6,
-    //     name: "hej",
-    //     description: "string",
-    //     price: 589,
-    //     imageUrl: "imageUrl",
-    //     year: 8898,
-    //     added: "string",
-    //     productCategory: []
-    // };
 
     beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,7 +15,6 @@ describe('ModalComponent', () => {
     })
     .compileComponents();
   }));
-
 
     beforeEach(() => {
     fixture = TestBed.createComponent(ModalComponent);
@@ -56,7 +43,6 @@ describe('ModalComponent', () => {
     expect(component.quantityValue).toBe(0);
     component.removeValue();
     expect(component.quantityValue).toBe(0);
-
   });
 
 });

@@ -34,13 +34,14 @@ describe('PrintMoviesComponent', () => {
     testHostFixture.detectChanges();
   });
 
+    it('should create', () => {
+    expect(testHostComponent).toBeTruthy();
+  });
+
     it('should show movie image on home page', () => {
     expect(testHostFixture.nativeElement.querySelector('.image-box>img').src).toContain('https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
   });
 
-    it('should create', () => {
-    expect(testHostComponent).toBeTruthy();
-  });
 
 
 });

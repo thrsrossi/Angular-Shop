@@ -16,7 +16,6 @@ export class PrintMoviesComponent implements OnInit {
         this.showMovie.emit(this.movie);
     }
 
-
   constructor(private cartService: CartService) { }
 
   ngOnInit() {

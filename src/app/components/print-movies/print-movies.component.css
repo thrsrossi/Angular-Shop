@@ -3,16 +3,6 @@
     position: relative;
     height: 25rem;
     width: 16rem;
-    /* border: 2px solid #000000; */
-
-    /* margin: 1rem;
-    flex: 31.6%;
-    position: relative;
-    margin: 0.86%;
-    overflow: hidden;
-    padding-bottom: 31.6%;
-    max-width: 31.6%; */
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +17,6 @@
 .image-box {
     height: 25rem;
     max-width: 16rem;
-    /* position: relative; */
 }
 .image-hover {
     position: absolute;
@@ -39,12 +28,7 @@
     color: #fff;
     visibility: hidden;
     opacity: 0;
-    
-    /* transition effect. not necessary */
     transition: opacity .3s, visibility .3s;
-    /* transition: .4s;
-    transform: translateY(1rem); */
-    /* cursor: pointer; */
 }
 .price {
     display: flex;
@@ -62,7 +46,6 @@ h2 {
 }
 .raleway {
     padding: 0 1.2rem;
-    /* letter-spacing: 1px; */
 }
 .movie-column:hover .image-hover {
     visibility: visible;
@@ -74,8 +57,6 @@ h2 {
     transform: translateY(1rem);
 }
 .movie-column:hover .fade-in {
-    /* visibility: visible;
-    opacity: 1; */
     transform: translateY(0);
 }
 button {
@@ -102,6 +83,4 @@ button {
     .fade-in {
         transform: translateY(1rem);
     }
-
-    
 }

@@ -22,12 +22,11 @@
     padding: .5rem 0;
     border-bottom: 1px solid rgba(173, 175, 175, 0.2);
 }
-h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-}
 p {
     font-family: 'Raleway', sans-serif;
+}
+.raleway {
+    display: inline;
 }
 button {
     border-radius: 100%;
@@ -41,5 +40,4 @@ button {
     outline: 0;
     text-align: center;
     background: #5B0000;
-
 }

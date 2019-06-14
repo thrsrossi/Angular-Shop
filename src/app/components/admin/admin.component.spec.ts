@@ -30,10 +30,4 @@ describe('AdminComponent', () => {
   it('should be an array with two objects', () => {
     expect(component.orders.length).toBe(2);
   });
-//   it('should update array length after deleting order', () => {
-//     expect(component.orders.length).toBe(2);
-//     component.deleteOrder(187);
-//     expect(component.orders.length).toBe(1);
-
-//   });
 });
