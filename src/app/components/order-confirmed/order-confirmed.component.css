@@ -1,11 +1,3 @@
-/* .wrapper {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    margin-top: 9rem;
-    background: #343837;
-} */
 .confirmed-row {
     color: #fff;
     display: flex;
@@ -15,7 +7,6 @@
     width: 95%;
 }
 h2 {
-    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     margin: 1rem 0;
 }
@@ -52,14 +43,6 @@ span {
     margin: 4rem 0;
 
 }
-.price {
-
-}
-.order-number {
-    /* display: flex;
-    justify-content: space-between;
-    border-bottom: 11px solid rgba(173, 175, 175, 0.5); */
-}
 .mobile-bottom {
     display: flex;
     flex-direction: column;
@@ -74,22 +57,14 @@ span {
     display: flex;
     margin-top: 5rem;
 }
-
 .cart-wrapper {
     width: 100%;
     display: flex;
-    /* flex-wrap: wrap;
-    justify-content: space-around; */
     flex-direction: column;
     margin-right: 1rem;
 }
-/* .cart-wrapper:after {
-    content: "";
-    flex: auto;
-  } */
 .cart-content {
     display: flex;
-    /* padding: 1rem; */
     margin-bottom: 1rem;
     width: 90%;
 }
@@ -98,7 +73,6 @@ span {
     min-width: 3.5rem;
     margin-right: 1rem;
     overflow: hidden; 
-    /* object-fit: cover; */
 }
 .image img {
     height: 5rem;
@@ -118,35 +92,8 @@ span {
     h2 {
         font-size: 2rem;
     }
-    /* .delivery {
-        width: 100%;
-        display: flex;
-        margin: 2rem 0;
-    } */
-    /* .address {
-        flex: 1;
-    }
-    .price {
-        flex: 1;
-        text-align: right;
-    } */
 }
 @media screen and (max-width: 599px) {
-    /* .order-details {
-        width: 90%;
-    } */
-    /* .delivery {
-        width: 100%;
-        display: flex;
-        margin: 2rem 0;
-    } */
-    /* .address {
-        flex: 1;
-    }
-    .price {
-        flex: 1;
-        text-align: right;
-    } */
     .order-details {
         border-top: 1px solid rgba(173, 175, 175, 0.5);
         flex-direction: column;
@@ -161,7 +108,6 @@ span {
         justify-content: space-between;
         border-top: 1px solid rgba(173, 175, 175, 0.5);
         padding-top: .5rem;
-
     }
     .order-number h4 {
         border-bottom: none;

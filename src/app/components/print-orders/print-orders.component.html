@@ -18,8 +18,10 @@
         </div>
         <div class="order-rows">
             <h3 class="movies">Id of movie(s) ordered: </h3>
+            <div class="right">
+                <p class="raleway" *ngFor='let row of order.orderRows'> - {{row.productId}}</p>
+            </div>
         </div>
-        <p class="raleway" *ngFor='let row of order.orderRows'>{{row.productId}}</p>
     </div>
     
     <div class="button-column">

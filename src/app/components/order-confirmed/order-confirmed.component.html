@@ -1,14 +1,10 @@
-<div  *ngIf='orderCart && orderResponse && formValues' class="wrapper">
-    <!-- <div class="confirmed-row"> -->
-        <div class="confirmed-row">
-
-            <div class="thanks">
-                <h2>Thank you <span>{{orderResponse.createdBy}}</span> for your order!</h2>
-                <!-- <h3>Order number #{{orderResponse.id}}</h3> -->
-                <p>An email has been sent to {{formValues.email}} with all the order details</p>
-            </div>
+<div *ngIf='orderCart && orderResponse && formValues' class="wrapper">
+    <div class="confirmed-row">
+        <div class="thanks">
+            <h2>Thank you <span>{{orderResponse.createdBy}}</span> for your order!</h2>
+            <p>An email has been sent to {{formValues.email}} with all the order details</p>
+        </div>
         <div class="order-details">
-
             <div class="cart-wrapper">
                 <div class="cart-content" *ngFor='let movie of movieInfo'>
                     <div class="image">
@@ -27,7 +23,6 @@
                     <p>#{{orderResponse.id}}</p>
                 </div>
                 <div class="mobile-bottom">
-
                     <div class="address">
                         <h4>Delivery details: </h4>
                         <p>{{formValues.firstName}} {{formValues.lastName}}</p>
@@ -42,5 +37,4 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
 </div>

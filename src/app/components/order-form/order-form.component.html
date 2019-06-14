@@ -1,6 +1,4 @@
-
 <h2>Enter customer details</h2>
-<!-- novalidate -->
 <form class="checkout-form" id="orderForm" [formGroup]='orderForm' (ngSubmit)="onSubmit($event)">
     <input type="text" formControlName="firstName" placeholder="First name.." required>
     <div *ngIf="orderForm.controls['firstName'].errors?.required && (firstName.dirty || firstName.touched)" class="error">
@@ -68,14 +66,5 @@
             <option *ngFor="let payment of payments" [ngValue]="payment">{{payment}}</option>
         </select>
     </div>
-
     <button type="submit" [disabled]="!orderForm.valid">place order</button>
 </form>
-
-
-<p>  Form Status: {{ orderForm.status }} </p>
-<p> firstnme: {{ orderForm.get('firstName').value }} </p>
-<p> order: {{ order | json }}</p>
-<p> lastname: {{ orderForm.get('lastName').value }} </p>
-<p> email: {{ orderForm.get('email').value }} </p>
-<p> payment: {{ orderForm.get('payment').value }} </p>

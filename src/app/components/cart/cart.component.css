@@ -25,25 +25,12 @@ i {
     border-radius: 50%;
     top: -13px;
     right: -8px;
-    /* padding:5px; */
     position: absolute;
-    /* margin-left: 60%;
-    margin-top: -60%; */
-
     text-align: center;
     line-height: 2rem;
     font-size: 1rem;
     border-radius: 50%;
     color: white;
-    /* border: 1px solid #000; */
     font-family: 'Kodchasan', sans-serif; 
     font-weight: bold;
 }
-/* .drop-down {
-    display: none;
-    position: absolute;
-    top: 8rem;
-}
-.visible {
-    display: block;
-} */

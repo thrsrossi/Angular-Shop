@@ -43,6 +43,7 @@ describe('HomeComponent', () => {
   it('movies should be an array with three objects', () => {
     expect(component.movies.length).toBe(3);
   });
+
   it('allMoviesAlways should be an array with three objects', () => {
     expect(component.allMoviesAlways.length).toBe(3);
   });
@@ -57,13 +58,15 @@ describe('HomeComponent', () => {
   });
 
   it('categories should be an array with three objects', () => {
-    expect(component.categories.length).toBe(3); // lös innan inlämning
+    expect(component.categories.length).toBe(3);
   });
+
   it('it should change number of movies in movie array after category loop', () => {
     expect(component.movies.length).toBe(3);
     component.showMovieByCategoryId(5);
     expect(component.movies.length).toBe(1);
   });
+
   it('getAll should set movies to full/default array', () => {
     expect(component.movies.length).toBe(3);
     component.showMovieByCategoryId(5);
@@ -71,11 +74,5 @@ describe('HomeComponent', () => {
     component.getAll();
     expect(component.movies.length).toBe(3);
   });
-//   it('searchMovie should get movie(s) from search input string', () => {
-//     expect(component.movies.length).toBe(3);
-//     component.searchMovie('hopp');
-//     expect(component.movies.length).toBe(1);
-//     expect(component.movies[0].name).toBe('hopp');
-//   });
 
 });

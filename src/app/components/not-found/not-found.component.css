@@ -1,9 +1,6 @@
 .not-found-wrapper {
-    /* margin-top: 9rem; */
     width: 100vw;
     height: 100vh;
-    /* display: flex;
-    justify-content: center; */
     background: #343837;
 }
 .background-image {
@@ -40,11 +37,6 @@ a:hover {
     color: rgb(209, 178, 39);
 }
 
-/* @media screen and (max-width: 1080px) {
-    h2 {
-        font-size: 3rem;
-    }
-} */
 @media screen and (max-width: 839px) {
     h2 {
         font-size: 3rem;
